@@ -1,7 +1,11 @@
-import { apiClient } from './api-client';
+import {ApiClient} from './api-client';
 
 describe('apiClient', () => {
   it('should work', () => {
-    expect(apiClient()).toEqual('api-client');
+    const token = 'access-token-key';
+    const client = new ApiClient({
+      token
+    });
+    expect(token).toEqual(client.token);
   });
 });
