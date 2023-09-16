@@ -15,6 +15,7 @@
     "skipDefaultLibCheck": true,
     "baseUrl": ".",
     "paths": {
+      "@swit/api-client": ["packages/api-client/src/index.ts"],
       "@swit/oauth": ["packages/oauth/src/index.ts"]
     }
   },
