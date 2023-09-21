@@ -1,61 +1,52 @@
-import axios, {AxiosInstance, AxiosResponse, Method} from "axios";
-import {BASE_URL} from "./api-client.costants";
-import {userAgent} from "./user-agent";
-import pino from "pino";
-import {ApiClientConfig} from "./api-client.model";
-import isElectron = require("is-electron");
+import axios, { AxiosInstance } from 'axios';
+import { OPEN_API_V1_URL } from './api-client.costants';
+import { userAgent } from './user-agent';
+import pino from 'pino';
+import { ApiClientConfig } from './api-client.model';
+import { ClientV1 } from './v1';
+import isElectron = require('is-electron');
+import { EventEmitter } from 'node:events';
 
 
-export class ApiClient {
-    private instance: AxiosInstance;
-    private logger = pino();
-    public readonly token: string;
+export class ApiClient extends EventEmitter {
+  private logger = pino();
+  public v1: ClientV1;
 
-    constructor(config: ApiClientConfig) {
-        const headers = config?.headers ?? {};
-        const timeout = config?.timeout ?? 0;
-        const httpAgent = config?.httpAgent;
-        const httpsAgent = config?.httpsAgent;
-        this.token = config?.token;
+  constructor(config: ApiClientConfig) {
+    super();
+    const headers = config?.headers ?? {};
+    const timeout = config?.timeout ?? 0;
+    const httpAgent = config?.httpAgent;
+    const httpsAgent = config?.httpsAgent;
 
-        if (config.token && !config?.headers?.Authorization) {
-            headers.Authorization = `Bearer ${config.token}`
-            this.logger.debug('header: Authorization', headers.Authorization);
-        }
-        if (!isElectron()) {
-            headers['User-Agent'] = userAgent();
-        }
-
-        this.instance = axios.create({
-            baseURL: BASE_URL,
-            // transformRequest: [this.transformRequest],
-            maxRedirects: 0,
-            timeout,
-            headers,
-            httpAgent,
-            httpsAgent,
-        });
+    if (config.token && !config?.headers?.Authorization) {
+      headers.Authorization = `Bearer ${config.token}`;
+      this.logger.debug('header: Authorization', headers.Authorization);
+    }
+    if (!isElectron()) {
+      headers['User-Agent'] = userAgent();
     }
 
-    public request<T, R>(url: string, method?: Method | string, data?: T) {
-        return this.instance.request<R, AxiosResponse<R>, T>({
-            url,
-            method,
-            data,
-        });
-    }
+    const instance = axios.create({
+      baseURL: OPEN_API_V1_URL,
+      maxRedirects: 0,
+      timeout,
+      headers,
+      httpAgent,
+      httpsAgent
+    });
+    this.v1 = this.createClient(instance);
+  }
 
-    public get<T, R>(url: string, params: T) {
-        return this.instance.get<R, AxiosResponse<R>>(url, {params});
-    }
 
-    public post<T, R>(url: string, data: T) {
-        return this.instance.post<R, AxiosResponse<R>, T>(url, data);
-    }
-
-    private transformRequest() {
-    }
-
+  createClient(instance: AxiosInstance) {
+    return ClientV1.createInstance({
+      BASE: OPEN_API_V1_URL,
+      VERSION: '1.0.0',
+      WITH_CREDENTIALS: false,
+      CREDENTIALS: 'include'
+    }, instance);
+  }
 }
 
 

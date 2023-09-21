@@ -1,4 +1,4 @@
-import {userAgent} from "./user-agent";
+import {userAgent} from "../src/lib/user-agent";
 
 
 describe('user-agent', () => {

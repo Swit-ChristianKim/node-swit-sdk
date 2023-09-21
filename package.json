@@ -2,7 +2,10 @@
   "name": "node-swit-sdk",
   "version": "0.0.0",
   "license": "MIT",
-  "scripts": {},
+  "scripts": {
+    "api-client:build": "nx run api-client:build",
+    "api-client:test-types": "nx run api-client:test-types"
+  },
   "private": true,
   "dependencies": {
     "tslib": "^2.3.0"
@@ -13,6 +16,7 @@
     "@nx/jest": "16.8.1",
     "@nx/js": "16.8.1",
     "@nx/linter": "16.8.1",
+    "@tsd/typescript": "^5.2.2",
     "@types/jest": "^29.4.0",
     "@types/node": "18.7.1",
     "@typescript-eslint/eslint-plugin": "^5.60.1",
@@ -22,6 +26,7 @@
     "eslint-config-prettier": "8.1.0",
     "jest": "^29.4.1",
     "jest-environment-node": "^29.4.1",
+    "jest-runner-tsd": "^6.0.0",
     "nx": "16.8.1",
     "prettier": "^2.6.2",
     "ts-jest": "^29.1.0",

@@ -4,16 +4,22 @@
   "type": "commonjs",
   "main": "./index.cjs",
   "scripts": {
-    "gen": "ts-node --esm --project ./tsconfig.gen.json ./tools/scripts/generate-api-schema.mts"
+    "gen": "ts-node --esm --project tools/scripts/tsconfig.gen.json ./tools/scripts/generate-api-schema.mts"
   },
   "dependencies": {
     "axios": "^1.5.0",
+    "form-data": "^4.0.0",
     "is-electron": "^2.2.2",
     "pino": "^8.15.1"
   },
   "devDependencies": {
+    "@apidevtools/json-schema-ref-parser": "^11.1.0",
+    "@types/js-yaml": "^4.0.6",
     "js-yaml": "^4.1.0",
+    "liquidjs": "^10.9.2",
+    "node-fetch": "^3.3.2",
     "openapi-typescript": "^6.6.1",
+    "openapi-typescript-codegen": "^0.25.0",
     "ts-node": "^10.9.1",
     "typescript": "^5.2.2"
   }
