@@ -1,5 +1,5 @@
 {
-  "name": "@swit/api-client",
+  "name": "@swit-api/api-client",
   "version": "0.0.1",
   "type": "commonjs",
   "main": "./index.cjs",
