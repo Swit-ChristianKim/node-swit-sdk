@@ -12,7 +12,6 @@
         "main": "packages/api-client/src/index.ts",
         "tsConfig": "packages/api-client/tsconfig.lib.json",
         "assets": ["packages/api-client/*.md"],
-        "generatePackageJson": true,
         "format": ["cjs"]
       }
     },
