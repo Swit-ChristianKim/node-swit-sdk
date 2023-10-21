@@ -15,9 +15,11 @@
     "skipDefaultLibCheck": true,
     "baseUrl": ".",
     "paths": {
-      "@swit/api-client": ["packages/api-client/src/index.ts"],
-      "@swit/oauth": ["packages/oauth/src/index.ts"]
-    }
+      "@swit-api/api-client": ["packages/api-client/src/index.ts"],
+      "@swit-api/oauth": ["packages/oauth/src/index.ts"]
+    },
+    "resolveJsonModule": true,
+    "esModuleInterop": true,
   },
   "exclude": ["node_modules", "tmp"]
 }
