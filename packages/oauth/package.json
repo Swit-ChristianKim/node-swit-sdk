@@ -1,7 +1,10 @@
 {
-  "name": "@swit/oauth",
+  "name": "@swit-api/oauth",
   "version": "0.0.1",
-  "dependencies": {},
   "type": "commonjs",
-  "main": "./index.cjs"
+  "main": "./index.cjs",
+  "dependencies": {
+    "@swit-api/api-client": "*"
+  },
+  "devDependencies": {}
 }
