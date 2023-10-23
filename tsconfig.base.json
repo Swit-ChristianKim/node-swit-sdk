@@ -19,7 +19,7 @@
       "@swit-api/oauth": ["packages/oauth/src/index.ts"]
     },
     "resolveJsonModule": true,
-    "esModuleInterop": true,
+    "esModuleInterop": true
   },
   "exclude": ["node_modules", "tmp"]
 }

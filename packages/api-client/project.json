@@ -1,22 +1,21 @@
 {
-  "name": "api-client",
+  "name": "@swit-api/api-client",
   "$schema": "../../node_modules/nx/schemas/project-schema.json",
   "sourceRoot": "packages/api-client/src",
   "projectType": "library",
   "targets": {
     "build": {
-      "executor": "@nx/esbuild:esbuild",
+      "executor": "@nx/js:tsc",
       "outputs": ["{options.outputPath}"],
       "options": {
         "outputPath": "dist/packages/api-client",
         "main": "packages/api-client/src/index.ts",
         "tsConfig": "packages/api-client/tsconfig.lib.json",
-        "assets": ["packages/api-client/*.md"],
-        "format": ["cjs"]
+        "assets": ["packages/api-client/*.md"]
       }
     },
     "publish": {
-      "command": "node tools/scripts/publish.mjs api-client {args.ver} {args.tag}",
+      "command": "node tools/scripts/publish.mjs @swit-api/api-client {args.ver} {args.tag}",
       "dependsOn": ["build"]
     },
     "lint": {
