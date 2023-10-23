@@ -3,6 +3,7 @@
   "version": "0.0.1-alpha.1",
   "type": "commonjs",
   "main": "./src/index.js",
+  "typings": "./src/index.d.ts",
   "scripts": {
     "gen": "ts-node --esm --project tools/scripts/tsconfig.gen.json ./tools/scripts/generate-api-schema.mts"
   },
