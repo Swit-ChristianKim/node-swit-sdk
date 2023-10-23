@@ -1,8 +1,8 @@
 {
   "name": "@swit-api/api-client",
-  "version": "0.0.1",
+  "version": "0.0.1-alpha.1",
   "type": "commonjs",
-  "main": "./index.cjs",
+  "main": "./src/index.js",
   "scripts": {
     "gen": "ts-node --esm --project tools/scripts/tsconfig.gen.json ./tools/scripts/generate-api-schema.mts"
   },
