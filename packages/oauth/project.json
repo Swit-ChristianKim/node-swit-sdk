@@ -1,22 +1,21 @@
 {
-  "name": "oauth",
+  "name": "@swit-api/oauth",
   "$schema": "../../node_modules/nx/schemas/project-schema.json",
   "sourceRoot": "packages/oauth/src",
   "projectType": "library",
   "targets": {
     "build": {
-      "executor": "@nx/esbuild:esbuild",
+      "executor": "@nx/js:tsc",
       "outputs": ["{options.outputPath}"],
       "options": {
         "outputPath": "dist/packages/oauth",
         "main": "packages/oauth/src/index.ts",
         "tsConfig": "packages/oauth/tsconfig.lib.json",
-        "assets": ["packages/oauth/*.md"],
-        "format": ["cjs"]
+        "assets": ["packages/oauth/*.md"]
       }
     },
     "publish": {
-      "command": "node tools/scripts/publish.mjs oauth {args.ver} {args.tag}",
+      "command": "node tools/scripts/publish.mjs @swit-api/oauth {args.ver} {args.tag}",
       "dependsOn": ["build"]
     },
     "lint": {
