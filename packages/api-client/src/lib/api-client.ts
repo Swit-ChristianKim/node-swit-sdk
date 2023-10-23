@@ -6,13 +6,14 @@ import { ApiClientConfig } from './api-client.model';
 import { ClientV1 } from './v1';
 import isElectron = require('is-electron');
 import { EventEmitter } from 'node:events';
+import { OauthClient } from './v1/OauthClient';
 
 
 
 export class ApiClient extends EventEmitter {
   private logger = pino();
   public v1: ClientV1;
-  public oauth: ClientV1;
+  public oauth: OauthClient;
 
   constructor(config: ApiClientConfig) {
     super();
@@ -20,7 +21,8 @@ export class ApiClient extends EventEmitter {
 
     const instance = this.createAxiosInstance(OPEN_API_V1_URL,config);
     this.v1 = this.createClient(instance);
-    this.oauth = this.createClient(this.createAxiosInstance(OAUTH_URL,config));
+    this.oauth = this.createOauthClient(this.createAxiosInstance(OAUTH_URL,config));
+
   }
 
 
@@ -56,6 +58,15 @@ export class ApiClient extends EventEmitter {
       WITH_CREDENTIALS: false,
       CREDENTIALS: 'include'
     }, instance);
+  }
+
+  private createOauthClient(instance: AxiosInstance){
+    return OauthClient.createInstance({
+      BASE: OAUTH_URL,
+      VERSION: '1.0.0',
+      WITH_CREDENTIALS: false,
+      CREDENTIALS: 'include'
+    }, instance)
   }
 }
 
