@@ -5,13 +5,32 @@
   "projectType": "library",
   "targets": {
     "build": {
-      "executor": "@nx/js:tsc",
+      "executor": "@nx/rollup:rollup",
       "outputs": ["{options.outputPath}"],
+      "defaultConfiguration": "production",
       "options": {
-        "outputPath": "dist/packages/oauth",
         "main": "packages/oauth/src/index.ts",
+        "outputPath": "dist/packages/oauth",
         "tsConfig": "packages/oauth/tsconfig.lib.json",
-        "assets": ["packages/oauth/*.md"]
+        "compiler": "tsc",
+        "project": "packages/oauth/package.json",
+        "format": ["esm"],
+        "assets": [
+          {
+            "glob": "packages/oauth/README.md",
+            "input": ".",
+            "output": "."
+          }
+        ]
+      },
+      "configurations": {
+        "production": {
+          "optimization": true,
+          "sourceMap": false,
+          "namedChunks": false,
+          "extractLicenses": true,
+          "vendorChunk": false
+        }
       }
     },
     "publish": {

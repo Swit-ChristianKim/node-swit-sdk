@@ -4,7 +4,7 @@ import { userAgent } from './user-agent';
 import pino from 'pino';
 import { ApiClientConfig } from './api-client.model';
 import { ClientV1 } from './v1';
-import isElectron = require('is-electron');
+import isElectron from 'is-electron';
 import { EventEmitter } from 'node:events';
 import { OauthClient } from './v1/OauthClient';
 

@@ -5,13 +5,33 @@
   "projectType": "library",
   "targets": {
     "build": {
-      "executor": "@nx/js:tsc",
+      "executor": "@nx/rollup:rollup",
       "outputs": ["{options.outputPath}"],
+      "defaultConfiguration": "production",
       "options": {
-        "outputPath": "dist/packages/api-client",
         "main": "packages/api-client/src/index.ts",
+        "outputPath": "dist/packages/api-client",
         "tsConfig": "packages/api-client/tsconfig.lib.json",
-        "assets": ["packages/api-client/*.md"]
+        "compiler": "tsc",
+        "project": "packages/api-client/package.json",
+        "format": ["esm", "cjs"],
+        "assets": [
+          {
+            "glob": "packages/api-client/README.md",
+            "input": ".",
+            "output": "."
+          }
+        ],
+        "generateExportsField": true
+      },
+      "configurations": {
+        "production": {
+          "optimization": true,
+          "sourceMap": false,
+          "namedChunks": false,
+          "extractLicenses": true,
+          "vendorChunk": false
+        }
       }
     },
     "publish": {
