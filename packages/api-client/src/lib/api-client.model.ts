@@ -2,7 +2,7 @@ import {Agent as HttpAgent} from "http";
 import {Agent as HttpsAgent} from "https";
 
 export interface ApiClientConfig {
-    token: string;
+    token: string | undefined;
     url?: string;
     // logger?: Logger;
     // logLevel?: LogLevel;
