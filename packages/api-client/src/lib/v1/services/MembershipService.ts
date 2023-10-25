@@ -23,7 +23,9 @@ export class MembershipService {
   public organizationUserInfo(
     userId: string,
   ): CancelablePromise<{
-    data?: GetOrganizationUserListResponse;
+    data?: {
+      user?: Array<GetOrganizationUserListResponse>;
+    };
   }> {
     return this.httpRequest.request({
       method: 'GET',

@@ -101,11 +101,14 @@ const getUrl = (config: OpenAPIConfig, options: ApiRequestOptions): string => {
       return substring;
     });
 
-  const url = `${config.BASE}${path}`;
+  const url = new URL(`${config.BASE}${path}`);
+
   if (options.query) {
-    return `${url}${getQueryString(options.query)}`;
+    Object.entries(options.query).forEach(([key, value])=>{
+      url.searchParams.append(key, value as string);
+    });
   }
-  return url;
+  return url.toString();
 };
 
 export const getFormData = (options: ApiRequestOptions): FormData | undefined => {

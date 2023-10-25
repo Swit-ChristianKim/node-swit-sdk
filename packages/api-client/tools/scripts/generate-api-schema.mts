@@ -35,9 +35,18 @@ const createOpenApiGenerator =async (isRemote =true) => {
   });
   const clientCodeTemplate: string = await engine.renderFileSync('client-v1');
   const AxiosHttpRequestCodeTemplate: string = await engine.renderFileSync('axios-http-request');
-  writeFileSync('./src/lib/v1/ClientV1.ts', clientCodeTemplate);
-  writeFileSync('./src/lib/v1/core/AxiosHttpRequest.ts', AxiosHttpRequestCodeTemplate)
+  const requestCodeTemplate: string = await engine.renderFileSync('request');
 
+  const OauthServiceTemplate: string = await engine.renderFileSync('OauthService');
+  const OauthClientTemplate: string = await engine.renderFileSync('OauthClient');
+
+  writeFileSync('./src/lib/v1/services/OauthService.ts', OauthServiceTemplate);
+  writeFileSync('./src/lib/v1/ClientV1.ts', clientCodeTemplate);
+  writeFileSync('./src/lib/v1/core/AxiosHttpRequest.ts', AxiosHttpRequestCodeTemplate);
+  writeFileSync('./src/lib/v1/core/request.ts', requestCodeTemplate);
+
+  writeFileSync('./src/lib/v1/OauthClient.ts', OauthClientTemplate);
+  writeFileSync('./src/lib/v1/services/OauthService.ts', OauthServiceTemplate);
 
 };
 
