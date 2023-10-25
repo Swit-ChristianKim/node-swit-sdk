@@ -29,7 +29,7 @@ export class OauthService {
       'state': state,
       'scope': scope
     };
-    const url = new URL(baseUrl);
+    const url = new URL(`${baseUrl}/authorize`);
     Object.entries(queryString).forEach(([key, value]) => {
       url.searchParams.append(key, value || '');
     });
