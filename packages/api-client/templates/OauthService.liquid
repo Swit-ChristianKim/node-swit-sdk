@@ -3,7 +3,6 @@
 
 import type { CancelablePromise } from '../core/CancelablePromise';
 import type { BaseHttpRequest } from '../core/BaseHttpRequest';
-import { getQueryString } from '../core/request';
 
 export class OauthService {
   constructor(public readonly httpRequest: BaseHttpRequest) {}
@@ -23,14 +22,18 @@ export class OauthService {
       scope?: string,
     }): string {
     const baseUrl = this.httpRequest.config.BASE;
-    const queryString = getQueryString({
+    const queryString = {
       'client_id': clientId,
       'redirect_uri': redirectUri,
       'response_type': responseType,
       'state': state,
       'scope': scope
+    };
+    const url = new URL(baseUrl);
+    Object.entries(queryString).forEach(([key, value]) => {
+      url.searchParams.append(key, value || '');
     });
-    return `${baseUrl}/authorize${queryString}`;
+    return url.toString();
   }
 
   public getTokenByAuthorizationCode(
