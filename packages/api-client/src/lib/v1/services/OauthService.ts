@@ -5,7 +5,7 @@ import type { CancelablePromise } from '../core/CancelablePromise';
 import type { BaseHttpRequest } from '../core/BaseHttpRequest';
 
 export class OauthService {
-  constructor(public readonly httpRequest: BaseHttpRequest) {}
+  constructor(public readonly httpRequest: BaseHttpRequest) { }
 
   public getAuthorizeUrl(
     {
@@ -65,10 +65,18 @@ export class OauthService {
 
 
   public getTokenByRefreshToken(
-    grantType: string,
-    clientId: string,
-    clientSecret: string,
-    refreshToken: string
+    {
+      grantType,
+      clientId,
+      clientSecret,
+      refreshToken
+    }: {
+      grantType: string,
+      clientId: string,
+      clientSecret: string,
+      refreshToken: string
+    }
+
   ) {
     return this.httpRequest.request({
       method: 'POST',

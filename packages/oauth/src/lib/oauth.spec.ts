@@ -1,7 +1,7 @@
 import { Oauth } from './oauth';
 
 describe('oauth', () => {
-  it('getAuthorizeUrl', () => {
+  it('get url to authorize oauth', () => {
     const options =  {
       clientId: 'fake-client_id',
       redirectUri: 'https://test-site/callback',
@@ -20,5 +20,12 @@ describe('oauth', () => {
     const url = oauth.getAuthorizeUrl(options);
 
     expect(baseUrl.toString()).toEqual(url);
+  });
+
+  it('get url to authorize oauth', () => {
+    const oauth  = new Oauth();
+    oauth.getTokenByAuthorizationCode({
+      
+    });
   });
 });

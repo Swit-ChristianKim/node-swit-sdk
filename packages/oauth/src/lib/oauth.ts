@@ -1,5 +1,5 @@
 import { ApiClient } from '@swit-api/api-client';
-import { AuthorizeUrl, TokenByAuthorizationCode } from './models';
+import { AuthorizeUrl, TokenByAuthorizationCode, TokenByRefreshToken } from './models';
 
 
 export class Oauth {
@@ -19,6 +19,10 @@ export class Oauth {
 
   public getTokenByAuthorizationCode(option: TokenByAuthorizationCode) {
     return this.getOauthService().getTokenByAuthorizationCode(option);
+  }
+
+  public getTokenByRefreshToken(option: TokenByRefreshToken) {
+    return this.getOauthService().getTokenByRefreshToken(option);
   }
 
 }

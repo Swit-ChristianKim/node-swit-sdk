@@ -13,3 +13,10 @@ export interface TokenByAuthorizationCode {
   redirectUri: string,
   code: string
 }
+
+export interface TokenByRefreshToken {
+  grantType: string,
+  clientId: string,
+  clientSecret: string,
+  refreshToken: string
+}
