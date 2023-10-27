@@ -14,14 +14,15 @@
         "tsConfig": "packages/oauth/tsconfig.lib.json",
         "compiler": "tsc",
         "project": "packages/oauth/package.json",
-        "format": ["esm"],
+        "format": ["cjs", "esm"],
         "assets": [
           {
             "glob": "packages/oauth/README.md",
             "input": ".",
             "output": "."
           }
-        ]
+        ],
+        "generateExportsField": true
       },
       "configurations": {
         "production": {

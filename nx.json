@@ -20,10 +20,15 @@
       "cache": true
     },
     "test": {
-      "inputs": ["default", "^default", "{workspaceRoot}/jest.preset.js"],
+      "inputs": [
+        "default",
+        "^default",
+        "{workspaceRoot}/jest.preset.js"
+      ],
       "cache": true
     },
     "build": {
+      "dependsOn": ["^build"],
       "cache": true
     },
     "e2e": {
