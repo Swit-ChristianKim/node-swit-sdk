@@ -10,6 +10,11 @@
     "projectNameAndRootFormat": "as-provided"
   },
   "targetDefaults": {
+      "nx-release-publish": {
+        "options": {
+          "packageRoot": "dist/packages/{projectName}"
+        }
+      },
     "lint": {
       "inputs": [
         "default",
