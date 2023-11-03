@@ -3,6 +3,9 @@
   "version": "0.0.0",
   "license": "MIT",
   "scripts": {
+    "build": "nx run-many --target=build --all",
+    "version": "nx release version -projects=api-client,oauth",
+    "publish": "nx release publish -p=api-client,oauth",
     "api-client:build": "nx run @swit-api/api-client:build",
     "api-client:publish": "nx run @swit-api/api-client:publish",
     "api-client:test-types": "nx run @swit-api/api-client:test-types"
