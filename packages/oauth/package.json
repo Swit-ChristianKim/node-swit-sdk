@@ -1,11 +1,11 @@
 {
   "name": "@swit-api/oauth",
-  "version": "0.0.1-alpha.0",
+  "version": "0.0.1-alpha.14",
   "type": "commonjs",
   "main": "./src/index.js",
   "typings": "./src/index.d.ts",
   "exports": {
-    "./package.json" : "./package.json",
+    "./package.json": "./package.json",
     ".": "./src/index.js"
   },
   "dependencies": {

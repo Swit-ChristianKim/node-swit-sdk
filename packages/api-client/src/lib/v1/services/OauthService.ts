@@ -53,7 +53,7 @@ export class OauthService {
     return this.httpRequest.request({
       method: 'POST',
       url: '/token',
-      query: {
+      formData: {
         'grant_type': grantType,
         'client_id': clientId,
         'client_secret': clientSecret,
@@ -81,7 +81,7 @@ export class OauthService {
     return this.httpRequest.request({
       method: 'POST',
       url: '/token',
-      query: {
+      formData: {
         'grant_type': grantType,
         'client_id': clientId,
         'client_secret': clientSecret,

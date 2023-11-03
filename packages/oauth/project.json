@@ -1,5 +1,5 @@
 {
-  "name": "@swit-api/oauth",
+  "name": "oauth",
   "$schema": "../../node_modules/nx/schemas/project-schema.json",
   "sourceRoot": "packages/oauth/src",
   "projectType": "library",
@@ -35,7 +35,7 @@
       }
     },
     "publish": {
-      "command": "node tools/scripts/publish.mjs @swit-api/oauth {args.ver} {args.tag}",
+      "command": "node tools/scripts/publish.mjs oauth {args.ver} {args.tag}",
       "dependsOn": ["build"]
     },
     "lint": {
