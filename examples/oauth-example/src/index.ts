@@ -41,10 +41,10 @@ app.get('/install', (req: Request, res: Response) => {
 });
 
 
-app.get('/callback', (req: Request, res: Response) => {
+app.get('/callback', async (req: Request, res: Response) => {
   const code = req.query['code'];
-  oauth.getTokenByAuthorizationCode(code as string);
-  res.send(code);
+  const tokenResponse = await oauth.getTokenByAuthorizationCode(code as string);
+  res.send(tokenResponse);
 });
 
 app.listen(port, () => {
