@@ -54,6 +54,7 @@ jobs:
         git tag "v$VERSION"
         git push --force origin "v$VERSION"
         git pull && git push --force
-
+    - name: Build librarys
+      run: npm run build
     - name: Release packages
       run: npm run publish
