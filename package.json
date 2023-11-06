@@ -1,6 +1,6 @@
 {
   "name": "node-swit-sdk",
-  "version": "0.0.1-alpha.18",
+  "version": "0.0.1-alpha.19",
   "engines": {
     "node": ">=18.17.1"
   },
