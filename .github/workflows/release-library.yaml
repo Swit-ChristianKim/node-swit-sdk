@@ -9,11 +9,11 @@ on:
        required: true
        default: 'patch'
        options:
-         - 'premajor',
+         - 'premajor'
          - 'major'
-         - 'prepatch',
+         - 'prepatch'
          - 'patch'
-         - 'preminor',
+         - 'preminor'
          - 'minor'
          - 'prerelease'
 jobs: 
