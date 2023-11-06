@@ -40,7 +40,7 @@ jobs:
       run: npm ci
     - name: Package version update
       run: | 
-        npm run version {{inputs.version}}
+        npm run version ${{inputs.version}}
         VERSION=$(npm pkg get version | tr -d '"')
         echo "version=$VERSION" >> $GITHUB_OUTPUT
         git add .
