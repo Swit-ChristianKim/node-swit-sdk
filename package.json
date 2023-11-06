@@ -6,10 +6,10 @@
   },
   "license": "MIT",
   "scripts": {
-    "version": "nx release version --dryRun",
+    "version": "nx release version",
     "build": "nx run-many --target=build",
     "test": "nx run-many --target=test",
-    "publish": "nx release publish --dryRun",
+    "publish": "nx release publish",
     "api-client:build": "nx run api-client:build",
     "api-client:publish": "nx run api-client:publish",
     "api-client:test-types": "nx run api-client:test-types"
