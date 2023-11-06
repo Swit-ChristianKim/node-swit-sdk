@@ -54,7 +54,9 @@ jobs:
         git tag "v$VERSION"
         git push --force origin "v$VERSION"
         git pull && git push --force
-    - name: Build librarys
+    - name: Build libraries
       run: npm run build
     - name: Release packages
       run: npm run publish
+      env:
+          NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}

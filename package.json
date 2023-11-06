@@ -9,7 +9,7 @@
     "version": "nx release version",
     "build": "nx run-many --target=build",
     "test": "nx run-many --target=test",
-    "publish": "nx release publish",
+    "publish": "nx release publish --projects=api-client,oauth",
     "api-client:build": "nx run api-client:build",
     "api-client:publish": "nx run api-client:publish",
     "api-client:test-types": "nx run api-client:test-types"
