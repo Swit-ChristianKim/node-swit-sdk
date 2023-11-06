@@ -43,6 +43,8 @@ jobs:
         npm run version ${{inputs.version}}
         VERSION=$(npm pkg get version | tr -d '"')
         echo "version=$VERSION" >> $GITHUB_OUTPUT
+        git config --global user.email "noreplay@github.io"
+        git config --global user.name "${{github.actor}}"
         git add .
         git commit -m "release: $VERSION" -m "[skip ci]"
         git tag "v$VERSION"
