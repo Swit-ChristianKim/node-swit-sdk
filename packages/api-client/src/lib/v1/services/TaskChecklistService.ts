@@ -19,7 +19,7 @@ export class TaskChecklistService {
 
   /**
    * Add a checklist item
-   * Adds an item to a task's checklist.
+   * `Bot-compatible` Adds an item to a task's checklist.
    * @param requestBody
    * @returns any Successfully added the item to the checklist.
    * @throws ApiError
@@ -39,7 +39,7 @@ export class TaskChecklistService {
 
   /**
    * Get a checklist item's information
-   * Retrieves information about a checklist item in a task.
+   * `Bot-compatible` Retrieves information about a checklist item in a task.
    * @param id The ID of the checklist item.
    * @returns any Successfully retrieved information about the checklist item.
    * @throws ApiError
@@ -60,7 +60,7 @@ export class TaskChecklistService {
 
   /**
    * List out checklist items
-   * Lists out a given number of items from a task's checklist. This method uses the Swit API's [pagination scheme](/docs/core1/up49a503iuknu-pagination-scheme).
+   * `Bot-compatible` Lists out a given number of items from a task's checklist. This method uses the Swit API's [pagination scheme](/docs/core1/up49a503iuknu-pagination-scheme).
    * @param taskId The ID of the task.
    * @param offset Pass the `offset` string returned by the previous call to skip already returned entries.
    * @param limit The number of checklist items to retrieve.
@@ -87,7 +87,7 @@ export class TaskChecklistService {
 
   /**
    * Delete a checklist item
-   * Deletes an item in a task's checklist.
+   * `Bot-compatible` Deletes an item in a task's checklist.
    * @param requestBody
    * @returns any Successfully deleted the checklist item.
    * @throws ApiError
@@ -105,7 +105,7 @@ export class TaskChecklistService {
 
   /**
    * Update a checklist item
-   * Updates an existing item of a task's checklist.
+   * `Bot-compatible` Updates an existing item of a task's checklist.
    * @param requestBody
    * @returns any Successfully updated the checklist item.
    * @throws ApiError

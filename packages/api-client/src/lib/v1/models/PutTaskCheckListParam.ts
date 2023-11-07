@@ -17,7 +17,7 @@ export type PutTaskCheckListParam = {
    */
   is_complete?: boolean;
   /**
-   * The fields to update.
+   * The fields to update. If this parameter is omitted or assigned an empty value, all fields will be updated. Fields without provided values will be set to empty or default values.
    */
   update_fields?: Array<string>;
 };

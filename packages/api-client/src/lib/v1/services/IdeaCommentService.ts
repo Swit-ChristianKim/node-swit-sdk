@@ -16,7 +16,7 @@ export class IdeaCommentService {
 
   /**
    * List out idea comments
-   * Lists out a given number of comments on an idea. This method uses the Swit API's [pagination scheme](/docs/core1/up49a503iuknu-pagination-scheme).
+   * `Bot-compatible` Lists out a given number of comments on an idea. This method uses the Swit API's [pagination scheme](/docs/core1/up49a503iuknu-pagination-scheme).
    * @param ideaId The ID of the idea from which to get comments.
    * @param offset Pass the `offset` string returned by the previous call to skip already returned entries.
    * @param limit The number of comments to retrieve.
@@ -43,7 +43,7 @@ export class IdeaCommentService {
 
   /**
    * Comment on an idea
-   * Posts a comment on an idea.
+   * `Bot-compatible` Posts a comment on an idea.
    * @param requestBody
    * @returns any Successfully commented on the idea.
    * @throws ApiError
@@ -63,7 +63,7 @@ export class IdeaCommentService {
 
   /**
    * Delete an idea comment
-   * Deletes a comment on an idea.
+   * `Bot-compatible` Deletes a comment on an idea.
    * @param requestBody
    * @returns any Successfully deleted the comment.
    * @throws ApiError

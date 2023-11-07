@@ -22,7 +22,7 @@ export class CustomFieldService {
 
   /**
    * List out custom fields
-   * Lists out all registered custom fields.
+   * `Bot-compatible` Lists out all registered custom fields.
    * @returns any Successfully retrieved the custom fields.
    * @throws ApiError
    */
@@ -37,7 +37,7 @@ export class CustomFieldService {
 
   /**
    * Add a custom field
-   * Adds a new custom field for user profiles.
+   * `Bot-compatible` Adds a new custom field for user profiles.
    * @param requestBody
    * @returns any Successfully added the custom field.
    * @throws ApiError
@@ -57,7 +57,7 @@ export class CustomFieldService {
 
   /**
    * Delete custom field
-   * Deletes a custom field for user profiles.
+   * `Bot-compatible` Deletes a custom field for user profiles.
    * @param requestBody
    * @returns any Successfully deleted the custom field.
    * @throws ApiError
@@ -77,7 +77,7 @@ export class CustomFieldService {
 
   /**
    * Update a custom field
-   * Updates an existing custom field.
+   * `Bot-compatible` Updates an existing custom field.
    * @param requestBody
    * @returns any Successfully updated the custom field.
    * @throws ApiError
@@ -97,7 +97,7 @@ export class CustomFieldService {
 
   /**
    * List out a user's custom fields in use
-   * Retrieves the custom fields and their values used in a given user's profile.
+   * `Bot-compatible` Retrieves the custom fields and their values used in a given user's profile.
    * @param userId The ID of the target user.
    * @returns any Successfully retrieved the user's custom field data.
    * @throws ApiError
@@ -118,7 +118,7 @@ export class CustomFieldService {
 
   /**
    * Update a user's custom field data
-   * Updates the values of the custom fields used in a given user's profile.
+   * `Bot-compatible` Updates the values of the custom fields used in a given user's profile.
    * @param requestBody
    * @returns any Successfully updated the user's custom field data.
    * @throws ApiError

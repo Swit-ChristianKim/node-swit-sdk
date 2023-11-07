@@ -22,7 +22,7 @@ export class ProjectService {
 
   /**
    * Get a project's information
-   * Retrieves information about a project.
+   * `Bot-compatible` Retrieves information about a project.
    * @param id The ID of the project.
    * @returns any Successfully retrieved the project's information.
    * @throws ApiError
@@ -140,7 +140,7 @@ export class ProjectService {
 
   /**
    * List out project members
-   * Lists out a given number of members belonging to a project. This method uses the Swit API's [pagination scheme](/docs/core1/up49a503iuknu-pagination-scheme).
+   * `Bot-compatible` Lists out a given number of members belonging to a project. This method uses the Swit API's [pagination scheme](/docs/core1/up49a503iuknu-pagination-scheme).
    * @param projectId The ID of the project.
    * @param limit The number of members to retrieve.
    * @param offset Pass the `offset` string returned by the previous call to skip already returned entries.
@@ -197,7 +197,7 @@ export class ProjectService {
 
   /**
    * List out task tags
-   * Lists out all task tags used in a project.
+   * `Bot-compatible` Lists out all task tags used in a project.
    *
    * Assigned to tasks of a project, tags facilitate filtering or searching
    * those tasks for viewing convenience. This method enumerates all tags
