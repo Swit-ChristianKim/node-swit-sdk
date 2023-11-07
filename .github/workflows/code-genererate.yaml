@@ -30,7 +30,7 @@ jobs:
       if: steps.cache.outputs.cache-hit != 'true'
       run: npm ci
     - name: Generate code
-      run: npm run ge
+      run: npm run gen
     - name: Create Pull Request
       uses: peter-evans/create-pull-request@v5 
       with:
