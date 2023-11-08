@@ -13,8 +13,8 @@ This project provides an SDK for easy-to-use use of swit open api in a nodejs en
 
 | Packages  | Download |
 | --- | --- |
-| `@swit-api/api-client`  | ![npm](https://img.shields.io/npm/dt/%40swit-api/api-client)
-| `@swit-api/oauth`  | ![npm](https://img.shields.io/npm/dt/%40swit-api/oauth) |
+| [`@swit-api/api-client`](https://www.npmjs.com/package/@swit-api/api-client) | ![npm](https://img.shields.io/npm/dt/%40swit-api/api-client)
+| [`@swit-api/oauth`](https://www.npmjs.com/package/@swit-api/oauth)  | ![npm](https://img.shields.io/npm/dt/%40swit-api/oauth) |
 
 ## Install
 
