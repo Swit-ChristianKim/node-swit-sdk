@@ -1,0 +1,87 @@
+{
+  "name": "api-client",
+  "$schema": "../../node_modules/nx/schemas/project-schema.json",
+  "sourceRoot": "packages/api-client/src",
+  "projectType": "library",
+  "targets": {
+    "build": {
+      "executor": "@nx/rollup:rollup",
+      "outputs": ["{options.outputPath}"],
+      "defaultConfiguration": "production",
+      "options": {
+        "main": "packages/api-client/src/index.ts",
+        "outputPath": "dist/packages/api-client",
+        "tsConfig": "packages/api-client/tsconfig.lib.json",
+        "compiler": "tsc",
+        "project": "packages/api-client/package.json",
+        "format": ["esm", "cjs"],
+        "assets": [
+          {
+            "glob": "packages/api-client/README.md",
+            "input": ".",
+            "output": "."
+          }
+        ],
+        "generateExportsField": true
+      },
+      "configurations": {
+        "production": {
+          "optimization": true,
+          "sourceMap": false,
+          "namedChunks": false,
+          "extractLicenses": true,
+          "vendorChunk": false
+        }
+      }
+    },
+    "publish": {
+      "command": "node tools/scripts/publish.mjs api-client {args.ver} {args.tag}",
+      "dependsOn": ["build"]
+    },
+    "lint": {
+      "executor": "@nx/eslint:lint",
+      "outputs": ["{options.outputFile}"],
+      "options": {
+        "lintFilePatterns": [
+          "packages/api-client/**/*.ts",
+          "packages/api-client/package.json"
+        ]
+      }
+    },
+    "test": {
+      "executor": "@nx/jest:jest",
+      "outputs": ["{workspaceRoot}/coverage/{projectRoot}"],
+      "options": {
+        "jestConfig": "packages/api-client/jest.config.ts",
+        "passWithNoTests": true
+      },
+      "configurations": {
+        "ci": {
+          "ci": true,
+          "codeCoverage": true
+        }
+      }
+    },
+    "test-types": {
+      "executor": "@nx/jest:jest",
+      "outputs": ["{workspaceRoot}/coverage/{projectRoot}"],
+      "options": {
+        "jestConfig": "packages/api-client/jest.config.tsd.ts",
+        "passWithNoTests": true
+      },
+      "configurations": {
+        "ci": {
+          "ci": true,
+          "codeCoverage": true
+        }
+      }
+    },
+    "gen": {
+      "executor": "nx:run-script",
+      "options": {
+        "script": "gen"
+      }
+    }
+  },
+  "tags": []
+}

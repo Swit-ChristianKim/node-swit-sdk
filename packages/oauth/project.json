@@ -1,0 +1,67 @@
+{
+  "name": "oauth",
+  "$schema": "../../node_modules/nx/schemas/project-schema.json",
+  "sourceRoot": "packages/oauth/src",
+  "projectType": "library",
+  "targets": {
+    "build": {
+      "executor": "@nx/rollup:rollup",
+      "outputs": ["{options.outputPath}"],
+      "defaultConfiguration": "production",
+      "options": {
+        "main": "packages/oauth/src/index.ts",
+        "outputPath": "dist/packages/oauth",
+        "tsConfig": "packages/oauth/tsconfig.lib.json",
+        "compiler": "tsc",
+        "project": "packages/oauth/package.json",
+        "format": ["cjs", "esm"],
+        "assets": [
+          {
+            "glob": "packages/oauth/README.md",
+            "input": ".",
+            "output": "."
+          }
+        ],
+        "generateExportsField": true
+      },
+      "configurations": {
+        "production": {
+          "optimization": true,
+          "sourceMap": false,
+          "namedChunks": false,
+          "extractLicenses": true,
+          "vendorChunk": false
+        }
+      }
+    },
+    "publish": {
+      "command": "node tools/scripts/publish.mjs oauth {args.ver} {args.tag}",
+      "dependsOn": ["build"]
+    },
+    "lint": {
+      "executor": "@nx/eslint:lint",
+      "outputs": ["{options.outputFile}"],
+      "options": {
+        "lintFilePatterns": [
+          "packages/oauth/**/*.ts",
+          "packages/oauth/package.json"
+        ]
+      }
+    },
+    "test": {
+      "executor": "@nx/jest:jest",
+      "outputs": ["{workspaceRoot}/coverage/{projectRoot}"],
+      "options": {
+        "jestConfig": "packages/oauth/jest.config.ts",
+        "passWithNoTests": true
+      },
+      "configurations": {
+        "ci": {
+          "ci": true,
+          "codeCoverage": true
+        }
+      }
+    }
+  },
+  "tags": []
+}

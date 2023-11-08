@@ -1,0 +1,64 @@
+name: Release library
+
+on:
+  workflow_dispatch:
+   inputs:
+     version:
+       description: 'Version to release'
+       type: choice
+       required: true
+       default: 'patch'
+       options:
+         - 'premajor'
+         - 'major'
+         - 'prepatch'
+         - 'patch'
+         - 'preminor'
+         - 'minor'
+         - 'prerelease'
+
+permissions:
+  contents: write
+
+jobs: 
+  build: 
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        node-version: [ 18 ]
+    steps:
+    - name: Checkout
+      uses: actions/checkout@v4
+    - name: Use Node.js ${{matrix.node-version}}
+      uses: actions/setup-node@v4.0.0
+      with:
+        node-version: ${{matrix.node-version}}
+    - name: Cache dependencies
+      uses: actions/cache@v3
+      with: 
+        path: '**/node_modules'
+        restore-keys: |
+          ${{ runner.os }}-node-
+    - name: Install Dependencies
+      if: steps.cache.outputs.cache-hit != 'true'
+      run: npm ci
+    - name: Package version update
+      run: | 
+        npm run version ${{inputs.version}}
+        VERSION=$(npm pkg get version | tr -d '"')
+        echo "version=$VERSION" >> $GITHUB_OUTPUT
+        git config --global user.email "noreplay@github.io"
+        git config --global user.name "${{github.actor}}"
+        git add .
+        git commit -m "release: $VERSION" -m "[skip ci]"
+        git tag "v$VERSION"
+        git push --force origin "v$VERSION"
+        git pull && git push --force
+    - name: Build libraries
+      run: npm run build
+    - name: Release packages
+      run: |
+        npm config set //registry.npmjs.org/:_authToken=$NPM_TOKEN
+        npm run publish
+    env:
+      NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
