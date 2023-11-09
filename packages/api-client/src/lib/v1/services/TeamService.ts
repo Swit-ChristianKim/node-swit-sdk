@@ -19,7 +19,7 @@ export class TeamService {
 
   /**
    * List out teams
-   * List out the child teams of a given team. If no parameters are passed, the list of all teams in the organization is given as a response.
+   * `Bot-compatible` List out the child teams of a given team. If no parameters are passed, the list of all teams in the organization is given as a response.
    * @param directChildrenOnly Whether to list out only direct child teams of the given parent.
    * @param parentId The ID of the parent team.
    * @param reference Custom text to be used as a reference. This is useful to store information from another source.
@@ -46,7 +46,7 @@ export class TeamService {
 
   /**
    * Create a team
-   * Creates a new team in the organization.
+   * `Bot-compatible` Creates a new team in the organization.
    * @param requestBody
    * @returns any Successfully created the team.
    * @throws ApiError
@@ -79,7 +79,7 @@ export class TeamService {
 
   /**
    * Update a team
-   * Updates a team's information including its name and parent team.
+   * `Bot-compatible` Updates a team's information including its name and parent team.
    * @param requestBody
    * @returns any Successfully updated the team's information.
    * @throws ApiError
@@ -116,7 +116,7 @@ export class TeamService {
 
   /**
    * Delete a team
-   * Deletes a team.
+   * `Bot-compatible` Deletes a team.
    * @param requestBody
    * @returns any Successfully deleted the team.
    * @throws ApiError
@@ -159,7 +159,7 @@ export class TeamService {
 
   /**
    * Add users to a team
-   * Adds users to a team.
+   * `Bot-compatible` Adds users to a team.
    * @param requestBody
    * @returns any Successfully added the users to the selected team.
    * @throws ApiError
@@ -188,7 +188,7 @@ export class TeamService {
 
   /**
    * Update a user's primary team
-   * Updates a user's primary team.
+   * `Bot-compatible` Updates a user's primary team.
    * @param requestBody
    * @returns any Successfully updated the user's primary team.
    * @throws ApiError
@@ -215,7 +215,7 @@ export class TeamService {
 
   /**
    * Remove team members
-   * Removes members from a team.
+   * `Bot-compatible` Removes members from a team.
    * @param requestBody The members to remove from the team.
    * @returns any Successfully removed the members from the team.
    * @throws ApiError
