@@ -2,6 +2,8 @@ import dotenv from 'dotenv';
 import express, { Express, Request, Response } from 'express';
 import { Oauth } from '@swit-api/oauth';
 
+import { ApiClient } from '@swit-api/api-client';
+
 dotenv.config();
 
 const app: Express = express();
@@ -15,7 +17,9 @@ const scope = [
   'channel:write',
   'idea:read',
   'idea:write',
-  'message:write'
+  'message:write',
+  'workspace:read',
+  'workspace:write',
 ];
 
 const oauth = new Oauth({
@@ -44,7 +48,17 @@ app.get('/install', (req: Request, res: Response) => {
 app.get('/callback', async (req: Request, res: Response) => {
   const code = req.query['code'];
   const tokenResponse = await oauth.getTokenByAuthorizationCode(code as string);
-  res.send(tokenResponse);
+  const accessToken = tokenResponse.access_token;
+  const client = new ApiClient({
+    token: accessToken,
+  }).v1;
+  const list= await client.workspace.workspaceList(
+    100,
+    '',
+    '',
+    1,
+  )
+  res.send(list);
 });
 
 app.listen(port, () => {
