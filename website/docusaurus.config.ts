@@ -1,6 +1,7 @@
 import {themes as prismThemes} from 'prism-react-renderer';
 import type {Config} from '@docusaurus/types';
 import type * as Preset from '@docusaurus/preset-classic';
+import {join} from 'node:path';
 
 const config: Config = {
   title: 'Node Swit SDK',
@@ -64,6 +65,11 @@ const config: Config = {
         src: 'img/logo.svg',
       },
       items: [
+        {
+          to: 'api',
+          label: 'API',
+          position: 'left',
+        },
         {
           type: 'docSidebar',
           sidebarId: 'doscSidebar',
@@ -135,6 +141,14 @@ const config: Config = {
   } satisfies Preset.ThemeConfig,
   plugins: [
     'docusaurus-plugin-sass',
+    [
+      'docusaurus-plugin-typedoc-api',
+      {
+        tsconfigName:'tsconfig.base.json',
+        projectRoot: join(__dirname, '..'),
+        packages: ['packages/api-client', 'packages/oauth'],
+      },
+    ]
   ]
 };
 
