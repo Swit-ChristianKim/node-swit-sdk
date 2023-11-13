@@ -20,6 +20,7 @@ jobs:
           npm ci
       - name: Build website
         run: | 
+          cd website 
           npm run build:en
           npm run build:ko
 
