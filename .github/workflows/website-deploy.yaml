@@ -18,8 +18,8 @@ jobs:
         run: npm ci
       - name: Build website
         run: | 
-          npm build:en
-          npm build:ko
+          npm run build:en
+          npm run build:ko
 
       # Popular action to deploy to GitHub Pages:
       # Docs: https://github.com/peaceiris/actions-gh-pages#%EF%B8%8F-docusaurus
