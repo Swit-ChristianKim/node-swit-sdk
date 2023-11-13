@@ -19,7 +19,7 @@ const config: Config = {
   organizationName: 'Swit-ChristianKim', // Usually your GitHub org/user name.
   projectName: 'node-swit-sdk', // Usually your repo name.
   deploymentBranch: 'gh-pages',
-  onBrokenLinks: 'throw',
+  onBrokenLinks: 'warn',
   onBrokenMarkdownLinks: 'warn',
 
   // Even if you don't use internationalization, you can use this field to set
@@ -95,12 +95,12 @@ const config: Config = {
           position: 'left',
           label: 'Docs',
         },
-        {
-          type: 'docsVersionDropdown',
-          position: 'right',
-          dropdownItemsAfter: [{to: '/versions', label: 'All versions'}],
-          dropdownActiveClassDisabled: true,
-        },
+        // {
+        //   type: 'docsVersionDropdown',
+        //   position: 'right',
+        //   dropdownItemsAfter: [{to: '/versions', label: 'All versions'}],
+        //   dropdownActiveClassDisabled: true,
+        // },
         {
           type: 'localeDropdown',
           position: 'right',
@@ -120,7 +120,7 @@ const config: Config = {
           items: [
             {
               label: 'Tutorial',
-              to: '/docs/intro',
+              to: '/docs/category/getting-started',
             },
           ],
         },
@@ -168,7 +168,7 @@ const config: Config = {
         packages: ['packages/api-client', 'packages/oauth'],
       },
     ]
-  ]
+  ],
 };
 
 export default config;

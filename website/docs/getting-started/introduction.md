@@ -70,7 +70,6 @@ Please refer to the link below for additional ClientV1 information.
 |messageComment | [MessageCommentService](/api/api-client/class/MessageCommentService) |
 |project | [ProjectService](/api/api-client/class/ProjectService) |
 |projectBucket | [ProjectBucketService](/api/api-client/class/ProjectBucketService) |
-|request | [RequestService](/api/api-client/class/RequestService) |
 |task | [TaskService](/api/api-client/class/TaskService) |
 |taskChecklist | [TaskChecklistService](/api/api-client/class/TaskChecklistService) |
 |taskComment | [TaskCommentService](/api/api-client/class/TaskCommentService) |

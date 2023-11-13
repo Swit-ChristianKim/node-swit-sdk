@@ -5,12 +5,11 @@
   "scripts": {
     "docusaurus": "docusaurus",
     "start": "docusaurus start",
-    "build:en": "docusaurus build --config ./config/docusaurus.en.config.ts --out-dir ../docs/en",
-    "build:ko": "docusaurus build --config ./config/docusaurus.ko.config.ts --out-dir ../docs/ko",
+    "build": "docusaurus build --out-dir ../docs",
     "swizzle": "docusaurus swizzle",
     "deploy": "docusaurus deploy",
     "clear": "docusaurus clear",
-    "serve": "docusaurus serve --dir ../docs/ko",
+    "serve": "docusaurus serve --dir ../docs",
     "write-translations": "docusaurus write-translations",
     "write-heading-ids": "docusaurus write-heading-ids",
     "typecheck": "tsc"
