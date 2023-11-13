@@ -4,7 +4,7 @@
     "description": "The label for version current"
   },
   "sidebar.doscSidebar.category.Getting Started": {
-    "message": "Getting Started",
+    "message": "시작하기",
     "description": "The label for category Getting Started in sidebar doscSidebar"
   },
   "sidebar.doscSidebar.category.Getting Started.link.generated-index.description": {

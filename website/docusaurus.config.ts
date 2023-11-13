@@ -28,6 +28,19 @@ const config: Config = {
   i18n: {
     defaultLocale: 'en',
     locales: ['en', 'ko'],
+    path: 'i18n',
+    localeConfigs: {
+      en: {
+        label: 'English',
+        htmlLang: 'en',
+        path: 'en',
+      },
+      ko: {
+        label: '한국어',
+        htmlLang: 'ko-KR',
+        path: 'ko',
+      },
+    },
   },
 
   presets: [
@@ -38,8 +51,14 @@ const config: Config = {
           sidebarPath: './sidebars.ts',
           // Please change this to your repo.
           // Remove this to remove the "edit this page" links.
-          editUrl: ({versionDocsDirPath, docPath}) =>
-          `https://https://github.com/Swit-ChristianKim/node-swit-sdk/edit/main/website/${versionDocsDirPath}/${docPath}`,
+          editUrl: ({versionDocsDirPath, docPath, locale}) => {
+
+            if(locale === 'ko'){
+              return `https://github.com/Swit-ChristianKim/node-swit-sdk/edit/main/website/i18n/ko/docusaurus-plugin-content-docs/current/${docPath}`
+            } else{
+              return `https://github.com/Swit-ChristianKim/node-swit-sdk/edit/main/website/${versionDocsDirPath}/${docPath}`
+            }
+          },
         },
         blog: {
           showReadingTime: true,

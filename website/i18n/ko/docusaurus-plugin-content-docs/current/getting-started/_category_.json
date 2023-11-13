@@ -1,8 +1,8 @@
 {
-  "label": "시작하기",
+  "label": "소개 및 사용법",
   "position": 1,
   "link": {
     "type": "generated-index",
-    "description": "5 minutes to learn the most important Docusaurus concepts."
+    "description": " SDK의 간단한 사용법에 대해서 안내합니다"
   }
 }

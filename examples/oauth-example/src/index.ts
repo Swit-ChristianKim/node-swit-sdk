@@ -57,7 +57,8 @@ app.get('/callback', async (req: Request, res: Response) => {
     '',
     '',
     1,
-  )
+  );
+  await client.user.userInfo();
   res.send(list);
 });
 
