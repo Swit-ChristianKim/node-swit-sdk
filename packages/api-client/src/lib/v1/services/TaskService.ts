@@ -31,7 +31,7 @@ export class TaskService {
 
   /**
    * Get a task's information
-   * Retrieves information about a task.
+   * `Bot-compatible` Retrieves information about a task.
    * @param id The ID of the task.
    * @param bodyType Whether or not to use rich styles.
    * - `plain`: The `content` value will be parsed as plaintext.
@@ -57,7 +57,7 @@ export class TaskService {
 
   /**
    * List out tasks
-   * Lists out a given number of tasks from a project. This method uses the Swit API's [pagination scheme](/docs/core1/up49a503iuknu-pagination-scheme).
+   * `Bot-compatible` Lists out a given number of tasks from a project. This method uses the Swit API's [pagination scheme](/docs/core1/up49a503iuknu-pagination-scheme).
    * @param projectId The ID of the project. To get the Personal tasks that are visible only to you, pass `mytask`.
    * @param workspaceId The ID of the workspace that includes the target project. Only required when `mytask` is passed to the `project_id` parameter (to get the Personal tasks).
    * @param limit The number of tasks to retrieve.
@@ -90,7 +90,7 @@ export class TaskService {
 
   /**
    * List out tasks by bucket
-   * Lists out a given number of tasks from a bucket. This method uses the Swit API's [pagination scheme](/docs/core1/up49a503iuknu-pagination-scheme).
+   * `Bot-compatible` Lists out a given number of tasks from a bucket. This method uses the Swit API's [pagination scheme](/docs/core1/up49a503iuknu-pagination-scheme).
    * @param projectId The ID of the project.
    * @param bucketId The ID of the task bucket.
    * @param limit The number of tasks to retrieve.
@@ -120,7 +120,7 @@ export class TaskService {
 
   /**
    * List out my tasks
-   * Lists out "my tasks" of the user from a workspace.
+   * `Bot-compatible` Lists out "my tasks" of the user from a workspace.
    * @param workspaceId The ID of the workspace.
    * @param limit The number of tasks to retrieve.
    * @param offset Pass the `offset` string returned by the previous call to skip already returned entries.
@@ -147,7 +147,7 @@ export class TaskService {
 
   /**
    * Create a task
-   * Creates a task in a project.
+   * `Bot-compatible` Creates a task in a project.
    * @param requestBody
    * @returns any Successfully posted the task.
    * @throws ApiError
@@ -167,7 +167,7 @@ export class TaskService {
 
   /**
    * Delete a task
-   * Deletes a task from a project.
+   * `Bot-compatible` Deletes a task from a project.
    * @param requestBody
    * @returns any Successfully deleted the task.
    * @throws ApiError
@@ -185,7 +185,7 @@ export class TaskService {
 
   /**
    * Move a task
-   * Moves a task into another project.
+   * `Bot-compatible` Moves a task into another project.
    * @param requestBody
    * @returns any Successfully moved the task.
    * @throws ApiError
@@ -205,7 +205,7 @@ export class TaskService {
 
   /**
    * Update a task
-   * Updates a task in a project.
+   * `Bot-compatible` Updates a task in a project.
    * @param requestBody
    * @returns any Successfully updated the task.
    * @throws ApiError
@@ -225,7 +225,7 @@ export class TaskService {
 
   /**
    * Add an assignee
-   * Adds an assignee to a task.
+   * `Bot-compatible` Adds an assignee to a task.
    * @param requestBody
    * @returns any Successfully added an assignee for the task.
    * @throws ApiError
@@ -245,7 +245,7 @@ export class TaskService {
 
   /**
    * Remove an assignee
-   * Removes a member from the managing role for a task.
+   * `Bot-compatible` Removes a member from the managing role for a task.
    * @param requestBody
    * @returns any Successfully removed the assignee.
    * @throws ApiError
@@ -263,7 +263,7 @@ export class TaskService {
 
   /**
    * Add a collaborator
-   * Adds a collaborator to a task.
+   * `Bot-compatible` Adds a collaborator to a task.
    * @param requestBody
    * @returns any Successfully added the collaborator.
    * @throws ApiError
@@ -283,7 +283,7 @@ export class TaskService {
 
   /**
    * Remove a collaborator
-   * Removes a collaborator from a task.
+   * `Bot-compatible` Removes a collaborator from a task.
    * @param requestBody
    * @returns any Successfully removed the collaborator.
    * @throws ApiError

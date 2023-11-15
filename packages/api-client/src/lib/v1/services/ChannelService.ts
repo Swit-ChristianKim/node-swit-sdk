@@ -22,7 +22,7 @@ export class ChannelService {
 
   /**
    * Get a channel's information
-   * Retrieves information about a channel.
+   * `Bot-compatible` Retrieves information about a channel.
    * @param id The ID of the channel.
    * @returns any Successfully retrieved the channel's information.
    * @throws ApiError
@@ -130,7 +130,7 @@ export class ChannelService {
 
   /**
    * List out channel members
-   * Lists out a given number of members belonging to a channel. This method uses the Swit API's [pagination scheme](/docs/core1/up49a503iuknu-pagination-scheme).
+   * `Bot-compatible` Lists out a given number of members belonging to a channel. This method uses the Swit API's [pagination scheme](/docs/core1/up49a503iuknu-pagination-scheme).
    * @param channelId The ID of the channel.
    * @param offset Pass the `offset` string returned by the previous call to skip already returned entries.
    * @param page The page number for a paginated response

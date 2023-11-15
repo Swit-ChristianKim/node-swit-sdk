@@ -22,7 +22,7 @@ export class WorkspaceService {
 
   /**
    * Get workspace info
-   * Retrieves information about a workspace.
+   * `Bot-compatible` Retrieves information about a workspace.
    * @param id The ID of the workspace.
    * @returns any Successfully retrieved the workspace's information.
    * @throws ApiError
@@ -93,7 +93,7 @@ export class WorkspaceService {
 
   /**
    * Get a workspace member's profile
-   * Retrieves a user's profile registered in a given workspace.
+   * `Bot-compatible` Retrieves a user's profile registered in a given workspace.
    * @param workspaceId The ID of the workspace.
    * @param userId The ID of the user. If not passed, the signed-in user's profile will be retrieved.
    * @returns any Successfully retrieved the user's profile.
@@ -117,7 +117,7 @@ export class WorkspaceService {
 
   /**
    * List out workspace members
-   * Lists out a given number of members from a workspace. This method uses the Swit API's [pagination scheme](/docs/core1/up49a503iuknu-pagination-scheme).
+   * `Bot-compatible` Lists out a given number of members from a workspace. This method uses the Swit API's [pagination scheme](/docs/core1/up49a503iuknu-pagination-scheme).
    * @param workspaceId The ID of the workspace.
    * @param page The page number for a paginated response
    * @param limit The number of objects to retrieve.

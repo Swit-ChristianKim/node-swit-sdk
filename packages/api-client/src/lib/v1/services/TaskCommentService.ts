@@ -18,7 +18,7 @@ export class TaskCommentService {
 
   /**
    * Comment on a task
-   * Posts a comment on a task.
+   * `Bot-compatible` Posts a comment on a task.
    * @param requestBody
    * @returns any Successfully commented on the task.
    * @throws ApiError
@@ -38,7 +38,7 @@ export class TaskCommentService {
 
   /**
    * List out task comments
-   * Lists out a given number of comments on a task. This method uses the Swit API's [pagination scheme](/docs/core1/up49a503iuknu-pagination-scheme).
+   * `Bot-compatible` Lists out a given number of comments on a task. This method uses the Swit API's [pagination scheme](/docs/core1/up49a503iuknu-pagination-scheme).
    * @param taskId The ID of the task.
    * @param offset The ordinal number of the page of comments to return.
    * @param bodyType Whether or not to use rich styles.
@@ -70,7 +70,7 @@ export class TaskCommentService {
 
   /**
    * Delete a task comment
-   * Deletes a comment on a task.
+   * `Bot-compatible` Deletes a comment on a task.
    * @param requestBody
    * @returns any Successfully deleted the comment.
    * @throws ApiError
@@ -88,7 +88,7 @@ export class TaskCommentService {
 
   /**
    * Edit a task comment
-   * Edits a comment on a task.
+   * `Bot-compatible` Edits a comment on a task.
    * @param requestBody
    * @returns any Successfully edited the comment.
    * @throws ApiError

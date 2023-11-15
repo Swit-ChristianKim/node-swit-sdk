@@ -21,7 +21,7 @@ export type PutChannelParam = {
    */
   name?: string;
   /**
-   * The fields to update for the channel.
+   * The fields to update. If this parameter is omitted or assigned an empty value, all fields will be updated. Fields without provided values will be set to empty or default values.
    */
   update_fields?: Array<string>;
 };

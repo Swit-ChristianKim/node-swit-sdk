@@ -16,7 +16,7 @@ export class MessageCommentService {
 
   /**
    * List out message comments
-   * Lists out a given number of comments on a message. This method uses the Swit API's [pagination scheme](/docs/core1/up49a503iuknu-pagination-scheme).
+   * `Bot-compatible` Lists out a given number of comments on a message. This method uses the Swit API's [pagination scheme](/docs/core1/up49a503iuknu-pagination-scheme).
    * @param messageId The ID of the message from which to get comments.
    * @param offset Pass the `offset` string returned by the previous call to skip already returned entries.
    * @param limit The number of comments to retrieve.
@@ -43,7 +43,7 @@ export class MessageCommentService {
 
   /**
    * Comment on a message
-   * Posts a comment on a message.
+   * `Bot-compatible` Posts a comment on a message.
    * @param requestBody
    * @returns any Successfully commented on the message.
    * @throws ApiError
@@ -63,7 +63,7 @@ export class MessageCommentService {
 
   /**
    * Delete a message comment
-   * Deletes a comment on a message.
+   * `Bot-compatible` Deletes a comment on a message.
    * @param requestBody
    * @returns any Successfully deleted the comment.
    * @throws ApiError

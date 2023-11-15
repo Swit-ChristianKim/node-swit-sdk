@@ -38,7 +38,7 @@ export class MembershipService {
 
   /**
    * Get user list
-   * Retrieves a list of users in the organization.
+   * `Bot-compatible` Retrieves a list of users in the organization.
    * @param cnt The number of users to return per page.
    * @param page The page number for a paginated response.
    * @param teamId The ID of the team to filter users by.
@@ -146,7 +146,7 @@ export class MembershipService {
 
   /**
    * Activate a user
-   * Activates a user in an organization.
+   * `Bot-compatible` Activates a user in an organization.
    * @param requestBody The user to activate.
    * @returns void
    * @throws ApiError
@@ -169,7 +169,7 @@ export class MembershipService {
 
   /**
    * Deactivate a user
-   * Deactivates a user in the organization.
+   * `Bot-compatible` Deactivates a user in the organization.
    * @param requestBody The user to deactivate.
    * @returns void
    * @throws ApiError
@@ -192,7 +192,7 @@ export class MembershipService {
 
   /**
    * Delete a user
-   * Deletes a user from the organization.
+   * `Bot-compatible` Deletes a user from the organization.
    * @param requestBody
    * @returns any Successfully deleted the user.
    * @throws ApiError
