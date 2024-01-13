@@ -16,7 +16,7 @@
     ".": "./src/index.js"
   },
   "scripts": {
-    "gen": "ts-node --esm --project tools/scripts/tsconfig.gen.json ./tools/scripts/generate-api-schema.mts"
+    "gen": "node ./tools/scripts/generate-api-schema.mjs"
   },
   "dependencies": {
     "axios": "^1.5.0",

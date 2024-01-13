@@ -1,10 +1,8 @@
-import { OpenAPI3 } from 'openapi-typescript';
-import { readFileSync, writeFile, writeFileSync } from 'fs';
+import { readFileSync, writeFileSync } from 'fs';
 import { JSON_SCHEMA, load } from 'js-yaml';
 import fetch from 'node-fetch';
 import { Liquid } from 'liquidjs';
 import { resolve } from 'path';
-import * as openApiCodegen from 'openapi-typescript-codegen';
 
 
 const engine = new Liquid({
@@ -24,7 +22,7 @@ const createOpenApiGenerator =async (isRemote =true) => {
 
   const spec = load(openApiYaml, {
     schema: JSON_SCHEMA
-  }) as OpenAPI3;
+  });
 
   await openApiCodegen.generate({
     input: spec,
@@ -33,12 +31,12 @@ const createOpenApiGenerator =async (isRemote =true) => {
     clientName: 'ClientV1',
     indent: '2',
   });
-  const clientCodeTemplate: string = await engine.renderFileSync('client-v1');
-  const AxiosHttpRequestCodeTemplate: string = await engine.renderFileSync('axios-http-request');
-  const requestCodeTemplate: string = await engine.renderFileSync('request');
+  const clientCodeTemplate = await engine.renderFileSync('client-v1');
+  const AxiosHttpRequestCodeTemplate = await engine.renderFileSync('axios-http-request');
+  const requestCodeTemplate = await engine.renderFileSync('request');
 
-  const OauthServiceTemplate: string = await engine.renderFileSync('OauthService');
-  const OauthClientTemplate: string = await engine.renderFileSync('OauthClient');
+  const OauthServiceTemplate = await engine.renderFileSync('OauthService');
+  const OauthClientTemplate = await engine.renderFileSync('OauthClient');
 
   writeFileSync('./src/lib/v1/services/OauthService.ts', OauthServiceTemplate);
   writeFileSync('./src/lib/v1/ClientV1.ts', clientCodeTemplate);
