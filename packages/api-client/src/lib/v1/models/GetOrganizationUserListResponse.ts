@@ -38,7 +38,7 @@ export type GetOrganizationUserListResponse = {
    */
   created?: string;
   /**
-   * The background color of the default profile image of the user.
+   * The background color of the fallback avatar of the user.
    */
   bg_color?: string;
   /**

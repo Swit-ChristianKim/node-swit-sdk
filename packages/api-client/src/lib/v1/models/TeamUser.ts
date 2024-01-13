@@ -9,9 +9,9 @@ export type TeamUser = {
    */
   created?: string;
   /**
-   * The main department the user is in.
+   * Whether the team is the user's primary team or not.
    */
-  main_dept_yn?: string;
+  main_dept_yn?: TeamUser.main_dept_yn;
   /**
    * The ID of the team.
    */
@@ -21,4 +21,17 @@ export type TeamUser = {
    */
   team_name?: string;
 };
+
+export namespace TeamUser {
+
+  /**
+   * Whether the team is the user's primary team or not.
+   */
+  export enum main_dept_yn {
+    Y = 'Y',
+    N = 'N',
+  }
+
+
+}
 

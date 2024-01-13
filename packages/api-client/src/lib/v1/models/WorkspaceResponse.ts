@@ -12,7 +12,7 @@ export type WorkspaceResponse = {
    */
   admin_ids?: Array<string>;
   /**
-   * The background color of the default profile image of the workspace.
+   * The background color of the fallback avatar of the workspace.
    */
   color?: string;
   /**
