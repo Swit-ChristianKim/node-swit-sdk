@@ -3,6 +3,7 @@ import { JSON_SCHEMA, load } from 'js-yaml';
 import fetch from 'node-fetch';
 import { Liquid } from 'liquidjs';
 import { resolve } from 'path';
+import openApiCodegen from 'openapi-typescript-codegen';
 
 
 const engine = new Liquid({
