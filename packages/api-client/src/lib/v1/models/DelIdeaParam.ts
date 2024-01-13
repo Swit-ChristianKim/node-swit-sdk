@@ -7,6 +7,6 @@ export type DelIdeaParam = {
   /**
    * The ID of the idea.
    */
-  idea_id: string;
+  id: string;
 };
 

@@ -20,7 +20,7 @@ export class IdeaService {
 
   /**
    * Get an idea's information
-   * Retrieves information about an idea.
+   * `Bot-compatible` Retrieves information about an idea.
    * @param id The ID of the idea.
    * @returns any Successfully retrieved information about the idea.
    * @throws ApiError
@@ -41,7 +41,7 @@ export class IdeaService {
 
   /**
    * List out ideas
-   * Lists out a given number of ideas in a channel. This method uses the Swit API's [pagination scheme](/docs/core1/up49a503iuknu-pagination-scheme).
+   * `Bot-compatible` Lists out a given number of ideas in a channel. This method uses the Swit API's [pagination scheme](/docs/core1/up49a503iuknu-pagination-scheme).
    * @param channelId The ID of the channel from which to get posts.
    * @param offset Pass the `offset` string returned by the previous call to skip already returned entries.
    * @param limit The number of posts to retrieve.
@@ -68,7 +68,7 @@ export class IdeaService {
 
   /**
    * Create an idea
-   * Creates a idea in a channel.
+   * `Bot-compatible` Creates a idea in a channel.
    * @param requestBody
    * @returns any Successfully created the idea.
    * @throws ApiError
@@ -88,7 +88,7 @@ export class IdeaService {
 
   /**
    * Delete an idea
-   * Deletes an idea in a channel.
+   * `Bot-compatible` Deletes an idea in a channel.
    * @param requestBody
    * @returns any Successfully deleted the idea.
    * @throws ApiError

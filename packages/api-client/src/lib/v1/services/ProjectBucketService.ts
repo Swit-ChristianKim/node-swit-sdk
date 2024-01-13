@@ -18,7 +18,7 @@ export class ProjectBucketService {
 
   /**
    * Get a task bucket's information
-   * Retrieves information about a task bucket.
+   * `Bot-compatible` Retrieves information about a task bucket.
    * @param projectId The ID of the project that contains the bucket.
    * @param id The ID of the bucket the task is in.
    * @returns any Successfully retrieved the bucket's information.
@@ -42,7 +42,7 @@ export class ProjectBucketService {
 
   /**
    * List out task buckets
-   * Lists out all task buckets from a project.
+   * `Bot-compatible` Lists out all task buckets from a project.
    * @param projectId The ID of the project.
    * @param limit The number of buckets to retrieve.
    * @param offset Pass the `offset` string returned by the previous call to skip already returned entries.

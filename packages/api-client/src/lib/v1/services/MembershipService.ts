@@ -4,6 +4,7 @@
 /* eslint-disable */
 import type { AddCompanyUserListParam } from '../models/AddCompanyUserListParam';
 import type { DelCompanyUserResponse } from '../models/DelCompanyUserResponse';
+import type { GetOrganizationResponse } from '../models/GetOrganizationResponse';
 import type { GetOrganizationUserListResponse } from '../models/GetOrganizationUserListResponse';
 
 import type { CancelablePromise } from '../core/CancelablePromise';
@@ -12,6 +13,21 @@ import type { BaseHttpRequest } from '../core/BaseHttpRequest';
 export class MembershipService {
 
   constructor(public readonly httpRequest: BaseHttpRequest) {}
+
+  /**
+   * Get organization information
+   * Retrieves information about the organization the user is in.
+   * @returns any OK
+   * @throws ApiError
+   */
+  public organizationInfo(): CancelablePromise<{
+    data?: GetOrganizationResponse;
+  }> {
+    return this.httpRequest.request({
+      method: 'GET',
+      url: '/api/organization.info',
+    });
+  }
 
   /**
    * Get user information
@@ -38,7 +54,7 @@ export class MembershipService {
 
   /**
    * Get user list
-   * Retrieves a list of users in the organization.
+   * `Bot-compatible` Retrieves a list of users in the organization.
    * @param cnt The number of users to return per page.
    * @param page The page number for a paginated response.
    * @param teamId The ID of the team to filter users by.
@@ -146,7 +162,7 @@ export class MembershipService {
 
   /**
    * Activate a user
-   * Activates a user in an organization.
+   * `Bot-compatible` Activates a user in an organization.
    * @param requestBody The user to activate.
    * @returns void
    * @throws ApiError
@@ -169,7 +185,7 @@ export class MembershipService {
 
   /**
    * Deactivate a user
-   * Deactivates a user in the organization.
+   * `Bot-compatible` Deactivates a user in the organization.
    * @param requestBody The user to deactivate.
    * @returns void
    * @throws ApiError
@@ -192,7 +208,7 @@ export class MembershipService {
 
   /**
    * Delete a user
-   * Deletes a user from the organization.
+   * `Bot-compatible` Deletes a user from the organization.
    * @param requestBody
    * @returns any Successfully deleted the user.
    * @throws ApiError

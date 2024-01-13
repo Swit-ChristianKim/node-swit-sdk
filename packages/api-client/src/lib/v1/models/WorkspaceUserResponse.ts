@@ -7,7 +7,7 @@ import type { WsGroup } from './WsGroup';
 
 export type WorkspaceUserResponse = {
   /**
-   * The background color of the default profile image of the user.
+   * The background color of the fallback avatar of the user.
    */
   color?: string;
   /**

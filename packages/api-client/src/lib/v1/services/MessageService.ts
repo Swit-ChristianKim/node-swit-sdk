@@ -21,7 +21,7 @@ export class MessageService {
 
   /**
    * Get a message's information
-   * Retrieves information about a message.
+   * `Bot-compatible` Retrieves information about a message.
    * @param id The ID of the message.
    * @returns any Successfully retrieved information about the message.
    * @throws ApiError
@@ -42,7 +42,7 @@ export class MessageService {
 
   /**
    * List out messages
-   * Lists out a given number of messages in a channel. This method uses the Swit API's [pagination scheme](/docs/core1/up49a503iuknu-pagination-scheme).
+   * `Bot-compatible` Lists out a given number of messages in a channel. This method uses the Swit API's [pagination scheme](/docs/core1/up49a503iuknu-pagination-scheme).
    * @param channelId The ID of the channel from which to get messages.
    * @param limit The number of messages to retrieve.
    * @param offset Pass the `offset` string returned by the previous call to skip already returned entries.
@@ -69,7 +69,7 @@ export class MessageService {
 
   /**
    * Create a message
-   * Creates a message in a channel.
+   * `Bot-compatible` Creates a message in a channel.
    * @param requestBody
    * @returns any Successfully created the message.
    * @throws ApiError
@@ -147,7 +147,7 @@ export class MessageService {
 
   /**
    * Delete a message
-   * Deletes a message in a channel.
+   * `Bot-compatible` Deletes a message in a channel.
    * @param requestBody
    * @returns any Successfully deleted the message.
    * @throws ApiError
