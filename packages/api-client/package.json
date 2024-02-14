@@ -1,6 +1,6 @@
 {
   "name": "@swit-api/api-client",
-  "version": "0.0.2",
+  "version": "0.0.3",
   "engines": {
     "node": ">=18.17.1",
     "npm": ">=9.6.7"
