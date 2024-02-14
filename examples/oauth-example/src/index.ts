@@ -20,7 +20,7 @@ const scope = [
   'message:write',
   'workspace:read',
   'workspace:write',
-];
+].join(' ');
 
 const oauth = new Oauth({
   clientId,

@@ -3,19 +3,20 @@ import nock from 'nock';
 
 describe('oauth', () => {
   let oauth: Oauth;
+  const scope = [
+    'channel:read',
+    'message:read',
+    'channel:write',
+    'idea:read',
+    'idea:write',
+    'message:write'
+  ].join(' ');
   const options: OauthOptions = {
     clientId: 'fake-client-id',
     clientSecret: 'fake-client-secret',
     redirectUri: 'https://test-site/callback',
     state: '',
-    scope: [
-      'channel:read',
-      'message:read',
-      'channel:write',
-      'idea:read',
-      'idea:write',
-      'message:write'
-    ]
+    scope,
   };
 
   beforeAll(() => {

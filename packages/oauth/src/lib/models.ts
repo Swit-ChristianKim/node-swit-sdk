@@ -3,7 +3,7 @@ export interface OauthOptions {
   clientSecret: string;
   redirectUri: string,
   state?: string,
-  scope: string[],
+  scope:string,
 }
 
 export interface TokenResponse {

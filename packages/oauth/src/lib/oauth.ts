@@ -24,8 +24,8 @@ export class Oauth {
       clientId: option.clientId,
       redirectUri: option.redirectUri,
       responseType: 'code',
-      state: option.state,
-      scope: option.scope?.join(' ') ?? ''
+      state: option.state ?? '',
+      scope: option.scope ?? ''
     });
   }
 
