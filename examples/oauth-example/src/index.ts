@@ -19,7 +19,7 @@ const scope = [
   'idea:write',
   'message:write',
   'workspace:read',
-  'workspace:write',
+  'workspace:write'
 ].join(' ');
 
 const oauth = new Oauth({
@@ -50,14 +50,13 @@ app.get('/callback', async (req: Request, res: Response) => {
   const tokenResponse = await oauth.getTokenByAuthorizationCode(code as string);
   const accessToken = tokenResponse.access_token;
   const client = new ApiClient({
-    token: accessToken,
+    token: accessToken
   }).v1;
-  const list= await client.workspace.workspaceList(
-    100,
-    '',
-    '',
-    1,
-  );
+  const list = await client.workspace.workspaceList({
+    limit: 100,
+    offset: '',
+    name: ''
+  });
   await client.user.userInfo();
   res.send(list);
 });
