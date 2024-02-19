@@ -29,7 +29,7 @@ describe('oauth', () => {
     baseUrl.searchParams.append('redirect_uri', options.redirectUri);
     baseUrl.searchParams.append('response_type', 'code');
     baseUrl.searchParams.append('state', options.state as string);
-    baseUrl.searchParams.append('scope', options.scope.join(' '));
+    baseUrl.searchParams.append('scope', options.scope);
 
     const url = oauth.getAuthorizeUrl();
 
