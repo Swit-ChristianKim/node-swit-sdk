@@ -31,6 +31,7 @@ const createOpenApiGenerator =async (isRemote =true) => {
     output: './src/lib/v1',
     clientName: 'ClientV1',
     indent: '2',
+    useOptions: true,
   });
   const clientCodeTemplate = await engine.renderFileSync('client-v1');
   const AxiosHttpRequestCodeTemplate = await engine.renderFileSync('axios-http-request');
