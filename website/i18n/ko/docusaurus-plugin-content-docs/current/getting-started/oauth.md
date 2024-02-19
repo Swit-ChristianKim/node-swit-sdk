@@ -30,7 +30,7 @@ const scope = [
   'idea:read',
   'idea:write',
   'message:write'
-];
+].join(' ');
 
 const oauth = new Oauth({
   clientId,

@@ -53,7 +53,7 @@ Please refer to the link below for additional ClientV1 information.
 
 - [ClientV1](/api/api-client/class/ClientV1)
 
-## 4. ervice clientV1 mapping by properties
+## 4. service clientV1 mapping by properties
 
 
 |**Property Name**|**Service Name**|
