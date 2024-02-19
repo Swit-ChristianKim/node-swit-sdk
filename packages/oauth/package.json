@@ -1,6 +1,6 @@
 {
   "name": "@swit-api/oauth",
-  "version": "0.0.4",
+  "version": "0.0.5",
   "engines": {
     "node": ">=18.0",
     "npm": ">=9.6.7"
@@ -16,7 +16,7 @@
     ".": "./src/index.js"
   },
   "dependencies": {
-    "@swit-api/api-client": "0.0.4"
+    "@swit-api/api-client": "0.0.5"
   },
   "description": "Oauth for Swit API",
   "author": "Swit ChristianKim",
