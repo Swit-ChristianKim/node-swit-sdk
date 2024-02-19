@@ -13,16 +13,16 @@ import { OauthClient } from './v1/OauthClient';
 export class ApiClient extends EventEmitter {
   private logger = pino();
   public v1: ClientV1;
+  public clientV1AxiosRef: AxiosInstance;
   public oauth: OauthClient;
+  public oauthAxiosRef: AxiosInstance;
 
   constructor(config: ApiClientConfig) {
     super();
-    
-
-    const instance = this.createAxiosInstance(OPEN_API_V1_URL,config);
-    this.v1 = this.createClient(instance);
-    this.oauth = this.createOauthClient(this.createAxiosInstance(OAUTH_URL,config));
-
+    this.clientV1AxiosRef = this.createAxiosInstance(OPEN_API_V1_URL,config);
+    this.v1 = this.createClient(this.clientV1AxiosRef);
+    this.oauthAxiosRef = this.createAxiosInstance(OAUTH_URL,config);
+    this.oauth = this.createOauthClient(this.oauthAxiosRef);
   }
 
 
