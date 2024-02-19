@@ -10,7 +10,7 @@
     "version": "nx release version",
     "build": "nx run-many --target=build",
     "test": "nx run-many --target=test",
-    "publish": "nx release publish --projects=api-client,oauth",
+    "publish": "nx release publish --all=true",
     "gen": "nx run api-client:gen",
     "api-client:build": "nx run api-client:build",
     "api-client:publish": "nx run api-client:publish",
