@@ -10,33 +10,35 @@
     "projectNameAndRootFormat": "as-provided"
   },
   "targetDefaults": {
-      "nx-release-publish": {
-        "options": {
-          "packageRoot": "dist/packages/{projectName}"
-        }
+    "nx-release-publish": {
+      "options": {
+        "packageRoot": "dist/packages/{projectName}"
+      }
+    },
+    "build": {
+      "dependsOn": ["^build"],
+      "cache": true
+    },
+    "@nx/jest:jest": {
+      "cache": true,
+      "inputs": ["default", "^default", "{workspaceRoot}/jest.preset.js"],
+      "options": {
+        "passWithNoTests": true
       },
-    "lint": {
+      "configurations": {
+        "ci": {
+          "ci": true,
+          "codeCoverage": true
+        }
+      }
+    },
+    "@nx/eslint:lint": {
       "inputs": [
         "default",
         "{workspaceRoot}/.eslintrc.json",
         "{workspaceRoot}/.eslintignore",
         "{workspaceRoot}/eslint.config.js"
       ],
-      "cache": true
-    },
-    "test": {
-      "inputs": [
-        "default",
-        "^default",
-        "{workspaceRoot}/jest.preset.js"
-      ],
-      "cache": true
-    },
-    "build": {
-      "dependsOn": ["^build"],
-      "cache": true
-    },
-    "e2e": {
       "cache": true
     }
   }
