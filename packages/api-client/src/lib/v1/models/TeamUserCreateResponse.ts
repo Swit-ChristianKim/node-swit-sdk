@@ -3,12 +3,13 @@
 /* tslint:disable */
 /* eslint-disable */
 
-import type { Team } from './Team';
-
 /**
  * An object wrapping a Swit resource.
  */
 export type TeamUserCreateResponse = {
-  data?: Team;
+  /**
+   * Upon successful addition of any of the users passed, the `data` field will be `null`, indicating that the operation completed successfully without any specific data to return.
+   */
+  data?: any;
 };
 

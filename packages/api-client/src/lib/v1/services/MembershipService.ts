@@ -32,13 +32,17 @@ export class MembershipService {
   /**
    * Get user information
    * Retrieves information of a user in the organization.
-   * @param userId The ID of the user to retrieve.
    * @returns any Successfully retrieved the user information.
    * @throws ApiError
    */
-  public organizationUserInfo(
+  public organizationUserInfo({
+    userId,
+  }: {
+    /**
+     * The ID of the user to retrieve.
+     */
     userId: string,
-  ): CancelablePromise<{
+  }): CancelablePromise<{
     data?: {
       user?: Array<GetOrganizationUserListResponse>;
     };
@@ -55,23 +59,42 @@ export class MembershipService {
   /**
    * Get user list
    * `Bot-compatible` Retrieves a list of users in the organization.
-   * @param cnt The number of users to return per page.
-   * @param page The page number for a paginated response.
-   * @param teamId The ID of the team to filter users by.
-   * @param wsId The ID of the workspace to filter users by.
-   * @param keyword This parameter filters users based on the provided keyword in their names or email addresses.
-   * @param filtersMembershipStatus The membership status to filter the users by.
    * @returns any Successfully retrieved the user list from the organization.
    * @throws ApiError
    */
-  public organizationUserList(
+  public organizationUserList({
+    cnt,
+    page,
+    teamId,
+    wsId,
+    keyword,
+    filtersMembershipStatus,
+  }: {
+    /**
+     * The number of users to return per page.
+     */
     cnt: number,
+    /**
+     * The page number for a paginated response.
+     */
     page?: number,
+    /**
+     * The ID of the team to filter users by.
+     */
     teamId?: string,
+    /**
+     * The ID of the workspace to filter users by.
+     */
     wsId?: string,
+    /**
+     * This parameter filters users based on the provided keyword in their names or email addresses.
+     */
     keyword?: string,
+    /**
+     * The membership status to filter the users by.
+     */
     filtersMembershipStatus?: 'active' | 'inactive',
-  ): CancelablePromise<{
+  }): CancelablePromise<{
     data?: {
       total_rows?: number;
       /**
@@ -97,11 +120,12 @@ export class MembershipService {
   /**
    * Create a user
    * Creates a user in the organization.
-   * @param requestBody
    * @returns any Successfully created the user.
    * @throws ApiError
    */
-  public organizationUserCreate(
+  public organizationUserCreate({
+    requestBody,
+  }: {
     requestBody?: {
       /**
        * The language setting for the user to create.
@@ -128,7 +152,7 @@ export class MembershipService {
        */
       msg?: string;
     },
-  ): CancelablePromise<{
+  }): CancelablePromise<{
     data?: GetOrganizationUserListResponse;
   }> {
     return this.httpRequest.request({
@@ -145,13 +169,14 @@ export class MembershipService {
    * Invites multiple users as guests to the organization.
    *
    * > Calling this endpoint to create a user will not trigger an event notification for subscribers to the user creation event.
-   * @param requestBody
    * @returns any Successfully created the guest accounts.
    * @throws ApiError
    */
-  public userOrganizationBatchCreate(
+  public userOrganizationBatchCreate({
+    requestBody,
+  }: {
     requestBody: AddCompanyUserListParam,
-  ): CancelablePromise<any> {
+  }): CancelablePromise<any> {
     return this.httpRequest.request({
       method: 'POST',
       url: '/api/user.organization.batchCreate',
@@ -163,18 +188,22 @@ export class MembershipService {
   /**
    * Activate a user
    * `Bot-compatible` Activates a user in an organization.
-   * @param requestBody The user to activate.
    * @returns void
    * @throws ApiError
    */
-  public organizationUserActivate(
+  public organizationUserActivate({
+    requestBody,
+  }: {
+    /**
+     * The user to activate.
+     */
     requestBody?: {
       /**
        * The ID of the user to activate.
        */
       user_id: string;
     },
-  ): CancelablePromise<void> {
+  }): CancelablePromise<void> {
     return this.httpRequest.request({
       method: 'POST',
       url: '/api/organization.user.activate',
@@ -186,18 +215,22 @@ export class MembershipService {
   /**
    * Deactivate a user
    * `Bot-compatible` Deactivates a user in the organization.
-   * @param requestBody The user to deactivate.
    * @returns void
    * @throws ApiError
    */
-  public organizationUserDeactivate(
+  public organizationUserDeactivate({
+    requestBody,
+  }: {
+    /**
+     * The user to deactivate.
+     */
     requestBody?: {
       /**
        * The ID of the user to deactivate.
        */
       user_id: string;
     },
-  ): CancelablePromise<void> {
+  }): CancelablePromise<void> {
     return this.httpRequest.request({
       method: 'POST',
       url: '/api/organization.user.deactivate',
@@ -209,18 +242,19 @@ export class MembershipService {
   /**
    * Delete a user
    * `Bot-compatible` Deletes a user from the organization.
-   * @param requestBody
    * @returns any Successfully deleted the user.
    * @throws ApiError
    */
-  public organizationUserRemove(
+  public organizationUserRemove({
+    requestBody,
+  }: {
     requestBody?: {
       /**
        * The ID of the user to delete from the organization.
        */
       user_id: string;
     },
-  ): CancelablePromise<{
+  }): CancelablePromise<{
     data?: DelCompanyUserResponse;
   }> {
     return this.httpRequest.request({

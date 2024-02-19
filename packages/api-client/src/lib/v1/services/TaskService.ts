@@ -32,17 +32,24 @@ export class TaskService {
   /**
    * Get a task's information
    * `Bot-compatible` Retrieves information about a task.
-   * @param id The ID of the task.
-   * @param bodyType Whether or not to use rich styles.
-   * - `plain`: The `content` value will be parsed as plaintext.
-   * - `json_string`: The `content` value will be parsed as an object representing a rich-formatted text.
    * @returns any Successfully retrieved the task's information.
    * @throws ApiError
    */
-  public taskInfo(
+  public taskInfo({
+    id,
+    bodyType = 'plain',
+  }: {
+    /**
+     * The ID of the task.
+     */
     id: string,
-    bodyType: 'plain' | 'json_string' = 'plain',
-  ): CancelablePromise<{
+    /**
+     * Whether or not to use rich styles.
+     * - `plain`: The `content` value will be parsed as plaintext.
+     * - `json_string`: The `content` value will be parsed as an object representing a rich-formatted text.
+     */
+    bodyType?: 'plain' | 'json_string',
+  }): CancelablePromise<{
     data?: GetTaskInfoResponse;
   }> {
     return this.httpRequest.request({
@@ -58,21 +65,37 @@ export class TaskService {
   /**
    * List out tasks
    * `Bot-compatible` Lists out a given number of tasks from a project. This method uses the Swit API's [pagination scheme](/docs/core1/up49a503iuknu-pagination-scheme).
-   * @param projectId The ID of the project. To get the Personal tasks that are visible only to you, pass `mytask`.
-   * @param workspaceId The ID of the workspace that includes the target project. Only required when `mytask` is passed to the `project_id` parameter (to get the Personal tasks).
-   * @param limit The number of tasks to retrieve.
-   * @param offset Pass the `offset` string returned by the previous call to skip already returned entries.
-   * @param parentId The ID of the parent task.
    * @returns any Successfully retrieved the tasks.
    * @throws ApiError
    */
-  public taskList(
+  public taskList({
+    projectId,
+    workspaceId,
+    limit,
+    offset,
+    parentId,
+  }: {
+    /**
+     * The ID of the project. To get the Personal tasks that are visible only to you, pass `mytask`.
+     */
     projectId: string,
+    /**
+     * The ID of the workspace that includes the target project. Only required when `mytask` is passed to the `project_id` parameter (to get the Personal tasks).
+     */
     workspaceId?: string,
+    /**
+     * The number of tasks to retrieve.
+     */
     limit?: number,
+    /**
+     * Pass the `offset` string returned by the previous call to skip already returned entries.
+     */
     offset?: string,
+    /**
+     * The ID of the parent task.
+     */
     parentId?: string,
-  ): CancelablePromise<{
+  }): CancelablePromise<{
     data?: GetTaskListProjectResponse;
   }> {
     return this.httpRequest.request({
@@ -91,19 +114,32 @@ export class TaskService {
   /**
    * List out tasks by bucket
    * `Bot-compatible` Lists out a given number of tasks from a bucket. This method uses the Swit API's [pagination scheme](/docs/core1/up49a503iuknu-pagination-scheme).
-   * @param projectId The ID of the project.
-   * @param bucketId The ID of the task bucket.
-   * @param limit The number of tasks to retrieve.
-   * @param offset Pass the `offset` string returned by the previous call to skip already returned entries.
    * @returns any Successfully retrieved the tasks.
    * @throws ApiError
    */
-  public taskListByColumn(
+  public taskListByColumn({
+    projectId,
+    bucketId,
+    limit,
+    offset,
+  }: {
+    /**
+     * The ID of the project.
+     */
     projectId: string,
+    /**
+     * The ID of the task bucket.
+     */
     bucketId: string,
+    /**
+     * The number of tasks to retrieve.
+     */
     limit?: number,
+    /**
+     * Pass the `offset` string returned by the previous call to skip already returned entries.
+     */
     offset?: string,
-  ): CancelablePromise<{
+  }): CancelablePromise<{
     data?: GetTaskListByColumnResponse;
   }> {
     return this.httpRequest.request({
@@ -121,17 +157,27 @@ export class TaskService {
   /**
    * List out my tasks
    * `Bot-compatible` Lists out "my tasks" of the user from a workspace.
-   * @param workspaceId The ID of the workspace.
-   * @param limit The number of tasks to retrieve.
-   * @param offset Pass the `offset` string returned by the previous call to skip already returned entries.
    * @returns any Successfully retrieved my tasks.
    * @throws ApiError
    */
-  public taskMyTaskList(
+  public taskMyTaskList({
+    workspaceId,
+    limit,
+    offset,
+  }: {
+    /**
+     * The ID of the workspace.
+     */
     workspaceId: string,
+    /**
+     * The number of tasks to retrieve.
+     */
     limit?: number,
+    /**
+     * Pass the `offset` string returned by the previous call to skip already returned entries.
+     */
     offset?: string,
-  ): CancelablePromise<{
+  }): CancelablePromise<{
     data?: GetTaskListMineResponse;
   }> {
     return this.httpRequest.request({
@@ -148,13 +194,14 @@ export class TaskService {
   /**
    * Create a task
    * `Bot-compatible` Creates a task in a project.
-   * @param requestBody
    * @returns any Successfully posted the task.
    * @throws ApiError
    */
-  public taskCreate(
+  public taskCreate({
+    requestBody,
+  }: {
     requestBody: AddTaskParam,
-  ): CancelablePromise<{
+  }): CancelablePromise<{
     data?: AddTaskResponse;
   }> {
     return this.httpRequest.request({
@@ -168,13 +215,14 @@ export class TaskService {
   /**
    * Delete a task
    * `Bot-compatible` Deletes a task from a project.
-   * @param requestBody
    * @returns any Successfully deleted the task.
    * @throws ApiError
    */
-  public taskRemove(
+  public taskRemove({
+    requestBody,
+  }: {
     requestBody: DelTaskParam,
-  ): CancelablePromise<any> {
+  }): CancelablePromise<any> {
     return this.httpRequest.request({
       method: 'POST',
       url: '/api/task.remove',
@@ -186,13 +234,14 @@ export class TaskService {
   /**
    * Move a task
    * `Bot-compatible` Moves a task into another project.
-   * @param requestBody
    * @returns any Successfully moved the task.
    * @throws ApiError
    */
-  public taskMove(
+  public taskMove({
+    requestBody,
+  }: {
     requestBody: MoveTaskParam,
-  ): CancelablePromise<{
+  }): CancelablePromise<{
     data?: MoveTaskResponse;
   }> {
     return this.httpRequest.request({
@@ -206,13 +255,14 @@ export class TaskService {
   /**
    * Update a task
    * `Bot-compatible` Updates a task in a project.
-   * @param requestBody
    * @returns any Successfully updated the task.
    * @throws ApiError
    */
-  public taskUpdate(
+  public taskUpdate({
+    requestBody,
+  }: {
     requestBody: PutTaskParam,
-  ): CancelablePromise<{
+  }): CancelablePromise<{
     data?: PutTaskResponse;
   }> {
     return this.httpRequest.request({
@@ -226,13 +276,14 @@ export class TaskService {
   /**
    * Add an assignee
    * `Bot-compatible` Adds an assignee to a task.
-   * @param requestBody
    * @returns any Successfully added an assignee for the task.
    * @throws ApiError
    */
-  public taskAssigneeAdd(
+  public taskAssigneeAdd({
+    requestBody,
+  }: {
     requestBody: AddTaskAssigneeParam,
-  ): CancelablePromise<{
+  }): CancelablePromise<{
     data?: AddTaskAssigneeResponse;
   }> {
     return this.httpRequest.request({
@@ -246,13 +297,14 @@ export class TaskService {
   /**
    * Remove an assignee
    * `Bot-compatible` Removes a member from the managing role for a task.
-   * @param requestBody
    * @returns any Successfully removed the assignee.
    * @throws ApiError
    */
-  public taskAssigneeRemove(
+  public taskAssigneeRemove({
+    requestBody,
+  }: {
     requestBody: DelTaskAssigneeParam,
-  ): CancelablePromise<any> {
+  }): CancelablePromise<any> {
     return this.httpRequest.request({
       method: 'POST',
       url: '/api/task.assignee.remove',
@@ -264,13 +316,14 @@ export class TaskService {
   /**
    * Add a collaborator
    * `Bot-compatible` Adds a collaborator to a task.
-   * @param requestBody
    * @returns any Successfully added the collaborator.
    * @throws ApiError
    */
-  public taskFollowAdd(
+  public taskFollowAdd({
+    requestBody,
+  }: {
     requestBody: AddTaskFollowParam,
-  ): CancelablePromise<{
+  }): CancelablePromise<{
     data?: AddTaskFollowResponse;
   }> {
     return this.httpRequest.request({
@@ -284,13 +337,14 @@ export class TaskService {
   /**
    * Remove a collaborator
    * `Bot-compatible` Removes a collaborator from a task.
-   * @param requestBody
    * @returns any Successfully removed the collaborator.
    * @throws ApiError
    */
-  public taskFollowRemove(
+  public taskFollowRemove({
+    requestBody,
+  }: {
     requestBody: DelTaskFollowParam,
-  ): CancelablePromise<any> {
+  }): CancelablePromise<any> {
     return this.httpRequest.request({
       method: 'POST',
       url: '/api/task.follow.remove',
@@ -302,11 +356,12 @@ export class TaskService {
   /**
    * Update the status of a task
    * Updates the status of a task.
-   * @param requestBody
    * @returns TaskResponse Successfully updated the status of the task.
    * @throws ApiError
    */
-  public taskStatusUpdate(
+  public taskStatusUpdate({
+    requestBody,
+  }: {
     requestBody: {
       /**
        * The ID of the task.
@@ -325,7 +380,7 @@ export class TaskService {
        */
       to_status_id?: string;
     },
-  ): CancelablePromise<TaskResponse> {
+  }): CancelablePromise<TaskResponse> {
     return this.httpRequest.request({
       method: 'POST',
       url: '/api/task.status.update',
@@ -337,13 +392,14 @@ export class TaskService {
   /**
    * Add attachments
    * Adds file attachments to a task.
-   * @param requestBody
    * @returns any Successfully added the attachments to the task.
    * @throws ApiError
    */
-  public taskAssetAppend(
+  public taskAssetAppend({
+    requestBody,
+  }: {
     requestBody: AppendAssetTaskParam,
-  ): CancelablePromise<any> {
+  }): CancelablePromise<any> {
     return this.httpRequest.request({
       method: 'POST',
       url: '/api/task.asset.append',

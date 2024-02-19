@@ -22,13 +22,17 @@ export class MessageService {
   /**
    * Get a message's information
    * `Bot-compatible` Retrieves information about a message.
-   * @param id The ID of the message.
    * @returns any Successfully retrieved information about the message.
    * @throws ApiError
    */
-  public messageInfo(
+  public messageInfo({
+    id,
+  }: {
+    /**
+     * The ID of the message.
+     */
     id: string,
-  ): CancelablePromise<{
+  }): CancelablePromise<{
     data?: Message;
   }> {
     return this.httpRequest.request({
@@ -43,17 +47,27 @@ export class MessageService {
   /**
    * List out messages
    * `Bot-compatible` Lists out a given number of messages in a channel. This method uses the Swit API's [pagination scheme](/docs/core1/up49a503iuknu-pagination-scheme).
-   * @param channelId The ID of the channel from which to get messages.
-   * @param limit The number of messages to retrieve.
-   * @param offset Pass the `offset` string returned by the previous call to skip already returned entries.
    * @returns any Successfully retrieved the messages.
    * @throws ApiError
    */
-  public messageList(
+  public messageList({
+    channelId,
+    limit,
+    offset,
+  }: {
+    /**
+     * The ID of the channel from which to get messages.
+     */
     channelId: string,
+    /**
+     * The number of messages to retrieve.
+     */
     limit?: number,
+    /**
+     * Pass the `offset` string returned by the previous call to skip already returned entries.
+     */
     offset?: string,
-  ): CancelablePromise<{
+  }): CancelablePromise<{
     data?: GetMessageListResponse;
   }> {
     return this.httpRequest.request({
@@ -70,13 +84,14 @@ export class MessageService {
   /**
    * Create a message
    * `Bot-compatible` Creates a message in a channel.
-   * @param requestBody
    * @returns any Successfully created the message.
    * @throws ApiError
    */
-  public messageCreate(
+  public messageCreate({
+    requestBody,
+  }: {
     requestBody: CreateMessageParam,
-  ): CancelablePromise<{
+  }): CancelablePromise<{
     data?: CreateMessageResponse;
   }> {
     return this.httpRequest.request({
@@ -90,11 +105,12 @@ export class MessageService {
   /**
    * Share a message to a channel
    * Shares a message to a channel.
-   * @param requestBody
    * @returns any OK
    * @throws ApiError
    */
-  public postApiMessageShare(
+  public postApiMessageShare({
+    requestBody,
+  }: {
     requestBody?: {
       /**
        * The ID of the message.
@@ -105,7 +121,7 @@ export class MessageService {
        */
       channel_id?: string;
     },
-  ): CancelablePromise<{
+  }): CancelablePromise<{
     data?: CreateMessageFromMailResponse;
   }> {
     return this.httpRequest.request({
@@ -119,11 +135,12 @@ export class MessageService {
   /**
    * Share a task to a channel
    * Shares a task to a channel.
-   * @param requestBody
    * @returns any OK
    * @throws ApiError
    */
-  public postApiMessageTaskShare(
+  public postApiMessageTaskShare({
+    requestBody,
+  }: {
     requestBody?: {
       /**
        * ID of the task.
@@ -134,7 +151,7 @@ export class MessageService {
        */
       channel_id?: string;
     },
-  ): CancelablePromise<{
+  }): CancelablePromise<{
     data?: CreateMessageFromMailResponse;
   }> {
     return this.httpRequest.request({
@@ -148,13 +165,14 @@ export class MessageService {
   /**
    * Delete a message
    * `Bot-compatible` Deletes a message in a channel.
-   * @param requestBody
    * @returns any Successfully deleted the message.
    * @throws ApiError
    */
-  public messageRemove(
+  public messageRemove({
+    requestBody,
+  }: {
     requestBody: DeleteMessageParam,
-  ): CancelablePromise<any> {
+  }): CancelablePromise<any> {
     return this.httpRequest.request({
       method: 'POST',
       url: '/api/message.remove',
@@ -166,13 +184,14 @@ export class MessageService {
   /**
    * React to a message
    * Adds a reaction emoji to a message.
-   * @param requestBody
    * @returns any Successfully added the reaction.
    * @throws ApiError
    */
-  public messageReactionCreate(
+  public messageReactionCreate({
+    requestBody,
+  }: {
     requestBody: AddMessageReactionParam,
-  ): CancelablePromise<{
+  }): CancelablePromise<{
     data?: AddMessageReactionResponse;
   }> {
     return this.httpRequest.request({
@@ -186,13 +205,14 @@ export class MessageService {
   /**
    * Remove a reaction emoji from a message
    * Removes a reaction emoji from a message.
-   * @param requestBody
    * @returns any Successfully removed the reaction.
    * @throws ApiError
    */
-  public messageReactionRemove(
+  public messageReactionRemove({
+    requestBody,
+  }: {
     requestBody: DelMessageReactionParam,
-  ): CancelablePromise<any> {
+  }): CancelablePromise<any> {
     return this.httpRequest.request({
       method: 'POST',
       url: '/api/message.reaction.remove',

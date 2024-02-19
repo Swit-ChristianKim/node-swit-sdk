@@ -23,13 +23,17 @@ export class ChannelService {
   /**
    * Get a channel's information
    * `Bot-compatible` Retrieves information about a channel.
-   * @param id The ID of the channel.
    * @returns any Successfully retrieved the channel's information.
    * @throws ApiError
    */
-  public channelInfo(
+  public channelInfo({
+    id,
+  }: {
+    /**
+     * The ID of the channel.
+     */
     id: string,
-  ): CancelablePromise<{
+  }): CancelablePromise<{
     data?: GetChannelResponse;
   }> {
     return this.httpRequest.request({
@@ -44,32 +48,58 @@ export class ChannelService {
   /**
    * List out channels
    * Lists out a given number of channels from a workspace. This method uses the Swit API's [pagination scheme](/docs/core1/up49a503iuknu-pagination-scheme).
-   * @param workspaceId The ID of the workspace.
-   * @param activity Filter the list by whether the channel is active (`act`) or archived (`arch`). You can select a comma-delimited list of multiple property filters. If not passed, both filters will be selected.
-   * @param disclosure Filter the list by whether the channel is pubic (`pub`) or private (`pri`). You can select a comma-delimited list of multiple property filters. If not passed, both filters will be selected.
-   * @param type Filter the list by channel type.
-   *
-   * - `dfl`: The channel is the default chat room joined by all workspace members.
-   * - `gen`: The channel is an additionally created group chat.
-   *
-   * You can select a comma-delimited list of multiple type filters. If not passed, all filters will be selected.
-   * @param name The name of the channel.
-   * @param page The page number for a paginated response.
-   * @param limit The number of channels to retrieve.
-   * @param offset Pass the `offset` string returned by the previous call to skip already returned entries.
    * @returns any Successfully retrieved the channels.
    * @throws ApiError
    */
-  public channelList(
+  public channelList({
+    workspaceId,
+    activity,
+    disclosure,
+    type,
+    name,
+    page,
+    limit,
+    offset,
+  }: {
+    /**
+     * The ID of the workspace.
+     */
     workspaceId: string,
+    /**
+     * Filter the list by whether the channel is active (`act`) or archived (`arch`). You can select a comma-delimited list of multiple property filters. If not passed, both filters will be selected.
+     */
     activity?: string,
+    /**
+     * Filter the list by whether the channel is pubic (`pub`) or private (`pri`). You can select a comma-delimited list of multiple property filters. If not passed, both filters will be selected.
+     */
     disclosure?: string,
+    /**
+     * Filter the list by channel type.
+     *
+     * - `dfl`: The channel is the default chat room joined by all workspace members.
+     * - `gen`: The channel is an additionally created group chat.
+     *
+     * You can select a comma-delimited list of multiple type filters. If not passed, all filters will be selected.
+     */
     type?: string,
+    /**
+     * The name of the channel.
+     */
     name?: string,
+    /**
+     * The page number for a paginated response.
+     * @deprecated
+     */
     page?: number,
+    /**
+     * The number of channels to retrieve.
+     */
     limit?: number,
+    /**
+     * Pass the `offset` string returned by the previous call to skip already returned entries.
+     */
     offset?: string,
-  ): CancelablePromise<{
+  }): CancelablePromise<{
     data?: GetChannelListResponse;
   }> {
     return this.httpRequest.request({
@@ -91,13 +121,14 @@ export class ChannelService {
   /**
    * Create a channel
    * Creates a new channel in a workspace.
-   * @param requestBody
    * @returns any Successfully created the channel.
    * @throws ApiError
    */
-  public channelCreate(
+  public channelCreate({
+    requestBody,
+  }: {
     requestBody: AddChannelParam,
-  ): CancelablePromise<{
+  }): CancelablePromise<{
     data?: AddChannelResponse;
   }> {
     return this.httpRequest.request({
@@ -111,13 +142,14 @@ export class ChannelService {
   /**
    * Update a channel
    * Updates an existing channel.
-   * @param requestBody
    * @returns any Successfully updated the channel.
    * @throws ApiError
    */
-  public channelUpdate(
+  public channelUpdate({
+    requestBody,
+  }: {
     requestBody: PutChannelParam,
-  ): CancelablePromise<{
+  }): CancelablePromise<{
     data?: PutChannelResponse;
   }> {
     return this.httpRequest.request({
@@ -131,19 +163,33 @@ export class ChannelService {
   /**
    * List out channel members
    * `Bot-compatible` Lists out a given number of members belonging to a channel. This method uses the Swit API's [pagination scheme](/docs/core1/up49a503iuknu-pagination-scheme).
-   * @param channelId The ID of the channel.
-   * @param offset Pass the `offset` string returned by the previous call to skip already returned entries.
-   * @param page The page number for a paginated response
-   * @param limit The number of members to retrieve.
    * @returns any Successfully retrieved the channel members.
    * @throws ApiError
    */
-  public channelUserList(
+  public channelUserList({
+    channelId,
+    offset,
+    page,
+    limit,
+  }: {
+    /**
+     * The ID of the channel.
+     */
     channelId: string,
+    /**
+     * Pass the `offset` string returned by the previous call to skip already returned entries.
+     */
     offset?: string,
+    /**
+     * The page number for a paginated response
+     * @deprecated
+     */
     page?: number,
+    /**
+     * The number of members to retrieve.
+     */
     limit?: number,
-  ): CancelablePromise<{
+  }): CancelablePromise<{
     data?: GetChannelUserListResponse;
   }> {
     return this.httpRequest.request({
@@ -161,13 +207,14 @@ export class ChannelService {
   /**
    * Invite a user to the channel
    * Invites a user to a channel.
-   * @param requestBody
    * @returns any Successfully invited the users to the channel.
    * @throws ApiError
    */
-  public channelAddChannelUserInvite(
+  public channelAddChannelUserInvite({
+    requestBody,
+  }: {
     requestBody: AddChannelUserInviteParam,
-  ): CancelablePromise<any> {
+  }): CancelablePromise<any> {
     return this.httpRequest.request({
       method: 'POST',
       url: '/api/channel.user.invite',
@@ -179,13 +226,14 @@ export class ChannelService {
   /**
    * Remove users from a channel
    * Removes users from a channel
-   * @param requestBody
    * @returns any Successfully removed the users from the channel
    * @throws ApiError
    */
-  public channelDelChannelUser(
+  public channelDelChannelUser({
+    requestBody,
+  }: {
     requestBody: DelChannelUserParam,
-  ): CancelablePromise<any> {
+  }): CancelablePromise<any> {
     return this.httpRequest.request({
       method: 'POST',
       url: '/api/channel.user.remove',
@@ -197,13 +245,14 @@ export class ChannelService {
   /**
    * Archive/unarchive a channel
    * Updates a channel's archiving status.
-   * @param requestBody
    * @returns void
    * @throws ApiError
    */
-  public channelUpdateChannelArchive(
+  public channelUpdateChannelArchive({
+    requestBody,
+  }: {
     requestBody: UpdateChannelArchiveParam,
-  ): CancelablePromise<void> {
+  }): CancelablePromise<void> {
     return this.httpRequest.request({
       method: 'POST',
       url: '/api/channel.archive',

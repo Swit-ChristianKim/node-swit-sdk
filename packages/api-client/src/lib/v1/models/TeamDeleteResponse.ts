@@ -3,12 +3,10 @@
 /* tslint:disable */
 /* eslint-disable */
 
-import type { Team } from './Team';
-
-/**
- * An object wrapping a Swit resource.
- */
 export type TeamDeleteResponse = {
-  data?: Team;
+  /**
+   * Upon successful deletion of the team, the `data` field will be `null`, indicating that the operation completed successfully without any specific data to return.
+   */
+  data?: any;
 };
 

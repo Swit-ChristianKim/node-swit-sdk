@@ -29,6 +29,10 @@ export type CreateApprovalParam = {
    */
   html_content?: string;
   /**
+   * Determines whether to submit the approval request. If `true`, submit the request; if `false`, save as a draft.
+   */
+  submit_on_create?: boolean;
+  /**
    * To whom this request is to be circulated after approved.
    * - `0`: None
    * - `1`: The submitter's teams

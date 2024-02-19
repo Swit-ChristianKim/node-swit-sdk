@@ -17,17 +17,27 @@ export class MessageCommentService {
   /**
    * List out message comments
    * `Bot-compatible` Lists out a given number of comments on a message. This method uses the Swit API's [pagination scheme](/docs/core1/up49a503iuknu-pagination-scheme).
-   * @param messageId The ID of the message from which to get comments.
-   * @param offset Pass the `offset` string returned by the previous call to skip already returned entries.
-   * @param limit The number of comments to retrieve.
    * @returns any Successfully retrieved the comments.
    * @throws ApiError
    */
-  public messageCommentList(
+  public messageCommentList({
+    messageId,
+    offset,
+    limit,
+  }: {
+    /**
+     * The ID of the message from which to get comments.
+     */
     messageId: string,
+    /**
+     * Pass the `offset` string returned by the previous call to skip already returned entries.
+     */
     offset?: string,
+    /**
+     * The number of comments to retrieve.
+     */
     limit?: number,
-  ): CancelablePromise<{
+  }): CancelablePromise<{
     data?: GetMessageCommentListResponse;
   }> {
     return this.httpRequest.request({
@@ -44,13 +54,14 @@ export class MessageCommentService {
   /**
    * Comment on a message
    * `Bot-compatible` Posts a comment on a message.
-   * @param requestBody
    * @returns any Successfully commented on the message.
    * @throws ApiError
    */
-  public messageCommentCreate(
+  public messageCommentCreate({
+    requestBody,
+  }: {
     requestBody: CreateMessageCommentParam,
-  ): CancelablePromise<{
+  }): CancelablePromise<{
     data?: CreateMessageCommentResponse;
   }> {
     return this.httpRequest.request({
@@ -64,13 +75,14 @@ export class MessageCommentService {
   /**
    * Delete a message comment
    * `Bot-compatible` Deletes a comment on a message.
-   * @param requestBody
    * @returns any Successfully deleted the comment.
    * @throws ApiError
    */
-  public messageCommentRemove(
+  public messageCommentRemove({
+    requestBody,
+  }: {
     requestBody: DeleteMessageCommentParam,
-  ): CancelablePromise<any> {
+  }): CancelablePromise<any> {
     return this.httpRequest.request({
       method: 'POST',
       url: '/api/message.comment.remove',
@@ -82,11 +94,12 @@ export class MessageCommentService {
   /**
    * React to a message comment
    * Adds a reaction emoji to a message's comment.
-   * @param requestBody
    * @returns void
    * @throws ApiError
    */
-  public postApiMessageCommentReactionCreate(
+  public postApiMessageCommentReactionCreate({
+    requestBody,
+  }: {
     requestBody?: {
       /**
        * The ID of the comment to react to.
@@ -97,7 +110,7 @@ export class MessageCommentService {
        */
       reaction_value?: string;
     },
-  ): CancelablePromise<void> {
+  }): CancelablePromise<void> {
     return this.httpRequest.request({
       method: 'POST',
       url: '/api/message.comment.reactionCreate',

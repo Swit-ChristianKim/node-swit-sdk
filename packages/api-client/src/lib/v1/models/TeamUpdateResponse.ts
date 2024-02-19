@@ -3,12 +3,29 @@
 /* tslint:disable */
 /* eslint-disable */
 
-import type { Team } from './Team';
-
 /**
  * An object wrapping a Swit resource.
  */
 export type TeamUpdateResponse = {
-  data?: Team;
+  /**
+   * The ID of the team.
+   */
+  id?: string;
+  /**
+   * The name of the team.
+   */
+  name?: string;
+  /**
+   * The ID of the parent team.
+   */
+  parent_id?: string;
+  /**
+   * The depth of the team.
+   */
+  depth?: number;
+  /**
+   * Custom text to be used as a reference. This is useful to store information from another source.
+   */
+  reference?: string;
 };
 

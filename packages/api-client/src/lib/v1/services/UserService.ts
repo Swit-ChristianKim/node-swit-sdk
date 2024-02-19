@@ -30,11 +30,12 @@ export class UserService {
   /**
    * Update the user's profile
    * Updates the authorizing user's profile.
-   * @param requestBody
    * @returns any Successfully updated the user profile.
    * @throws ApiError
    */
-  public userInfoUpdate(
+  public userInfoUpdate({
+    requestBody,
+  }: {
     requestBody?: {
       /**
        * The name of the user.
@@ -61,7 +62,7 @@ export class UserService {
        */
       update_fields?: Array<string>;
     },
-  ): CancelablePromise<{
+  }): CancelablePromise<{
     data?: GetUserInfoResponse;
   }> {
     return this.httpRequest.request({
@@ -90,11 +91,12 @@ export class UserService {
   /**
    * Update the user presence
    * Updates the authorizing user's presence status.
-   * @param requestBody
    * @returns any Successfully updated the user's presence status.
    * @throws ApiError
    */
-  public presenceStatusUpdate(
+  public presenceStatusUpdate({
+    requestBody,
+  }: {
     requestBody?: {
       /**
        * The status of the user to update to.
@@ -105,7 +107,7 @@ export class UserService {
        */
       do_not_disturb_duration?: string;
     },
-  ): CancelablePromise<{
+  }): CancelablePromise<{
     /**
      * The presence status of the user.
      */
@@ -138,18 +140,19 @@ export class UserService {
   /**
    * Toggle presence sync
    * Set whether to allow your app to update the authorizing user's presence status via API.
-   * @param requestBody
    * @returns any Successfully updated the presence sync setting of the app.
    * @throws ApiError
    */
-  public presenceSyncUpdate(
+  public presenceSyncUpdate({
+    requestBody,
+  }: {
     requestBody?: {
       /**
        * Whether to allow the app to update the authorizing user's presence sync.
        */
       is_presence_sync_on?: boolean;
     },
-  ): CancelablePromise<{
+  }): CancelablePromise<{
     data?: UserPresenceSyncStatusResponse;
   }> {
     return this.httpRequest.request({

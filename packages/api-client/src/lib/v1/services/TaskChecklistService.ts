@@ -20,13 +20,14 @@ export class TaskChecklistService {
   /**
    * Add a checklist item
    * `Bot-compatible` Adds an item to a task's checklist.
-   * @param requestBody
    * @returns any Successfully added the item to the checklist.
    * @throws ApiError
    */
-  public taskChecklistCreate(
+  public taskChecklistCreate({
+    requestBody,
+  }: {
     requestBody: AddTaskCheckListParam,
-  ): CancelablePromise<{
+  }): CancelablePromise<{
     data?: AddTaskCheckListResponse;
   }> {
     return this.httpRequest.request({
@@ -40,13 +41,17 @@ export class TaskChecklistService {
   /**
    * Get a checklist item's information
    * `Bot-compatible` Retrieves information about a checklist item in a task.
-   * @param id The ID of the checklist item.
    * @returns any Successfully retrieved information about the checklist item.
    * @throws ApiError
    */
-  public taskChecklistInfo(
+  public taskChecklistInfo({
+    id,
+  }: {
+    /**
+     * The ID of the checklist item.
+     */
     id: string,
-  ): CancelablePromise<{
+  }): CancelablePromise<{
     data?: GetTaskCheckListResponse;
   }> {
     return this.httpRequest.request({
@@ -61,17 +66,27 @@ export class TaskChecklistService {
   /**
    * List out checklist items
    * `Bot-compatible` Lists out a given number of items from a task's checklist. This method uses the Swit API's [pagination scheme](/docs/core1/up49a503iuknu-pagination-scheme).
-   * @param taskId The ID of the task.
-   * @param offset Pass the `offset` string returned by the previous call to skip already returned entries.
-   * @param limit The number of checklist items to retrieve.
    * @returns any Successfully retrieved items from the checklist.
    * @throws ApiError
    */
-  public taskChecklistList(
+  public taskChecklistList({
+    taskId,
+    offset,
+    limit,
+  }: {
+    /**
+     * The ID of the task.
+     */
     taskId: string,
+    /**
+     * Pass the `offset` string returned by the previous call to skip already returned entries.
+     */
     offset?: string,
+    /**
+     * The number of checklist items to retrieve.
+     */
     limit?: number,
-  ): CancelablePromise<{
+  }): CancelablePromise<{
     data?: GetTaskCheckListListResponse;
   }> {
     return this.httpRequest.request({
@@ -88,13 +103,14 @@ export class TaskChecklistService {
   /**
    * Delete a checklist item
    * `Bot-compatible` Deletes an item in a task's checklist.
-   * @param requestBody
    * @returns any Successfully deleted the checklist item.
    * @throws ApiError
    */
-  public taskChecklistRemove(
+  public taskChecklistRemove({
+    requestBody,
+  }: {
     requestBody: DelTaskCheckListParam,
-  ): CancelablePromise<any> {
+  }): CancelablePromise<any> {
     return this.httpRequest.request({
       method: 'POST',
       url: '/api/task.checklist.remove',
@@ -106,13 +122,14 @@ export class TaskChecklistService {
   /**
    * Update a checklist item
    * `Bot-compatible` Updates an existing item of a task's checklist.
-   * @param requestBody
    * @returns any Successfully updated the checklist item.
    * @throws ApiError
    */
-  public taskChecklistUpdate(
+  public taskChecklistUpdate({
+    requestBody,
+  }: {
     requestBody: PutTaskCheckListParam,
-  ): CancelablePromise<{
+  }): CancelablePromise<{
     data?: PutTaskCheckListResponse;
   }> {
     return this.httpRequest.request({

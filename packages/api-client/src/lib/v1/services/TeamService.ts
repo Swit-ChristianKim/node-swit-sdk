@@ -20,17 +20,22 @@ export class TeamService {
   /**
    * List out teams
    * `Bot-compatible` List out the child teams of a given team. If no parameters are passed, the list of all teams in the organization is given as a response.
-   * @param directChildrenOnly Whether to list out only direct child teams of the given parent.
-   * @param parentId The ID of the parent team.
-   * @param reference Custom text to be used as a reference. This is useful to store information from another source.
    * @returns any Successfully retrieved the list of teams.
    * @throws ApiError
    */
-  public userTeamList(
+  public userTeamList({
+    directChildrenOnly,
+    parentId,
+  }: {
+    /**
+     * Whether to list out only direct child teams of the given parent.
+     */
     directChildrenOnly?: boolean,
+    /**
+     * The ID of the parent team.
+     */
     parentId?: string,
-    reference?: string,
-  ): CancelablePromise<{
+  }): CancelablePromise<{
     data?: GetUserTeamListResponse;
   }> {
     return this.httpRequest.request({
@@ -39,7 +44,6 @@ export class TeamService {
       query: {
         'direct_children_only': directChildrenOnly,
         'parent_id': parentId,
-        'reference': reference,
       },
     });
   }
@@ -47,18 +51,19 @@ export class TeamService {
   /**
    * Create a team
    * `Bot-compatible` Creates a new team in the organization.
-   * @param requestBody
    * @returns any Successfully created the team.
    * @throws ApiError
    */
-  public teamCreate(
+  public teamCreate({
+    requestBody,
+  }: {
     requestBody?: {
       /**
        * The name of the team to create.
        */
       name: string;
       /**
-       * The ID of the parent team under which the new team will be created.If you want to create a new team directly under the organization, rather than as a sub-team of a specific team within the organization, enter the organization id of the top-level team.
+       * The ID of the parent team under which the new team will be created. To create a new team directly under the organization (not as a subteam), use the organization's team ID. Note that this is different from the organization ID.
        */
       parent_id: string;
       /**
@@ -66,7 +71,7 @@ export class TeamService {
        */
       reference?: string;
     },
-  ): CancelablePromise<{
+  }): CancelablePromise<{
     data?: TeamCreateResponse;
   }> {
     return this.httpRequest.request({
@@ -80,11 +85,12 @@ export class TeamService {
   /**
    * Update a team
    * `Bot-compatible` Updates a team's information including its name and parent team.
-   * @param requestBody
    * @returns any Successfully updated the team's information.
    * @throws ApiError
    */
-  public teamUpdate(
+  public teamUpdate({
+    requestBody,
+  }: {
     requestBody?: {
       /**
        * The ID of the team to update.
@@ -103,7 +109,7 @@ export class TeamService {
        */
       parent_id?: string;
     },
-  ): CancelablePromise<{
+  }): CancelablePromise<{
     data?: TeamUpdateResponse;
   }> {
     return this.httpRequest.request({
@@ -117,18 +123,19 @@ export class TeamService {
   /**
    * Delete a team
    * `Bot-compatible` Deletes a team.
-   * @param requestBody
    * @returns any Successfully deleted the team.
    * @throws ApiError
    */
-  public teamDelete(
+  public teamDelete({
+    requestBody,
+  }: {
     requestBody?: {
       /**
        * The ID of the team to delete.
        */
       id: string;
     },
-  ): CancelablePromise<{
+  }): CancelablePromise<{
     data?: TeamDeleteResponse;
   }> {
     return this.httpRequest.request({
@@ -142,13 +149,14 @@ export class TeamService {
   /**
    * Sort teams
    * Sort the child teams of a parent team in a given order.
-   * @param requestBody
    * @returns any Successfully sorted the teams.
    * @throws ApiError
    */
-  public teamSort(
+  public teamSort({
+    requestBody,
+  }: {
     requestBody: TeamSortParam,
-  ): CancelablePromise<any> {
+  }): CancelablePromise<any> {
     return this.httpRequest.request({
       method: 'POST',
       url: '/api/team.sort',
@@ -160,11 +168,12 @@ export class TeamService {
   /**
    * Add users to a team
    * `Bot-compatible` Adds users to a team.
-   * @param requestBody
    * @returns any Successfully added the users to the selected team.
    * @throws ApiError
    */
-  public teamUserAdd(
+  public teamUserAdd({
+    requestBody,
+  }: {
     requestBody?: {
       /**
        * The IDs of the users to add.
@@ -175,7 +184,7 @@ export class TeamService {
        */
       id?: string;
     },
-  ): CancelablePromise<{
+  }): CancelablePromise<{
     data?: TeamUserCreateResponse;
   }> {
     return this.httpRequest.request({
@@ -189,11 +198,12 @@ export class TeamService {
   /**
    * Update a user's primary team
    * `Bot-compatible` Updates a user's primary team.
-   * @param requestBody
-   * @returns any Successfully updated the user's primary team.
+   * @returns void
    * @throws ApiError
    */
-  public teamUserPrimaryUpdate(
+  public teamUserPrimaryUpdate({
+    requestBody,
+  }: {
     requestBody?: {
       /**
        * The ID of the team to designate as the primary team.
@@ -204,7 +214,7 @@ export class TeamService {
        */
       user_id: string;
     },
-  ): CancelablePromise<any> {
+  }): CancelablePromise<void> {
     return this.httpRequest.request({
       method: 'POST',
       url: '/api/team.user.primary.update',
@@ -216,11 +226,15 @@ export class TeamService {
   /**
    * Remove team members
    * `Bot-compatible` Removes members from a team.
-   * @param requestBody The members to remove from the team.
    * @returns any Successfully removed the members from the team.
    * @throws ApiError
    */
-  public teamUserRemove(
+  public teamUserRemove({
+    requestBody,
+  }: {
+    /**
+     * The members to remove from the team.
+     */
     requestBody?: {
       /**
        * The ID of the team to remove the members from.
@@ -231,7 +245,7 @@ export class TeamService {
        */
       user_ids: Array<string>;
     },
-  ): CancelablePromise<{
+  }): CancelablePromise<{
     data?: TeamUserDeleteResponse;
   }> {
     return this.httpRequest.request({

@@ -23,15 +23,22 @@ export class ChatService {
   /**
    * Get a chat's information
    * Retrieves information about a chat.
-   * @param roomId The ID of the chat.
-   * @param targetUserId The user ID of the chat target.
    * @returns any Successfully retrieved the chat's information.
    * @throws ApiError
    */
-  public roomInfo(
+  public roomInfo({
+    roomId,
+    targetUserId,
+  }: {
+    /**
+     * The ID of the chat.
+     */
     roomId: string,
+    /**
+     * The user ID of the chat target.
+     */
     targetUserId?: string,
-  ): CancelablePromise<{
+  }): CancelablePromise<{
     data?: GetRoomResponse;
   }> {
     return this.httpRequest.request({
@@ -47,29 +54,49 @@ export class ChatService {
   /**
    * List out chats
    * Lists out a given number of chats. This method uses the Swit API's [pagination scheme](/docs/core1/up49a503iuknu-pagination-scheme).
-   * @param offsetOrderType Whether older or newer chat messages than the offset are to be returned, and whether the offset item is to be included or excluded.
-   *
-   * - `less`: Returns items older than the offset item, excluding the offset item.
-   * - `eq_less`: Returns items older than or equal to the offset item, including the offset item.
-   * - `greater`: Returns items newer than the offset item, excluding the offset item.
-   * - `eq_greater`: Returns items newer than or equal to the offset item, including the offset item.
-   *
-   * @param limit The number of chats to retrieve.
-   * @param filter The filter of the chat list.
-   * @param search The search keyword to filter the list by.
-   * @param page The page number for a paginated response.
-   * @param offset Pass the `offset` string returned by the previous call to skip already returned entries.
    * @returns any Successfully retrieved the chats.
    * @throws ApiError
    */
-  public roomList(
+  public roomList({
+    offsetOrderType,
+    limit,
+    filter,
+    search,
+    page,
+    offset,
+  }: {
+    /**
+     * Whether older or newer chat messages than the offset are to be returned, and whether the offset item is to be included or excluded.
+     *
+     * - `less`: Returns items older than the offset item, excluding the offset item.
+     * - `eq_less`: Returns items older than or equal to the offset item, including the offset item.
+     * - `greater`: Returns items newer than the offset item, excluding the offset item.
+     * - `eq_greater`: Returns items newer than or equal to the offset item, including the offset item.
+     *
+     */
     offsetOrderType?: 'less' | 'eq_less' | 'greater' | 'eq_greater',
+    /**
+     * The number of chats to retrieve.
+     */
     limit?: number,
+    /**
+     * The filter of the chat list.
+     */
     filter?: 'all' | 'starred' | 'unread',
+    /**
+     * The search keyword to filter the list by.
+     */
     search?: string,
+    /**
+     * The page number for a paginated response.
+     * @deprecated
+     */
     page?: number,
+    /**
+     * Pass the `offset` string returned by the previous call to skip already returned entries.
+     */
     offset?: string,
-  ): CancelablePromise<{
+  }): CancelablePromise<{
     data?: GetRoomListResponse;
   }> {
     return this.httpRequest.request({
@@ -89,13 +116,14 @@ export class ChatService {
   /**
    * Create a chat
    * Creates a new chat. If a 1:1 chat with the specified member already exists, the response will not create a duplicate but instead return the existing chat's information. For group chats with specified members, a new chat will be created even if one already exists with the same members.
-   * @param requestBody
    * @returns any Successfully created the chat.
    * @throws ApiError
    */
-  public roomCreate(
+  public roomCreate({
+    requestBody,
+  }: {
     requestBody: CreateRoomParam,
-  ): CancelablePromise<{
+  }): CancelablePromise<{
     data?: CreateRoomResponse;
   }> {
     return this.httpRequest.request({
@@ -109,13 +137,14 @@ export class ChatService {
   /**
    * Update a chat
    * Updates an existing chat.
-   * @param requestBody
    * @returns any Successfully updated the chat.
    * @throws ApiError
    */
-  public roomUpdate(
+  public roomUpdate({
+    requestBody,
+  }: {
     requestBody: UpdateRoomParam,
-  ): CancelablePromise<{
+  }): CancelablePromise<{
     data?: UpdateRoomResponse;
   }> {
     return this.httpRequest.request({
@@ -129,13 +158,14 @@ export class ChatService {
   /**
    * Leave a chat
    * The use leaves a chat.
-   * @param requestBody
    * @returns any Successfully left the chat.
    * @throws ApiError
    */
-  public roomLevae(
+  public roomLevae({
+    requestBody,
+  }: {
     requestBody: LeaveRoomParam,
-  ): CancelablePromise<{
+  }): CancelablePromise<{
     data?: LeaveRoomResponse;
   }> {
     return this.httpRequest.request({
@@ -149,13 +179,14 @@ export class ChatService {
   /**
    * Invite people
    * Invites people to a chat.
-   * @param requestBody
    * @returns any Successfully invited people to the chat.
    * @throws ApiError
    */
-  public roomInvite(
+  public roomInvite({
+    requestBody,
+  }: {
     requestBody: InviteRoomParam,
-  ): CancelablePromise<{
+  }): CancelablePromise<{
     data?: InviteRoomResponse;
   }> {
     return this.httpRequest.request({

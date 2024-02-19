@@ -21,13 +21,17 @@ export class IdeaService {
   /**
    * Get an idea's information
    * `Bot-compatible` Retrieves information about an idea.
-   * @param id The ID of the idea.
    * @returns any Successfully retrieved information about the idea.
    * @throws ApiError
    */
-  public ideaInfo(
+  public ideaInfo({
+    id,
+  }: {
+    /**
+     * The ID of the idea.
+     */
     id: string,
-  ): CancelablePromise<{
+  }): CancelablePromise<{
     data?: GetIdeaResponse;
   }> {
     return this.httpRequest.request({
@@ -42,17 +46,27 @@ export class IdeaService {
   /**
    * List out ideas
    * `Bot-compatible` Lists out a given number of ideas in a channel. This method uses the Swit API's [pagination scheme](/docs/core1/up49a503iuknu-pagination-scheme).
-   * @param channelId The ID of the channel from which to get posts.
-   * @param offset Pass the `offset` string returned by the previous call to skip already returned entries.
-   * @param limit The number of posts to retrieve.
    * @returns any Successfully retrieved the ideas.
    * @throws ApiError
    */
-  public ideaList(
+  public ideaList({
+    channelId,
+    offset,
+    limit,
+  }: {
+    /**
+     * The ID of the channel from which to get posts.
+     */
     channelId: string,
+    /**
+     * Pass the `offset` string returned by the previous call to skip already returned entries.
+     */
     offset?: string,
+    /**
+     * The number of posts to retrieve.
+     */
     limit?: number,
-  ): CancelablePromise<{
+  }): CancelablePromise<{
     data?: GetIdeaListResponse;
   }> {
     return this.httpRequest.request({
@@ -69,13 +83,14 @@ export class IdeaService {
   /**
    * Create an idea
    * `Bot-compatible` Creates a idea in a channel.
-   * @param requestBody
    * @returns any Successfully created the idea.
    * @throws ApiError
    */
-  public ideaCreate(
+  public ideaCreate({
+    requestBody,
+  }: {
     requestBody: CreateIdeaParam,
-  ): CancelablePromise<{
+  }): CancelablePromise<{
     data?: CreateIdeaResponse;
   }> {
     return this.httpRequest.request({
@@ -89,13 +104,14 @@ export class IdeaService {
   /**
    * Delete an idea
    * `Bot-compatible` Deletes an idea in a channel.
-   * @param requestBody
    * @returns any Successfully deleted the idea.
    * @throws ApiError
    */
-  public ideaRemove(
+  public ideaRemove({
+    requestBody,
+  }: {
     requestBody: DelIdeaParam,
-  ): CancelablePromise<any> {
+  }): CancelablePromise<any> {
     return this.httpRequest.request({
       method: 'POST',
       url: '/api/idea.remove',
@@ -107,13 +123,14 @@ export class IdeaService {
   /**
    * React to an idea
    * Adds a reaction emoji to an idea.
-   * @param requestBody
    * @returns any Successfully added the reaction.
    * @throws ApiError
    */
-  public ideaReactionCreate(
+  public ideaReactionCreate({
+    requestBody,
+  }: {
     requestBody: AddIdeaReactionParam,
-  ): CancelablePromise<{
+  }): CancelablePromise<{
     data?: AddIdeaReactionResponse;
   }> {
     return this.httpRequest.request({
@@ -127,13 +144,14 @@ export class IdeaService {
   /**
    * Remove a reaction emoji from an idea
    * Removes a reaction emoji from an idea.
-   * @param requestBody
    * @returns any Successfully removed the reaction.
    * @throws ApiError
    */
-  public ideaReactionRemove(
+  public ideaReactionRemove({
+    requestBody,
+  }: {
     requestBody: DelIdeaReactionParam,
-  ): CancelablePromise<any> {
+  }): CancelablePromise<any> {
     return this.httpRequest.request({
       method: 'POST',
       url: '/api/idea.reaction.remove',

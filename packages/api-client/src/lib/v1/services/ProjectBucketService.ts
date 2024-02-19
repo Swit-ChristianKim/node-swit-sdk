@@ -19,15 +19,22 @@ export class ProjectBucketService {
   /**
    * Get a task bucket's information
    * `Bot-compatible` Retrieves information about a task bucket.
-   * @param projectId The ID of the project that contains the bucket.
-   * @param id The ID of the bucket the task is in.
    * @returns any Successfully retrieved the bucket's information.
    * @throws ApiError
    */
-  public projectBucketInfo(
+  public projectBucketInfo({
+    projectId,
+    id,
+  }: {
+    /**
+     * The ID of the project that contains the bucket.
+     */
     projectId: string,
+    /**
+     * The ID of the bucket the task is in.
+     */
     id: string,
-  ): CancelablePromise<{
+  }): CancelablePromise<{
     data?: GetProjectBucketInfoResponse;
   }> {
     return this.httpRequest.request({
@@ -43,17 +50,27 @@ export class ProjectBucketService {
   /**
    * List out task buckets
    * `Bot-compatible` Lists out all task buckets from a project.
-   * @param projectId The ID of the project.
-   * @param limit The number of buckets to retrieve.
-   * @param offset Pass the `offset` string returned by the previous call to skip already returned entries.
    * @returns any Successfully retrieved the buckets.
    * @throws ApiError
    */
-  public projectBucketList(
+  public projectBucketList({
+    projectId,
+    limit,
+    offset,
+  }: {
+    /**
+     * The ID of the project.
+     */
     projectId: string,
+    /**
+     * The number of buckets to retrieve.
+     */
     limit?: number,
+    /**
+     * Pass the `offset` string returned by the previous call to skip already returned entries.
+     */
     offset?: string,
-  ): CancelablePromise<{
+  }): CancelablePromise<{
     data?: GetProjectBucketListResponse;
   }> {
     return this.httpRequest.request({
@@ -70,13 +87,14 @@ export class ProjectBucketService {
   /**
    * Add a task bucket
    * Adds a task bucket in a project.
-   * @param requestBody
    * @returns any Successfully added the bucket.
    * @throws ApiError
    */
-  public projectBucketCreate(
+  public projectBucketCreate({
+    requestBody,
+  }: {
     requestBody: AddProjectBucketParam,
-  ): CancelablePromise<{
+  }): CancelablePromise<{
     data?: AddProjectBucketResponse;
   }> {
     return this.httpRequest.request({
@@ -90,13 +108,14 @@ export class ProjectBucketService {
   /**
    * Update a task bucket
    * Updates the title of an existing task bucket in a project.
-   * @param requestBody
    * @returns any Successfully updated the bucket.
    * @throws ApiError
    */
-  public projectBucketUpdate(
+  public projectBucketUpdate({
+    requestBody,
+  }: {
     requestBody: PutProjectBucketParam,
-  ): CancelablePromise<{
+  }): CancelablePromise<{
     data?: PutProjectBucketResponse;
   }> {
     return this.httpRequest.request({

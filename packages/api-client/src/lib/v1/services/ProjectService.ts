@@ -23,13 +23,17 @@ export class ProjectService {
   /**
    * Get a project's information
    * `Bot-compatible` Retrieves information about a project.
-   * @param id The ID of the project.
    * @returns any Successfully retrieved the project's information.
    * @throws ApiError
    */
-  public projectInfo(
+  public projectInfo({
+    id,
+  }: {
+    /**
+     * The ID of the project.
+     */
     id: string,
-  ): CancelablePromise<{
+  }): CancelablePromise<{
     data?: GetProjectInfoResponse;
   }> {
     return this.httpRequest.request({
@@ -44,25 +48,49 @@ export class ProjectService {
   /**
    * List out projects
    * Lists out a given number of projects from a workspace. This method uses the Swit API's [pagination scheme](/docs/core1/up49a503iuknu-pagination-scheme).
-   * @param workspaceId The ID of the workspace.
-   * @param limit The number of projects to retrieve.
-   * @param offset Pass the `offset` string returned by the previous call to skip already returned entries.
-   * @param activity Filter the list by whether the project is active (`act`) or archived (`arch`). You can select a comma-delimited list of multiple property filters. If not passed, both filters will be selected.
-   * @param disclosure Filter the list by whether the project is pubic (`pub`) or private (`pri`). You can select a comma-delimited list of multiple property filters. If not passed, both filters will be selected.
-   * @param name The exact name of the project (case-insensitive) to retrieve.
-   * @param page The page number for a paginated response.
    * @returns any Successfully retrieved the projects.
    * @throws ApiError
    */
-  public projectList(
+  public projectList({
+    workspaceId,
+    limit,
+    offset,
+    activity,
+    disclosure,
+    name,
+    page,
+  }: {
+    /**
+     * The ID of the workspace.
+     */
     workspaceId: string,
+    /**
+     * The number of projects to retrieve.
+     */
     limit?: number,
+    /**
+     * Pass the `offset` string returned by the previous call to skip already returned entries.
+     */
     offset?: string,
+    /**
+     * Filter the list by whether the project is active (`act`) or archived (`arch`). You can select a comma-delimited list of multiple property filters. If not passed, both filters will be selected.
+     */
     activity?: string,
+    /**
+     * Filter the list by whether the project is pubic (`pub`) or private (`pri`). You can select a comma-delimited list of multiple property filters. If not passed, both filters will be selected.
+     */
     disclosure?: string,
+    /**
+     * The exact name of the project (case-insensitive) to retrieve.
+     * @deprecated
+     */
     name?: string,
+    /**
+     * The page number for a paginated response.
+     * @deprecated
+     */
     page?: number,
-  ): CancelablePromise<{
+  }): CancelablePromise<{
     data?: GetProjectListResponse;
   }> {
     return this.httpRequest.request({
@@ -83,13 +111,14 @@ export class ProjectService {
   /**
    * Create a project
    * Creates a project in a workspace.
-   * @param requestBody
    * @returns any Successfully created the project.
    * @throws ApiError
    */
-  public projectCreate(
+  public projectCreate({
+    requestBody,
+  }: {
     requestBody: AddProjectParam,
-  ): CancelablePromise<{
+  }): CancelablePromise<{
     data?: AddProjectResponse;
   }> {
     return this.httpRequest.request({
@@ -103,13 +132,14 @@ export class ProjectService {
   /**
    * Update a project
    * Updates an existing project in a workspace.
-   * @param requestBody
    * @returns any Successfully updated the project.
    * @throws ApiError
    */
-  public projectUpdate(
+  public projectUpdate({
+    requestBody,
+  }: {
     requestBody: PutProjectParam,
-  ): CancelablePromise<{
+  }): CancelablePromise<{
     data?: PutProjectResponse;
   }> {
     return this.httpRequest.request({
@@ -123,13 +153,14 @@ export class ProjectService {
   /**
    * Archive/unarchive a project
    * Updates a project's archiving status.
-   * @param requestBody
    * @returns void
    * @throws ApiError
    */
-  public projectUpdateProjectArchive(
+  public projectUpdateProjectArchive({
+    requestBody,
+  }: {
     requestBody: UpdateProjectArchiveParam,
-  ): CancelablePromise<void> {
+  }): CancelablePromise<void> {
     return this.httpRequest.request({
       method: 'POST',
       url: '/api/project.archive',
@@ -141,19 +172,33 @@ export class ProjectService {
   /**
    * List out project members
    * `Bot-compatible` Lists out a given number of members belonging to a project. This method uses the Swit API's [pagination scheme](/docs/core1/up49a503iuknu-pagination-scheme).
-   * @param projectId The ID of the project.
-   * @param limit The number of members to retrieve.
-   * @param offset Pass the `offset` string returned by the previous call to skip already returned entries.
-   * @param page The page number for a paginated response
    * @returns any Successfully retrieved the members.
    * @throws ApiError
    */
-  public projectUserList(
+  public projectUserList({
+    projectId,
+    limit,
+    offset,
+    page,
+  }: {
+    /**
+     * The ID of the project.
+     */
     projectId: string,
+    /**
+     * The number of members to retrieve.
+     */
     limit?: number,
+    /**
+     * Pass the `offset` string returned by the previous call to skip already returned entries.
+     */
     offset?: string,
+    /**
+     * The page number for a paginated response
+     * @deprecated
+     */
     page?: number,
-  ): CancelablePromise<{
+  }): CancelablePromise<{
     data?: GetProjectUserListResponse;
   }> {
     return this.httpRequest.request({
@@ -171,11 +216,15 @@ export class ProjectService {
   /**
    * Invite users to a project
    * Invites users to a project.
-   * @param requestBody The users to invite and the project to invite them to.
    * @returns void
    * @throws ApiError
    */
-  public postApiProjectUserInvite(
+  public postApiProjectUserInvite({
+    requestBody,
+  }: {
+    /**
+     * The users to invite and the project to invite them to.
+     */
     requestBody?: {
       /**
        * The ID of the project.
@@ -186,7 +235,7 @@ export class ProjectService {
        */
       user_ids?: Array<string>;
     },
-  ): CancelablePromise<void> {
+  }): CancelablePromise<void> {
     return this.httpRequest.request({
       method: 'POST',
       url: '/api/project.user.invite',
@@ -202,17 +251,27 @@ export class ProjectService {
    * Assigned to tasks of a project, tags facilitate filtering or searching
    * those tasks for viewing convenience. This method enumerates all tags
    * assigned at least once to any task of the target project.
-   * @param id The ID of the project.
-   * @param limit The number of tags to retrieve.
-   * @param offset Pass the `offset` string returned by the previous call to skip already returned entries.
    * @returns any Successfully retrieved the tags from the project.
    * @throws ApiError
    */
-  public projectTagList(
+  public projectTagList({
+    id,
+    limit,
+    offset,
+  }: {
+    /**
+     * The ID of the project.
+     */
     id: string,
+    /**
+     * The number of tags to retrieve.
+     */
     limit?: number,
+    /**
+     * Pass the `offset` string returned by the previous call to skip already returned entries.
+     */
     offset?: string,
-  ): CancelablePromise<{
+  }): CancelablePromise<{
     data?: GetProjectTagListResponse;
   }> {
     return this.httpRequest.request({
@@ -229,13 +288,17 @@ export class ProjectService {
   /**
    * List out statuses in a project
    * Lists out the list of statuses in a given project.
-   * @param projectId The ID of the project.
    * @returns any Successfully retrieved the list of statuses in a project.
    * @throws ApiError
    */
-  public taskStatusList(
+  public taskStatusList({
+    projectId,
+  }: {
+    /**
+     * The ID of the project.
+     */
     projectId: string,
-  ): CancelablePromise<{
+  }): CancelablePromise<{
     /**
      * An object wrapping a Swit resource.
      */

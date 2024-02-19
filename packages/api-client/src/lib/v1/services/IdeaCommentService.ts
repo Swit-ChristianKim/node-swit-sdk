@@ -17,17 +17,27 @@ export class IdeaCommentService {
   /**
    * List out idea comments
    * `Bot-compatible` Lists out a given number of comments on an idea. This method uses the Swit API's [pagination scheme](/docs/core1/up49a503iuknu-pagination-scheme).
-   * @param ideaId The ID of the idea from which to get comments.
-   * @param offset Pass the `offset` string returned by the previous call to skip already returned entries.
-   * @param limit The number of comments to retrieve.
    * @returns any Successfully retrieved the comments.
    * @throws ApiError
    */
-  public ideaCommentList(
+  public ideaCommentList({
+    ideaId,
+    offset,
+    limit,
+  }: {
+    /**
+     * The ID of the idea from which to get comments.
+     */
     ideaId: string,
+    /**
+     * Pass the `offset` string returned by the previous call to skip already returned entries.
+     */
     offset?: string,
+    /**
+     * The number of comments to retrieve.
+     */
     limit?: number,
-  ): CancelablePromise<{
+  }): CancelablePromise<{
     data?: GetIdeaCommentListResponse;
   }> {
     return this.httpRequest.request({
@@ -44,13 +54,14 @@ export class IdeaCommentService {
   /**
    * Comment on an idea
    * `Bot-compatible` Posts a comment on an idea.
-   * @param requestBody
    * @returns any Successfully commented on the idea.
    * @throws ApiError
    */
-  public ideaCommentCreate(
+  public ideaCommentCreate({
+    requestBody,
+  }: {
     requestBody: CreateIdeaCommentParam,
-  ): CancelablePromise<{
+  }): CancelablePromise<{
     data?: CreateIdeaCommentResponse;
   }> {
     return this.httpRequest.request({
@@ -64,13 +75,14 @@ export class IdeaCommentService {
   /**
    * Delete an idea comment
    * `Bot-compatible` Deletes a comment on an idea.
-   * @param requestBody
    * @returns any Successfully deleted the comment.
    * @throws ApiError
    */
-  public ideaCommentRemove(
+  public ideaCommentRemove({
+    requestBody,
+  }: {
     requestBody: DelIdeaCommentParam,
-  ): CancelablePromise<any> {
+  }): CancelablePromise<any> {
     return this.httpRequest.request({
       method: 'POST',
       url: '/api/idea.comment.remove',

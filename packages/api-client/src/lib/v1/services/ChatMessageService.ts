@@ -21,15 +21,22 @@ export class ChatMessageService {
   /**
    * Get a chat message's information
    * Retrieves information about a chat message.
-   * @param contentsId The ID of the chat message.
-   * @param roomId The ID of the chat.
    * @returns any Successfully retrieved information about the chat message.
    * @throws ApiError
    */
-  public content(
+  public content({
+    contentsId,
+    roomId,
+  }: {
+    /**
+     * The ID of the chat message.
+     */
     contentsId: string,
+    /**
+     * The ID of the chat.
+     */
     roomId: string,
-  ): CancelablePromise<{
+  }): CancelablePromise<{
     data?: GetContentsResponse;
   }> {
     return this.httpRequest.request({
@@ -45,28 +52,47 @@ export class ChatMessageService {
   /**
    * List out posts
    * Lists out a given number of posts in a chat. This method uses the Swit API's [pagination scheme](/docs/core1/up49a503iuknu-pagination-scheme).
-   * @param roomId The ID of the chat from which to get chat messages.
-   * @param offsetOrderType Whether older or newer chat messages than the offset are to be returned, and whether the offset item is to be included or excluded.
-   * - `less`: Returns items older than the offset item.
-   * - `eq_less`: Returns items older than or equal to the offset item.
-   * - `greater`: Returns items newer than the offset item.
-   * - `eq_greater`: Returns items newer than or equal to the offset item.
-   *
-   * @param limit The number of chat messages to retrieve.
-   * @param parentId The ID of the primary chat message for which associated comments are to be retrieved.
-   * @param offsetContentsId If you'd like to get chat messages older than a particular chat message, pass the ID of the baseline chat message for this parameter. If `offset` is passed, this parameter will be ignored.
-   * @param offset Pass the `offset` string returned by the previous call to skip already returned entries.
    * @returns any Successfully retrieved the chat messages.
    * @throws ApiError
    */
-  public contentList(
+  public contentList({
+    roomId,
+    offsetOrderType,
+    limit,
+    parentId,
+    offsetContentsId,
+    offset,
+  }: {
+    /**
+     * The ID of the chat from which to get chat messages.
+     */
     roomId: string,
+    /**
+     * Whether older or newer chat messages than the offset are to be returned, and whether the offset item is to be included or excluded.
+     * - `less`: Returns items older than the offset item.
+     * - `eq_less`: Returns items older than or equal to the offset item.
+     * - `greater`: Returns items newer than the offset item.
+     * - `eq_greater`: Returns items newer than or equal to the offset item.
+     *
+     */
     offsetOrderType?: 'less' | 'eq_less' | 'greater' | 'eq_greater',
+    /**
+     * The number of chat messages to retrieve.
+     */
     limit?: number,
+    /**
+     * The ID of the primary chat message for which associated comments are to be retrieved.
+     */
     parentId?: string,
+    /**
+     * If you'd like to get chat messages older than a particular chat message, pass the ID of the baseline chat message for this parameter. If `offset` is passed, this parameter will be ignored.
+     */
     offsetContentsId?: string,
+    /**
+     * Pass the `offset` string returned by the previous call to skip already returned entries.
+     */
     offset?: string,
-  ): CancelablePromise<{
+  }): CancelablePromise<{
     data?: GetContentsListResponse;
   }> {
     return this.httpRequest.request({
@@ -86,13 +112,14 @@ export class ChatMessageService {
   /**
    * Create a chat message
    * Creates a chat message.
-   * @param requestBody
    * @returns any Successfully created the chat message.
    * @throws ApiError
    */
-  public contentsCreate(
+  public contentsCreate({
+    requestBody,
+  }: {
     requestBody: CreateContentsParam,
-  ): CancelablePromise<{
+  }): CancelablePromise<{
     data?: CreateContentsResponse;
   }> {
     return this.httpRequest.request({
@@ -106,13 +133,14 @@ export class ChatMessageService {
   /**
    * Update a chat message
    * Updates a chat message.
-   * @param requestBody
    * @returns any Successfully updated the chat message.
    * @throws ApiError
    */
-  public contentsUpdate(
+  public contentsUpdate({
+    requestBody,
+  }: {
     requestBody: UpdateContentsParam,
-  ): CancelablePromise<{
+  }): CancelablePromise<{
     data?: UpdateContentsResponse;
   }> {
     return this.httpRequest.request({
@@ -126,13 +154,14 @@ export class ChatMessageService {
   /**
    * Delete a chat message
    * Deletes a chat message.
-   * @param requestBody
    * @returns any Successfully deleted the chat message.
    * @throws ApiError
    */
-  public contentsDelete(
+  public contentsDelete({
+    requestBody,
+  }: {
     requestBody: DeleteContentsParam,
-  ): CancelablePromise<{
+  }): CancelablePromise<{
     data?: DeleteContentsResponse;
   }> {
     return this.httpRequest.request({

@@ -18,13 +18,14 @@ export class ApprovalService {
   /**
    * Draft a request
    * Creates a request draft for approval.
-   * @param requestBody
    * @returns any Successfully created the request.
    * @throws ApiError
    */
-  public approvalCreateApproval(
+  public approvalCreateApproval({
+    requestBody,
+  }: {
     requestBody: CreateApprovalParam,
-  ): CancelablePromise<{
+  }): CancelablePromise<{
     data?: CreateApprovalResponse;
   }> {
     return this.httpRequest.request({
@@ -38,40 +39,68 @@ export class ApprovalService {
   /**
    * List out received requests
    * Lists out a given number of requests from the user's inbox. This method uses the Swit API's [pagination scheme](/docs/core1/up49a503iuknu-pagination-scheme).
-   * @param offset Pass the `offset` string returned by the previous call to skip already returned entries.
-   * @param limit The number of objects to retrieve.
-   * @param filterKeyword Filter requests whose ID, title, submitter, approvers, recipients match this keyword.
-   * @param filterIsBookmarked Filter requests that are starred. Pass `1` to this parameter if you'd like to use this filter.
-   * @param filterApprovalCategoryIds Filter requests by template in use. Pass a comma-delimited list of template IDs. If you want to include requests with no template, add `none` to the list.
-   * @param filterEndDate Filter requests submitted at or before this datetime. Use the ISO 8601 format in UTC.
-   * @param type The tab from which to retrieve requests.
-   * - `me`: **My approvals**
-   * - `me_pending`: **My approvals** > **Pending**
-   * - `me_completed`: **My approvals** > **Completed**
-   * - `team`: **Circulated to my team**
-   * - `referrer_team`: **Received by my team**
-   * - `referrer`: **CC'd to me**
-   * @param filterStartDate Filter requests submitted at or after this datetime. Use the ISO 8601 format in UTC.
-   * @param filterApprovalStatus Filter requests whose status matches this setting.
-   * - `1`: Waiting
-   * - `2`: Approved
-   * - `3`: Denied
-   *
-   * You can pass a comma-delimited list of status codes (for example, `1,2`).
    * @returns any Successfully retrieved the requests received.
    * @throws ApiError
    */
-  public approvalGetApprovalListReceived(
+  public approvalGetApprovalListReceived({
+    offset,
+    limit,
+    filterKeyword,
+    filterIsBookmarked,
+    filterApprovalCategoryIds,
+    filterEndDate,
+    type,
+    filterStartDate,
+    filterApprovalStatus,
+  }: {
+    /**
+     * Pass the `offset` string returned by the previous call to skip already returned entries.
+     */
     offset?: string,
+    /**
+     * The number of objects to retrieve.
+     */
     limit?: number,
+    /**
+     * Filter requests whose ID, title, submitter, approvers, recipients match this keyword.
+     */
     filterKeyword?: string,
+    /**
+     * Filter requests that are starred. Pass `1` to this parameter if you'd like to use this filter.
+     */
     filterIsBookmarked?: string,
+    /**
+     * Filter requests by template in use. Pass a comma-delimited list of template IDs. If you want to include requests with no template, add `none` to the list.
+     */
     filterApprovalCategoryIds?: string,
+    /**
+     * Filter requests submitted at or before this datetime. Use the ISO 8601 format in UTC.
+     */
     filterEndDate?: string,
+    /**
+     * The tab from which to retrieve requests.
+     * - `me`: **My approvals**
+     * - `me_pending`: **My approvals** > **Pending**
+     * - `me_completed`: **My approvals** > **Completed**
+     * - `team`: **Circulated to my team**
+     * - `referrer_team`: **Received by my team**
+     * - `referrer`: **CC'd to me**
+     */
     type?: 'me' | 'me_pending' | 'me_completed' | 'team' | 'referrer_team' | 'referrer',
+    /**
+     * Filter requests submitted at or after this datetime. Use the ISO 8601 format in UTC.
+     */
     filterStartDate?: string,
+    /**
+     * Filter requests whose status matches this setting.
+     * - `1`: Waiting
+     * - `2`: Approved
+     * - `3`: Denied
+     *
+     * You can pass a comma-delimited list of status codes (for example, `1,2`).
+     */
     filterApprovalStatus?: string,
-  ): CancelablePromise<{
+  }): CancelablePromise<{
     data?: ApprovalListResponse;
   }> {
     return this.httpRequest.request({
@@ -94,36 +123,64 @@ export class ApprovalService {
   /**
    * List out submitted requests
    * Lists out a given number of requests from the user's submissions. This method uses the Swit API's [pagination scheme](/docs/core1/up49a503iuknu-pagination-scheme).
-   * @param filterKeyword Filter requests whose ID, title, submitter, approvers, recipients match this keyword.
-   * @param filterIsBookmarked Filter requests that are starred. Pass `1` to this parameter if you'd like to use this filter.
-   * @param filterApprovalCategoryIds Filter requests by template in use. Pass a comma-delimited list of template IDs. If you want to include requests with no template, add `none` to the list.
-   * @param filterStartDate Filter requests submitted at or after this datetime. Use the ISO 8601 format in UTC.
-   * @param filterApprovalStatus Filter requests whose status matches this setting.
-   * - `1`: Waiting
-   * - `2`: Approved
-   * - `3`: Denied
-   *
-   * You can pass a comma-delimited list of status codes (for example, `1,2`).
-   * @param type The tab from which to retrieve requests.
-   * - `me`: **My submissions**
-   * - `team`: **Circulated to my team**
-   * @param limit The number of requests to retrieve.
-   * @param filterEndDate Filter requests submitted at or after this datetime. Use the ISO 8601 format in UTC.
-   * @param offset Pass the `offset` string returned by the previous call to skip already returned entries.
    * @returns any Successfully retrieved the requests submitted.
    * @throws ApiError
    */
-  public approvalGetApprovalListSent(
+  public approvalGetApprovalListSent({
+    filterKeyword,
+    filterIsBookmarked,
+    filterApprovalCategoryIds,
+    filterStartDate,
+    filterApprovalStatus,
+    type,
+    limit,
+    filterEndDate,
+    offset,
+  }: {
+    /**
+     * Filter requests whose ID, title, submitter, approvers, recipients match this keyword.
+     */
     filterKeyword?: string,
+    /**
+     * Filter requests that are starred. Pass `1` to this parameter if you'd like to use this filter.
+     */
     filterIsBookmarked?: '0' | '1',
+    /**
+     * Filter requests by template in use. Pass a comma-delimited list of template IDs. If you want to include requests with no template, add `none` to the list.
+     */
     filterApprovalCategoryIds?: string,
+    /**
+     * Filter requests submitted at or after this datetime. Use the ISO 8601 format in UTC.
+     */
     filterStartDate?: string,
+    /**
+     * Filter requests whose status matches this setting.
+     * - `1`: Waiting
+     * - `2`: Approved
+     * - `3`: Denied
+     *
+     * You can pass a comma-delimited list of status codes (for example, `1,2`).
+     */
     filterApprovalStatus?: string,
+    /**
+     * The tab from which to retrieve requests.
+     * - `me`: **My submissions**
+     * - `team`: **Circulated to my team**
+     */
     type?: string,
+    /**
+     * The number of requests to retrieve.
+     */
     limit?: number,
+    /**
+     * Filter requests submitted at or after this datetime. Use the ISO 8601 format in UTC.
+     */
     filterEndDate?: string,
+    /**
+     * Pass the `offset` string returned by the previous call to skip already returned entries.
+     */
     offset?: string,
-  ): CancelablePromise<{
+  }): CancelablePromise<{
     data?: ApprovalListResponse;
   }> {
     return this.httpRequest.request({
@@ -146,15 +203,22 @@ export class ApprovalService {
   /**
    * List out drafts
    * Lists out a given number of request drafts. This method uses the Swit API's [pagination scheme](/docs/core1/up49a503iuknu-pagination-scheme).
-   * @param limit The number of drafts to retrieve.
-   * @param offset Pass the `offset` string returned by the previous call to skip already returned entries.
    * @returns any Successfully retrieved the drafts.
    * @throws ApiError
    */
-  public approvalGetApprovalListTemp(
+  public approvalGetApprovalListTemp({
+    limit,
+    offset,
+  }: {
+    /**
+     * The number of drafts to retrieve.
+     */
     limit?: number,
+    /**
+     * Pass the `offset` string returned by the previous call to skip already returned entries.
+     */
     offset?: string,
-  ): CancelablePromise<{
+  }): CancelablePromise<{
     data?: ApprovalListResponse;
   }> {
     return this.httpRequest.request({
@@ -170,13 +234,17 @@ export class ApprovalService {
   /**
    * Get a template's info
    * Retrieves information about a request template.
-   * @param approvalCategoryId The ID of the template to view.
    * @returns any Successfully retrieved information about the template.
    * @throws ApiError
    */
-  public approvalGetApprovalCategoryInfo(
+  public approvalGetApprovalCategoryInfo({
+    approvalCategoryId,
+  }: {
+    /**
+     * The ID of the template to view.
+     */
     approvalCategoryId?: string,
-  ): CancelablePromise<{
+  }): CancelablePromise<{
     data?: GetApprovalCategoryInfoResponse;
   }> {
     return this.httpRequest.request({
@@ -191,15 +259,22 @@ export class ApprovalService {
   /**
    * List out templates
    * Lists out a given number of request templates. This method uses the Swit API's [pagination scheme](/docs/core1/up49a503iuknu-pagination-scheme).
-   * @param limit The number of objects to retrieve.
-   * @param offset Pass the `offset` string returned by the previous call to skip already returned entries.
    * @returns any Successfully retrieved the templates.
    * @throws ApiError
    */
-  public approvalGetApprovalCategoryList(
+  public approvalGetApprovalCategoryList({
+    limit,
+    offset,
+  }: {
+    /**
+     * The number of objects to retrieve.
+     */
     limit?: number,
+    /**
+     * Pass the `offset` string returned by the previous call to skip already returned entries.
+     */
     offset?: string,
-  ): CancelablePromise<{
+  }): CancelablePromise<{
     data?: ApprovalCategoryListResponse;
   }> {
     return this.httpRequest.request({

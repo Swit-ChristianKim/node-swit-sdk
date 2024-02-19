@@ -38,13 +38,14 @@ export class CustomFieldService {
   /**
    * Add a custom field
    * `Bot-compatible` Adds a new custom field for user profiles.
-   * @param requestBody
    * @returns any Successfully added the custom field.
    * @throws ApiError
    */
-  public customfieldAdd(
+  public customfieldAdd({
+    requestBody,
+  }: {
     requestBody: AddCustomFieldParam,
-  ): CancelablePromise<{
+  }): CancelablePromise<{
     data?: AddCustomFieldResponse;
   }> {
     return this.httpRequest.request({
@@ -58,13 +59,14 @@ export class CustomFieldService {
   /**
    * Delete custom field
    * `Bot-compatible` Deletes a custom field for user profiles.
-   * @param requestBody
    * @returns any Successfully deleted the custom field.
    * @throws ApiError
    */
-  public customfieldDelete(
+  public customfieldDelete({
+    requestBody,
+  }: {
     requestBody: DeleteCustomFieldParam,
-  ): CancelablePromise<{
+  }): CancelablePromise<{
     data?: DeleteCustomFieldResponse;
   }> {
     return this.httpRequest.request({
@@ -78,13 +80,14 @@ export class CustomFieldService {
   /**
    * Update a custom field
    * `Bot-compatible` Updates an existing custom field.
-   * @param requestBody
    * @returns any Successfully updated the custom field.
    * @throws ApiError
    */
-  public customfieldUpdate(
+  public customfieldUpdate({
+    requestBody,
+  }: {
     requestBody: UpdateCustomFieldParam,
-  ): CancelablePromise<{
+  }): CancelablePromise<{
     data?: UpdateCustomFieldResponse;
   }> {
     return this.httpRequest.request({
@@ -98,13 +101,17 @@ export class CustomFieldService {
   /**
    * List out a user's custom fields in use
    * `Bot-compatible` Retrieves the custom fields and their values used in a given user's profile.
-   * @param userId The ID of the target user.
    * @returns any Successfully retrieved the user's custom field data.
    * @throws ApiError
    */
-  public customfieldUserList(
+  public customfieldUserList({
+    userId,
+  }: {
+    /**
+     * The ID of the target user.
+     */
     userId: string,
-  ): CancelablePromise<{
+  }): CancelablePromise<{
     data?: GetUserCustomFieldListResponse;
   }> {
     return this.httpRequest.request({
@@ -119,13 +126,14 @@ export class CustomFieldService {
   /**
    * Update a user's custom field data
    * `Bot-compatible` Updates the values of the custom fields used in a given user's profile.
-   * @param requestBody
    * @returns any Successfully updated the user's custom field data.
    * @throws ApiError
    */
-  public customfieldUserUpdate(
+  public customfieldUserUpdate({
+    requestBody,
+  }: {
     requestBody: UpdateUserCustomFieldParam,
-  ): CancelablePromise<{
+  }): CancelablePromise<{
     data?: UpdateUserCustomFieldResponse;
   }> {
     return this.httpRequest.request({

@@ -19,13 +19,14 @@ export class TaskCommentService {
   /**
    * Comment on a task
    * `Bot-compatible` Posts a comment on a task.
-   * @param requestBody
    * @returns any Successfully commented on the task.
    * @throws ApiError
    */
-  public taskCommentCreate(
+  public taskCommentCreate({
+    requestBody,
+  }: {
     requestBody: AddTaskCommentParam,
-  ): CancelablePromise<{
+  }): CancelablePromise<{
     data?: AddTaskCommentResponse;
   }> {
     return this.httpRequest.request({
@@ -39,21 +40,34 @@ export class TaskCommentService {
   /**
    * List out task comments
    * `Bot-compatible` Lists out a given number of comments on a task. This method uses the Swit API's [pagination scheme](/docs/core1/up49a503iuknu-pagination-scheme).
-   * @param taskId The ID of the task.
-   * @param offset The ordinal number of the page of comments to return.
-   * @param bodyType Whether or not to use rich styles.
-   * - `plain`: The `content` value will be parsed as plaintext.
-   * - `json_string`: The `content` value will be parsed as an object representing a rich-formatted text.
-   * @param limit The number of comments to retrieve.
    * @returns any Successfully retrieved the comments.
    * @throws ApiError
    */
-  public taskCommentList(
+  public taskCommentList({
+    taskId,
+    offset,
+    bodyType = 'plain',
+    limit,
+  }: {
+    /**
+     * The ID of the task.
+     */
     taskId: string,
+    /**
+     * The ordinal number of the page of comments to return.
+     */
     offset?: string,
-    bodyType: 'plain' | 'json_string' = 'plain',
+    /**
+     * Whether or not to use rich styles.
+     * - `plain`: The `content` value will be parsed as plaintext.
+     * - `json_string`: The `content` value will be parsed as an object representing a rich-formatted text.
+     */
+    bodyType?: 'plain' | 'json_string',
+    /**
+     * The number of comments to retrieve.
+     */
     limit?: number,
-  ): CancelablePromise<{
+  }): CancelablePromise<{
     data?: GetTaskCommentResponse;
   }> {
     return this.httpRequest.request({
@@ -71,13 +85,14 @@ export class TaskCommentService {
   /**
    * Delete a task comment
    * `Bot-compatible` Deletes a comment on a task.
-   * @param requestBody
    * @returns any Successfully deleted the comment.
    * @throws ApiError
    */
-  public taskCommentRemove(
+  public taskCommentRemove({
+    requestBody,
+  }: {
     requestBody: DelTaskCommentParam,
-  ): CancelablePromise<any> {
+  }): CancelablePromise<any> {
     return this.httpRequest.request({
       method: 'POST',
       url: '/api/task.comment.remove',
@@ -89,13 +104,14 @@ export class TaskCommentService {
   /**
    * Edit a task comment
    * `Bot-compatible` Edits a comment on a task.
-   * @param requestBody
    * @returns any Successfully edited the comment.
    * @throws ApiError
    */
-  public taskCommentUpdate(
+  public taskCommentUpdate({
+    requestBody,
+  }: {
     requestBody: PutTaskCommentParam,
-  ): CancelablePromise<{
+  }): CancelablePromise<{
     data?: PutTaskCommentResponse;
   }> {
     return this.httpRequest.request({
