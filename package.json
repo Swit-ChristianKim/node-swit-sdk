@@ -2,7 +2,7 @@
   "name": "node-swit-sdk",
   "version": "0.0.3",
   "engines": {
-    "node": ">=18.17.1",
+    "node": ">=18.19.0",
     "npm": ">=9.6.7"
   },
   "license": "MIT",
@@ -14,7 +14,9 @@
     "gen": "nx run api-client:gen",
     "api-client:build": "nx run api-client:build",
     "api-client:publish": "nx run api-client:publish",
-    "api-client:test-types": "nx run api-client:test-types"
+    "api-client:test-types": "nx run api-client:test-types",
+    "oauth:build": "nx run oauth:build",
+    "oauth:test": "nx run oauth:test"
   },
   "private": true,
   "dependencies": {
@@ -48,7 +50,7 @@
     "prettier": "^2.6.2",
     "ts-jest": "^29.1.0",
     "ts-node": "10.9.1",
-    "typescript": "5.3.3",
+    "typescript": "^5.3.3",
     "verdaccio": "^5.0.4"
   },
   "workspaces": [
