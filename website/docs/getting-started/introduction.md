@@ -77,5 +77,21 @@ Please refer to the link below for additional ClientV1 information.
 |user | [UserService](/api/api-client/class/UserService) |
 |workspace | [WorkspaceService](/api/api-client/class/WorkspaceService) |
 
+## 5.Direct access to internal Axios instance
 
+Use internally when a separate customization of settings is required
+You can also access and use an Axios instance.
 
+```ts
+const client = new ApiClient(config);
+client.clientV1AxiosRef.interceptors.response.use(
+  (response) => {
+    // response handle
+    return response;
+  },
+  (error) => {
+    // error handle
+    return Promise.reject(error);
+  }
+);
+```

@@ -76,3 +76,21 @@ const res = await client.user.userInfo();
 |workspace | [WorkspaceService](/api/api-client/class/WorkspaceService) |
 
 
+## 5.내부에서 사용하는 Axios instance 직접 접근 가능
+
+별도의 설정 커스텀이 필요한 경우에 내부에서 사용하는
+Axios instance에 접근하여 사용할수도 있습니다.
+
+```ts
+const client = new ApiClient(config);
+client.clientV1AxiosRef.interceptors.response.use(
+  (response) => {
+    // response handle
+    return response;
+  },
+  (error) => {
+    // error handle
+    return Promise.reject(error);
+  }
+);
+```
