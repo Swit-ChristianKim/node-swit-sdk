@@ -2,7 +2,6 @@
 /* istanbul ignore file */
 /* tslint:disable */
 /* eslint-disable */
-
 export type CustomFieldUserDataElement = {
   /**
    * The ID of the target custom field.

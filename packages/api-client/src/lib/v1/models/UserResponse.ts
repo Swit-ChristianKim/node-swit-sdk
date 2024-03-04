@@ -2,7 +2,6 @@
 /* istanbul ignore file */
 /* tslint:disable */
 /* eslint-disable */
-
 /**
  * An object wrapping a Swit resource.
  */
@@ -58,9 +57,7 @@ export type UserResponse = {
    */
   user_email?: string;
 };
-
 export namespace UserResponse {
-
   /**
    * The language setting of the user.
    */
@@ -68,7 +65,5 @@ export namespace UserResponse {
     EN = 'en',
     KO = 'ko',
   }
-
-
 }
 

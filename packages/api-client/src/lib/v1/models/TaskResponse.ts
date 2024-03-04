@@ -2,10 +2,8 @@
 /* istanbul ignore file */
 /* tslint:disable */
 /* eslint-disable */
-
 import type { ExternalAssetInfo } from './ExternalAssetInfo';
 import type { StatusCustom } from './StatusCustom';
-
 /**
  * An object wrapping a Swit resource.
  */
@@ -101,9 +99,7 @@ export type TaskResponse = {
    */
   subtask_count?: string;
 };
-
 export namespace TaskResponse {
-
   /**
    * The color assigned to the task.
    */
@@ -120,7 +116,5 @@ export namespace TaskResponse {
     _8F0099 = '#8f0099',
     _7E828E = '#7e828e',
   }
-
-
 }
 

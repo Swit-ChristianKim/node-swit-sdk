@@ -2,9 +2,7 @@
 /* istanbul ignore file */
 /* tslint:disable */
 /* eslint-disable */
-
 import type { ExternalAssetInfo } from './ExternalAssetInfo';
-
 export type PutTaskParam = {
   /**
    * File attachments to the task.
@@ -75,9 +73,7 @@ export type PutTaskParam = {
    */
   title?: string;
 };
-
 export namespace PutTaskParam {
-
   /**
    * Whether or not to use rich styles.
    * - `plain`: The `content` value will be parsed as plaintext.
@@ -87,7 +83,6 @@ export namespace PutTaskParam {
     PLAIN = 'plain',
     JSON_STRING = 'json_string',
   }
-
   /**
    * Color assigned to the task.
    */
@@ -104,7 +99,6 @@ export namespace PutTaskParam {
     _8F0099 = '#8f0099',
     _7E828E = '#7e828e',
   }
-
   /**
    * The storage type of the attached file.
    * - `google_drive`: Google Drive files.
@@ -114,7 +108,5 @@ export namespace PutTaskParam {
     GOOGLE_DRIVE = 'google_drive',
     GCP_STORAGE = 'gcp_storage',
   }
-
-
 }
 

@@ -10,14 +10,10 @@ import type { DelIdeaParam } from '../models/DelIdeaParam';
 import type { DelIdeaReactionParam } from '../models/DelIdeaReactionParam';
 import type { GetIdeaListResponse } from '../models/GetIdeaListResponse';
 import type { GetIdeaResponse } from '../models/GetIdeaResponse';
-
 import type { CancelablePromise } from '../core/CancelablePromise';
 import type { BaseHttpRequest } from '../core/BaseHttpRequest';
-
 export class IdeaService {
-
   constructor(public readonly httpRequest: BaseHttpRequest) {}
-
   /**
    * Get an idea's information
    * `Bot-compatible` Retrieves information about an idea.
@@ -42,7 +38,6 @@ export class IdeaService {
       },
     });
   }
-
   /**
    * List out ideas
    * `Bot-compatible` Lists out a given number of ideas in a channel. This method uses the Swit API's [pagination scheme](/docs/core1/up49a503iuknu-pagination-scheme).
@@ -79,7 +74,6 @@ export class IdeaService {
       },
     });
   }
-
   /**
    * Create an idea
    * `Bot-compatible` Creates a idea in a channel.
@@ -100,7 +94,6 @@ export class IdeaService {
       mediaType: 'application/json',
     });
   }
-
   /**
    * Delete an idea
    * `Bot-compatible` Deletes an idea in a channel.
@@ -119,7 +112,6 @@ export class IdeaService {
       mediaType: 'application/json',
     });
   }
-
   /**
    * React to an idea
    * Adds a reaction emoji to an idea.
@@ -140,7 +132,6 @@ export class IdeaService {
       mediaType: 'application/json',
     });
   }
-
   /**
    * Remove a reaction emoji from an idea
    * Removes a reaction emoji from an idea.
@@ -159,5 +150,4 @@ export class IdeaService {
       mediaType: 'application/json',
     });
   }
-
 }

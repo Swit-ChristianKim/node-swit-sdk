@@ -2,9 +2,7 @@
 /* istanbul ignore file */
 /* tslint:disable */
 /* eslint-disable */
-
 import type { WsGroup } from './WsGroup';
-
 export type WorkspaceUserResponse = {
   /**
    * The background color of the fallback avatar of the user.

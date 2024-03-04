@@ -9,14 +9,10 @@ import type { TeamSortParam } from '../models/TeamSortParam';
 import type { TeamUpdateResponse } from '../models/TeamUpdateResponse';
 import type { TeamUserCreateResponse } from '../models/TeamUserCreateResponse';
 import type { TeamUserDeleteResponse } from '../models/TeamUserDeleteResponse';
-
 import type { CancelablePromise } from '../core/CancelablePromise';
 import type { BaseHttpRequest } from '../core/BaseHttpRequest';
-
 export class TeamService {
-
   constructor(public readonly httpRequest: BaseHttpRequest) {}
-
   /**
    * List out teams
    * `Bot-compatible` List out the child teams of a given team. If no parameters are passed, the list of all teams in the organization is given as a response.
@@ -47,7 +43,6 @@ export class TeamService {
       },
     });
   }
-
   /**
    * Create a team
    * `Bot-compatible` Creates a new team in the organization.
@@ -81,7 +76,6 @@ export class TeamService {
       mediaType: 'application/json',
     });
   }
-
   /**
    * Update a team
    * `Bot-compatible` Updates a team's information including its name and parent team.
@@ -119,7 +113,6 @@ export class TeamService {
       mediaType: 'application/json',
     });
   }
-
   /**
    * Delete a team
    * `Bot-compatible` Deletes a team.
@@ -145,7 +138,6 @@ export class TeamService {
       mediaType: 'application/json',
     });
   }
-
   /**
    * Sort teams
    * Sort the child teams of a parent team in a given order.
@@ -164,7 +156,6 @@ export class TeamService {
       mediaType: 'application/json',
     });
   }
-
   /**
    * Add users to a team
    * `Bot-compatible` Adds users to a team.
@@ -194,7 +185,6 @@ export class TeamService {
       mediaType: 'application/json',
     });
   }
-
   /**
    * Update a user's primary team
    * `Bot-compatible` Updates a user's primary team.
@@ -222,7 +212,6 @@ export class TeamService {
       mediaType: 'application/json',
     });
   }
-
   /**
    * Remove team members
    * `Bot-compatible` Removes members from a team.
@@ -255,5 +244,4 @@ export class TeamService {
       mediaType: 'application/json',
     });
   }
-
 }

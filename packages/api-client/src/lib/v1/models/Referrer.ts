@@ -2,7 +2,6 @@
 /* istanbul ignore file */
 /* tslint:disable */
 /* eslint-disable */
-
 export type Referrer = {
   /**
    * The user ID CC'd to the request.

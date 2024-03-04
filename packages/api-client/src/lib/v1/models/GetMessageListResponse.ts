@@ -2,9 +2,7 @@
 /* istanbul ignore file */
 /* tslint:disable */
 /* eslint-disable */
-
 import type { Message } from './Message';
-
 /**
  * An object wrapping a Swit resource.
  */

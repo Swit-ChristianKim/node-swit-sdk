@@ -2,7 +2,6 @@
 /* istanbul ignore file */
 /* tslint:disable */
 /* eslint-disable */
-
 export type PutProjectBucketParam = {
   /**
    * The ID of the bucket to update.

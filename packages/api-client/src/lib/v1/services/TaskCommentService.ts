@@ -8,14 +8,10 @@ import type { DelTaskCommentParam } from '../models/DelTaskCommentParam';
 import type { GetTaskCommentResponse } from '../models/GetTaskCommentResponse';
 import type { PutTaskCommentParam } from '../models/PutTaskCommentParam';
 import type { PutTaskCommentResponse } from '../models/PutTaskCommentResponse';
-
 import type { CancelablePromise } from '../core/CancelablePromise';
 import type { BaseHttpRequest } from '../core/BaseHttpRequest';
-
 export class TaskCommentService {
-
   constructor(public readonly httpRequest: BaseHttpRequest) {}
-
   /**
    * Comment on a task
    * `Bot-compatible` Posts a comment on a task.
@@ -36,7 +32,6 @@ export class TaskCommentService {
       mediaType: 'application/json',
     });
   }
-
   /**
    * List out task comments
    * `Bot-compatible` Lists out a given number of comments on a task. This method uses the Swit API's [pagination scheme](/docs/core1/up49a503iuknu-pagination-scheme).
@@ -81,7 +76,6 @@ export class TaskCommentService {
       },
     });
   }
-
   /**
    * Delete a task comment
    * `Bot-compatible` Deletes a comment on a task.
@@ -100,7 +94,6 @@ export class TaskCommentService {
       mediaType: 'application/json',
     });
   }
-
   /**
    * Edit a task comment
    * `Bot-compatible` Edits a comment on a task.
@@ -121,5 +114,4 @@ export class TaskCommentService {
       mediaType: 'application/json',
     });
   }
-
 }

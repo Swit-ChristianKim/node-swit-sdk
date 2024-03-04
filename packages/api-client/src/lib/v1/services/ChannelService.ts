@@ -12,14 +12,10 @@ import type { GetChannelUserListResponse } from '../models/GetChannelUserListRes
 import type { PutChannelParam } from '../models/PutChannelParam';
 import type { PutChannelResponse } from '../models/PutChannelResponse';
 import type { UpdateChannelArchiveParam } from '../models/UpdateChannelArchiveParam';
-
 import type { CancelablePromise } from '../core/CancelablePromise';
 import type { BaseHttpRequest } from '../core/BaseHttpRequest';
-
 export class ChannelService {
-
   constructor(public readonly httpRequest: BaseHttpRequest) {}
-
   /**
    * Get a channel's information
    * `Bot-compatible` Retrieves information about a channel.
@@ -44,7 +40,6 @@ export class ChannelService {
       },
     });
   }
-
   /**
    * List out channels
    * Lists out a given number of channels from a workspace. This method uses the Swit API's [pagination scheme](/docs/core1/up49a503iuknu-pagination-scheme).
@@ -117,7 +112,6 @@ export class ChannelService {
       },
     });
   }
-
   /**
    * Create a channel
    * Creates a new channel in a workspace.
@@ -138,7 +132,6 @@ export class ChannelService {
       mediaType: 'application/json',
     });
   }
-
   /**
    * Update a channel
    * Updates an existing channel.
@@ -159,7 +152,6 @@ export class ChannelService {
       mediaType: 'application/json',
     });
   }
-
   /**
    * List out channel members
    * `Bot-compatible` Lists out a given number of members belonging to a channel. This method uses the Swit API's [pagination scheme](/docs/core1/up49a503iuknu-pagination-scheme).
@@ -203,7 +195,6 @@ export class ChannelService {
       },
     });
   }
-
   /**
    * Invite a user to the channel
    * Invites a user to a channel.
@@ -222,7 +213,6 @@ export class ChannelService {
       mediaType: 'application/json',
     });
   }
-
   /**
    * Remove users from a channel
    * Removes users from a channel
@@ -241,7 +231,6 @@ export class ChannelService {
       mediaType: 'application/json',
     });
   }
-
   /**
    * Archive/unarchive a channel
    * Updates a channel's archiving status.
@@ -260,5 +249,4 @@ export class ChannelService {
       mediaType: 'application/json',
     });
   }
-
 }

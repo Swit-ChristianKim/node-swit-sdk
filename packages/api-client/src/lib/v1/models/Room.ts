@@ -2,9 +2,7 @@
 /* istanbul ignore file */
 /* tslint:disable */
 /* eslint-disable */
-
 import type { Contents } from './Contents';
-
 /**
  * The properties of a chat.
  */

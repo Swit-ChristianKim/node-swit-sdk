@@ -2,12 +2,10 @@
 /* istanbul ignore file */
 /* tslint:disable */
 /* eslint-disable */
-
 import type { Asset } from './Asset';
 import type { Referrer } from './Referrer';
 import type { StepListOfApprovers } from './StepListOfApprovers';
 import type { Substitute } from './Substitute';
-
 /**
  * An object wrapping a Swit resource.
  */

@@ -2,9 +2,7 @@
 /* istanbul ignore file */
 /* tslint:disable */
 /* eslint-disable */
-
 import type { CustomFieldUserDataElement } from './CustomFieldUserDataElement';
-
 export type UpdateUserCustomFieldParam = {
   /**
    * Array of custom field objects to update for the selected user.

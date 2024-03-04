@@ -2,7 +2,6 @@
 /* istanbul ignore file */
 /* tslint:disable */
 /* eslint-disable */
-
 export type ProjectTagResponse = {
   /**
    * The date and time at which the tag was created.

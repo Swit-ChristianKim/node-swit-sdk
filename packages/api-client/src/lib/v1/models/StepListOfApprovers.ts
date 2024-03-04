@@ -2,9 +2,7 @@
 /* istanbul ignore file */
 /* tslint:disable */
 /* eslint-disable */
-
 import type { Approver } from './Approver';
-
 export type StepListOfApprovers = {
   /**
    * List of approvers at this level.

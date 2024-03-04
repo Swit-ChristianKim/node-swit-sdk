@@ -9,14 +9,10 @@ import type { GetTaskCheckListListResponse } from '../models/GetTaskCheckListLis
 import type { GetTaskCheckListResponse } from '../models/GetTaskCheckListResponse';
 import type { PutTaskCheckListParam } from '../models/PutTaskCheckListParam';
 import type { PutTaskCheckListResponse } from '../models/PutTaskCheckListResponse';
-
 import type { CancelablePromise } from '../core/CancelablePromise';
 import type { BaseHttpRequest } from '../core/BaseHttpRequest';
-
 export class TaskChecklistService {
-
   constructor(public readonly httpRequest: BaseHttpRequest) {}
-
   /**
    * Add a checklist item
    * `Bot-compatible` Adds an item to a task's checklist.
@@ -37,7 +33,6 @@ export class TaskChecklistService {
       mediaType: 'application/json',
     });
   }
-
   /**
    * Get a checklist item's information
    * `Bot-compatible` Retrieves information about a checklist item in a task.
@@ -62,7 +57,6 @@ export class TaskChecklistService {
       },
     });
   }
-
   /**
    * List out checklist items
    * `Bot-compatible` Lists out a given number of items from a task's checklist. This method uses the Swit API's [pagination scheme](/docs/core1/up49a503iuknu-pagination-scheme).
@@ -99,7 +93,6 @@ export class TaskChecklistService {
       },
     });
   }
-
   /**
    * Delete a checklist item
    * `Bot-compatible` Deletes an item in a task's checklist.
@@ -118,7 +111,6 @@ export class TaskChecklistService {
       mediaType: 'application/json',
     });
   }
-
   /**
    * Update a checklist item
    * `Bot-compatible` Updates an existing item of a task's checklist.
@@ -139,5 +131,4 @@ export class TaskChecklistService {
       mediaType: 'application/json',
     });
   }
-
 }

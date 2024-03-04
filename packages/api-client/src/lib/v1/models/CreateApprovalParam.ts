@@ -2,9 +2,7 @@
 /* istanbul ignore file */
 /* tslint:disable */
 /* eslint-disable */
-
 import type { Approvers } from './Approvers';
-
 export type CreateApprovalParam = {
   /**
    * The ID of the template used.
@@ -53,9 +51,7 @@ export type CreateApprovalParam = {
    */
   title: string;
 };
-
 export namespace CreateApprovalParam {
-
   /**
    * Whether or not to use rich styles.
    * - `plain`: The `content` value will be parsed as plaintext.
@@ -65,7 +61,5 @@ export namespace CreateApprovalParam {
     PLAIN = 'plain',
     JSON_STRING = 'json_string',
   }
-
-
 }
 

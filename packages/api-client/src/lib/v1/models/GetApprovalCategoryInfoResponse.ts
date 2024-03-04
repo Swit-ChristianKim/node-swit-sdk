@@ -2,9 +2,7 @@
 /* istanbul ignore file */
 /* tslint:disable */
 /* eslint-disable */
-
 import type { Approvers } from './Approvers';
-
 /**
  * An object wrapping a Swit resource.
  */
@@ -64,9 +62,7 @@ export type GetApprovalCategoryInfoResponse = {
    */
   title?: string;
 };
-
 export namespace GetApprovalCategoryInfoResponse {
-
   /**
    * Whether or not to use rich styles.
    * - `plain`: The `content` value will be parsed as plaintext.
@@ -76,7 +72,5 @@ export namespace GetApprovalCategoryInfoResponse {
     PLAIN = 'plain',
     JSON_STRING = 'json_string',
   }
-
-
 }
 

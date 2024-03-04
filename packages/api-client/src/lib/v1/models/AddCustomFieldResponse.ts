@@ -2,9 +2,7 @@
 /* istanbul ignore file */
 /* tslint:disable */
 /* eslint-disable */
-
 import type { CustomField } from './CustomField';
-
 /**
  * An object wrapping a Swit resource.
  */

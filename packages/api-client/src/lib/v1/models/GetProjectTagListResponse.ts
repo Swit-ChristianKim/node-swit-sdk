@@ -2,9 +2,7 @@
 /* istanbul ignore file */
 /* tslint:disable */
 /* eslint-disable */
-
 import type { ProjectTagResponse } from './ProjectTagResponse';
-
 /**
  * An object wrapping a Swit resource.
  */

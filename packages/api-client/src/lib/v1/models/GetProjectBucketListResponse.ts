@@ -2,9 +2,7 @@
 /* istanbul ignore file */
 /* tslint:disable */
 /* eslint-disable */
-
 import type { BucketResponse } from './BucketResponse';
-
 /**
  * An object wrapping a Swit resource.
  */

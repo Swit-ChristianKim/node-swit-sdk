@@ -2,7 +2,6 @@
 /* istanbul ignore file */
 /* tslint:disable */
 /* eslint-disable */
-
 export type UpdateRoomParam = {
   /**
    * The name of the chat that will be visible to the user.

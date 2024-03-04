@@ -2,7 +2,6 @@
 /* istanbul ignore file */
 /* tslint:disable */
 /* eslint-disable */
-
 export type AddCompanyUserParam = {
   /**
    * The language setting of the user.
@@ -29,9 +28,7 @@ export type AddCompanyUserParam = {
    */
   user_name: string;
 };
-
 export namespace AddCompanyUserParam {
-
   /**
    * The language setting of the user.
    */
@@ -39,7 +36,5 @@ export namespace AddCompanyUserParam {
     EN = 'en',
     KO = 'ko',
   }
-
-
 }
 

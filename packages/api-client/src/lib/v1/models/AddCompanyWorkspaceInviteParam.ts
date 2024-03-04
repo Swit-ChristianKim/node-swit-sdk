@@ -2,7 +2,6 @@
 /* istanbul ignore file */
 /* tslint:disable */
 /* eslint-disable */
-
 export type AddCompanyWorkspaceInviteParam = {
   /**
    * The ID of the workspace to invite the user to.

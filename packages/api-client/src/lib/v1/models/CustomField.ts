@@ -2,9 +2,7 @@
 /* istanbul ignore file */
 /* tslint:disable */
 /* eslint-disable */
-
 import type { CustomFieldOption } from './CustomFieldOption';
-
 /**
  * The properties of a custom field.
  */
@@ -56,9 +54,7 @@ export type CustomField = {
    */
   modified?: string;
 };
-
 export namespace CustomField {
-
   /**
    * Who can update the field's value:
    * - `ADMIN`: The organization's admins can update the field's value for each member.
@@ -68,7 +64,6 @@ export namespace CustomField {
     ADMIN = 'ADMIN',
     MEMBER = 'MEMBER',
   }
-
   /**
    * The type of the custom field: `STRING`, `URL`, or `OPTION` (dropdown).
    */
@@ -77,7 +72,5 @@ export namespace CustomField {
     URL = 'URL',
     OPTION = 'OPTION',
   }
-
-
 }
 

@@ -2,9 +2,7 @@
 /* istanbul ignore file */
 /* tslint:disable */
 /* eslint-disable */
-
 import type { WorkspaceUserResponse } from './WorkspaceUserResponse';
-
 /**
  * An object wrapping a Swit resource.
  */

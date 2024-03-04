@@ -8,14 +8,10 @@ import type { GetProjectBucketInfoResponse } from '../models/GetProjectBucketInf
 import type { GetProjectBucketListResponse } from '../models/GetProjectBucketListResponse';
 import type { PutProjectBucketParam } from '../models/PutProjectBucketParam';
 import type { PutProjectBucketResponse } from '../models/PutProjectBucketResponse';
-
 import type { CancelablePromise } from '../core/CancelablePromise';
 import type { BaseHttpRequest } from '../core/BaseHttpRequest';
-
 export class ProjectBucketService {
-
   constructor(public readonly httpRequest: BaseHttpRequest) {}
-
   /**
    * Get a task bucket's information
    * `Bot-compatible` Retrieves information about a task bucket.
@@ -46,7 +42,6 @@ export class ProjectBucketService {
       },
     });
   }
-
   /**
    * List out task buckets
    * `Bot-compatible` Lists out all task buckets from a project.
@@ -83,7 +78,6 @@ export class ProjectBucketService {
       },
     });
   }
-
   /**
    * Add a task bucket
    * Adds a task bucket in a project.
@@ -104,7 +98,6 @@ export class ProjectBucketService {
       mediaType: 'application/json',
     });
   }
-
   /**
    * Update a task bucket
    * Updates the title of an existing task bucket in a project.
@@ -125,5 +118,4 @@ export class ProjectBucketService {
       mediaType: 'application/json',
     });
   }
-
 }

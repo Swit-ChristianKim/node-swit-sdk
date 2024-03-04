@@ -2,7 +2,6 @@
 /* istanbul ignore file */
 /* tslint:disable */
 /* eslint-disable */
-
 export type InviteRoomParam = {
   /**
    * The IDs of the users to invite.

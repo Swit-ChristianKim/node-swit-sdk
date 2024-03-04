@@ -12,14 +12,10 @@ import type { UpdateCustomFieldParam } from '../models/UpdateCustomFieldParam';
 import type { UpdateCustomFieldResponse } from '../models/UpdateCustomFieldResponse';
 import type { UpdateUserCustomFieldParam } from '../models/UpdateUserCustomFieldParam';
 import type { UpdateUserCustomFieldResponse } from '../models/UpdateUserCustomFieldResponse';
-
 import type { CancelablePromise } from '../core/CancelablePromise';
 import type { BaseHttpRequest } from '../core/BaseHttpRequest';
-
 export class CustomFieldService {
-
   constructor(public readonly httpRequest: BaseHttpRequest) {}
-
   /**
    * List out custom fields
    * `Bot-compatible` Lists out all registered custom fields.
@@ -34,7 +30,6 @@ export class CustomFieldService {
       url: '/api/customfield.list',
     });
   }
-
   /**
    * Add a custom field
    * `Bot-compatible` Adds a new custom field for user profiles.
@@ -55,7 +50,6 @@ export class CustomFieldService {
       mediaType: 'application/json',
     });
   }
-
   /**
    * Delete custom field
    * `Bot-compatible` Deletes a custom field for user profiles.
@@ -76,7 +70,6 @@ export class CustomFieldService {
       mediaType: 'application/json',
     });
   }
-
   /**
    * Update a custom field
    * `Bot-compatible` Updates an existing custom field.
@@ -97,7 +90,6 @@ export class CustomFieldService {
       mediaType: 'application/json',
     });
   }
-
   /**
    * List out a user's custom fields in use
    * `Bot-compatible` Retrieves the custom fields and their values used in a given user's profile.
@@ -122,7 +114,6 @@ export class CustomFieldService {
       },
     });
   }
-
   /**
    * Update a user's custom field data
    * `Bot-compatible` Updates the values of the custom fields used in a given user's profile.
@@ -143,5 +134,4 @@ export class CustomFieldService {
       mediaType: 'application/json',
     });
   }
-
 }

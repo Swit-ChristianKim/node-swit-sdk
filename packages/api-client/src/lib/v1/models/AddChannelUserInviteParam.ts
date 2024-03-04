@@ -2,7 +2,6 @@
 /* istanbul ignore file */
 /* tslint:disable */
 /* eslint-disable */
-
 export type AddChannelUserInviteParam = {
   /**
    * The ID of the channel to invite the users to.

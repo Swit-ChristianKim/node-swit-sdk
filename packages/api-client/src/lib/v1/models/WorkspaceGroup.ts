@@ -2,7 +2,6 @@
 /* istanbul ignore file */
 /* tslint:disable */
 /* eslint-disable */
-
 /**
  * The properties of a group in a workspace.
  */
@@ -39,9 +38,7 @@ export type WorkspaceGroup = {
    */
   ws_id?: string;
 };
-
 export namespace WorkspaceGroup {
-
   /**
    * The status of the group.
    *
@@ -52,7 +49,5 @@ export namespace WorkspaceGroup {
     ACT = 'act',
     LEAVE = 'leave',
   }
-
-
 }
 
