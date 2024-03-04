@@ -105,7 +105,10 @@ const getUrl = (config: OpenAPIConfig, options: ApiRequestOptions): string => {
 
   if (options.query) {
     Object.entries(options.query).forEach(([key, value])=>{
-      url.searchParams.append(key, value as string);
+      if (value !== undefined) {
+        url.searchParams.append(key, value as string);
+      }
+
     });
   }
   return url.toString();
