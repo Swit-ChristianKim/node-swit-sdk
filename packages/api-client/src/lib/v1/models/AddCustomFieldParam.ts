@@ -2,9 +2,7 @@
 /* istanbul ignore file */
 /* tslint:disable */
 /* eslint-disable */
-
 import type { CustomFieldOptionElement } from './CustomFieldOptionElement';
-
 export type AddCustomFieldParam = {
   /**
    * Array of selections if the field type is dropdown (`field_type=OPTION`).
@@ -33,9 +31,7 @@ export type AddCustomFieldParam = {
    */
   field_type: AddCustomFieldParam.field_type;
 };
-
 export namespace AddCustomFieldParam {
-
   /**
    * Who can update the field's value:
    * - `ADMIN`: The organization's admins can update the field's value for each member.
@@ -45,7 +41,6 @@ export namespace AddCustomFieldParam {
     ADMIN = 'ADMIN',
     MEMBER = 'MEMBER',
   }
-
   /**
    * Type of the custom field: `STRING`, `URL`, or `OPTION` (dropdown).
    */
@@ -54,7 +49,5 @@ export namespace AddCustomFieldParam {
     URL = 'URL',
     OPTION = 'OPTION',
   }
-
-
 }
 

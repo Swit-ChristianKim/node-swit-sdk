@@ -10,14 +10,10 @@ import type { GetContentsListResponse } from '../models/GetContentsListResponse'
 import type { GetContentsResponse } from '../models/GetContentsResponse';
 import type { UpdateContentsParam } from '../models/UpdateContentsParam';
 import type { UpdateContentsResponse } from '../models/UpdateContentsResponse';
-
 import type { CancelablePromise } from '../core/CancelablePromise';
 import type { BaseHttpRequest } from '../core/BaseHttpRequest';
-
 export class ChatMessageService {
-
   constructor(public readonly httpRequest: BaseHttpRequest) {}
-
   /**
    * Get a chat message's information
    * Retrieves information about a chat message.
@@ -48,7 +44,6 @@ export class ChatMessageService {
       },
     });
   }
-
   /**
    * List out posts
    * Lists out a given number of posts in a chat. This method uses the Swit API's [pagination scheme](/docs/core1/up49a503iuknu-pagination-scheme).
@@ -108,7 +103,6 @@ export class ChatMessageService {
       },
     });
   }
-
   /**
    * Create a chat message
    * Creates a chat message.
@@ -129,7 +123,6 @@ export class ChatMessageService {
       mediaType: 'application/json',
     });
   }
-
   /**
    * Update a chat message
    * Updates a chat message.
@@ -150,7 +143,6 @@ export class ChatMessageService {
       mediaType: 'application/json',
     });
   }
-
   /**
    * Delete a chat message
    * Deletes a chat message.
@@ -171,5 +163,4 @@ export class ChatMessageService {
       mediaType: 'application/json',
     });
   }
-
 }

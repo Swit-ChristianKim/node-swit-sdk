@@ -2,7 +2,6 @@
 /* istanbul ignore file */
 /* tslint:disable */
 /* eslint-disable */
-
 export type DeleteContentsParam = {
   /**
    * The ID of the post to delete.

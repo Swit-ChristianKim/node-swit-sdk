@@ -6,14 +6,10 @@ import type { AddCompanyUserListParam } from '../models/AddCompanyUserListParam'
 import type { DelCompanyUserResponse } from '../models/DelCompanyUserResponse';
 import type { GetOrganizationResponse } from '../models/GetOrganizationResponse';
 import type { GetOrganizationUserListResponse } from '../models/GetOrganizationUserListResponse';
-
 import type { CancelablePromise } from '../core/CancelablePromise';
 import type { BaseHttpRequest } from '../core/BaseHttpRequest';
-
 export class MembershipService {
-
   constructor(public readonly httpRequest: BaseHttpRequest) {}
-
   /**
    * Get organization information
    * Retrieves information about the organization the user is in.
@@ -28,7 +24,6 @@ export class MembershipService {
       url: '/api/organization.info',
     });
   }
-
   /**
    * Get user information
    * Retrieves information of a user in the organization.
@@ -55,7 +50,6 @@ export class MembershipService {
       },
     });
   }
-
   /**
    * Get user list
    * `Bot-compatible` Retrieves a list of users in the organization.
@@ -116,7 +110,6 @@ export class MembershipService {
       },
     });
   }
-
   /**
    * Create a user
    * Creates a user in the organization.
@@ -162,7 +155,6 @@ export class MembershipService {
       mediaType: 'application/json',
     });
   }
-
   /**
    * @deprecated
    * Create guest accounts
@@ -184,7 +176,6 @@ export class MembershipService {
       mediaType: 'application/json',
     });
   }
-
   /**
    * Activate a user
    * `Bot-compatible` Activates a user in an organization.
@@ -211,7 +202,6 @@ export class MembershipService {
       mediaType: 'application/json',
     });
   }
-
   /**
    * Deactivate a user
    * `Bot-compatible` Deactivates a user in the organization.
@@ -238,7 +228,6 @@ export class MembershipService {
       mediaType: 'application/json',
     });
   }
-
   /**
    * Delete a user
    * `Bot-compatible` Deletes a user from the organization.
@@ -264,5 +253,4 @@ export class MembershipService {
       mediaType: 'application/json',
     });
   }
-
 }

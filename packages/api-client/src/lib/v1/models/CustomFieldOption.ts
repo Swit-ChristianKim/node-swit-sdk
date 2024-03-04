@@ -2,7 +2,6 @@
 /* istanbul ignore file */
 /* tslint:disable */
 /* eslint-disable */
-
 export type CustomFieldOption = {
   /**
    * The date and time at which the dropdown selection was created.

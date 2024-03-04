@@ -2,10 +2,8 @@
 /* istanbul ignore file */
 /* tslint:disable */
 /* eslint-disable */
-
 import type { Attachments } from './Attachments';
 import type { ExternalAssetInfo } from './ExternalAssetInfo';
-
 export type CreateMessageParam = {
   /**
    * File attachments to the message.
@@ -33,9 +31,7 @@ export type CreateMessageParam = {
    */
   external_asset_type?: CreateMessageParam.external_asset_type;
 };
-
 export namespace CreateMessageParam {
-
   /**
    * Whether or not to use rich styles.
    * - `plain`: The `content` value will be parsed as plaintext.
@@ -45,7 +41,6 @@ export namespace CreateMessageParam {
     PLAIN = 'plain',
     JSON_STRING = 'json_string',
   }
-
   /**
    * The storage type of the attached file.
    * - `google_drive`: Google Drive files.
@@ -55,7 +50,5 @@ export namespace CreateMessageParam {
     GOOGLE_DRIVE = 'google_drive',
     GCP_STORAGE = 'gcp_storage',
   }
-
-
 }
 

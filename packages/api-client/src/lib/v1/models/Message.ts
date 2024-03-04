@@ -2,10 +2,8 @@
 /* istanbul ignore file */
 /* tslint:disable */
 /* eslint-disable */
-
 import type { Attachments } from './Attachments';
 import type { ExternalAssetInfo } from './ExternalAssetInfo';
-
 /**
  * The properties of a message.
  */

@@ -2,9 +2,7 @@
 /* istanbul ignore file */
 /* tslint:disable */
 /* eslint-disable */
-
 import type { ExternalAssetInfo } from './ExternalAssetInfo';
-
 export type AppendAssetTaskParam = {
   /**
    * File attachments to the task.
@@ -25,9 +23,7 @@ export type AppendAssetTaskParam = {
    */
   workspace_id?: string;
 };
-
 export namespace AppendAssetTaskParam {
-
   /**
    * The storage type of the attached file.
    * - `google_drive`: Google Drive files.
@@ -37,7 +33,5 @@ export namespace AppendAssetTaskParam {
     GOOGLE_DRIVE = 'google_drive',
     GCP_STORAGE = 'gcp_storage',
   }
-
-
 }
 

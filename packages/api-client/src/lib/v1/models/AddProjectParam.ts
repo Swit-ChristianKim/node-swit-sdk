@@ -2,7 +2,6 @@
 /* istanbul ignore file */
 /* tslint:disable */
 /* eslint-disable */
-
 export type AddProjectParam = {
   /**
    * Description on the purpose of the project.

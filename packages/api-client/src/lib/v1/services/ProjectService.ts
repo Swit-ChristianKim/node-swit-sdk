@@ -12,14 +12,10 @@ import type { PutProjectParam } from '../models/PutProjectParam';
 import type { PutProjectResponse } from '../models/PutProjectResponse';
 import type { StatusCustom } from '../models/StatusCustom';
 import type { UpdateProjectArchiveParam } from '../models/UpdateProjectArchiveParam';
-
 import type { CancelablePromise } from '../core/CancelablePromise';
 import type { BaseHttpRequest } from '../core/BaseHttpRequest';
-
 export class ProjectService {
-
   constructor(public readonly httpRequest: BaseHttpRequest) {}
-
   /**
    * Get a project's information
    * `Bot-compatible` Retrieves information about a project.
@@ -44,7 +40,6 @@ export class ProjectService {
       },
     });
   }
-
   /**
    * List out projects
    * Lists out a given number of projects from a workspace. This method uses the Swit API's [pagination scheme](/docs/core1/up49a503iuknu-pagination-scheme).
@@ -107,7 +102,6 @@ export class ProjectService {
       },
     });
   }
-
   /**
    * Create a project
    * Creates a project in a workspace.
@@ -128,7 +122,6 @@ export class ProjectService {
       mediaType: 'application/json',
     });
   }
-
   /**
    * Update a project
    * Updates an existing project in a workspace.
@@ -149,7 +142,6 @@ export class ProjectService {
       mediaType: 'application/json',
     });
   }
-
   /**
    * Archive/unarchive a project
    * Updates a project's archiving status.
@@ -168,7 +160,6 @@ export class ProjectService {
       mediaType: 'application/json',
     });
   }
-
   /**
    * List out project members
    * `Bot-compatible` Lists out a given number of members belonging to a project. This method uses the Swit API's [pagination scheme](/docs/core1/up49a503iuknu-pagination-scheme).
@@ -212,7 +203,6 @@ export class ProjectService {
       },
     });
   }
-
   /**
    * Invite users to a project
    * Invites users to a project.
@@ -243,7 +233,6 @@ export class ProjectService {
       mediaType: 'application/json',
     });
   }
-
   /**
    * List out task tags
    * `Bot-compatible` Lists out all task tags used in a project.
@@ -284,7 +273,6 @@ export class ProjectService {
       },
     });
   }
-
   /**
    * List out statuses in a project
    * Lists out the list of statuses in a given project.
@@ -317,5 +305,4 @@ export class ProjectService {
       },
     });
   }
-
 }

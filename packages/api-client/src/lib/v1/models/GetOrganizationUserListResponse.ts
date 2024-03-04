@@ -2,9 +2,7 @@
 /* istanbul ignore file */
 /* tslint:disable */
 /* eslint-disable */
-
 import type { TeamUser } from './TeamUser';
-
 /**
  * An object wrapping a Swit resource.
  */
@@ -82,9 +80,7 @@ export type GetOrganizationUserListResponse = {
    */
   timezone_auto_flag?: GetOrganizationUserListResponse.timezone_auto_flag;
 };
-
 export namespace GetOrganizationUserListResponse {
-
   /**
    * The status of the user.
    */
@@ -92,7 +88,6 @@ export namespace GetOrganizationUserListResponse {
     ON = 'on',
     OFF = 'off',
   }
-
   /**
    * The language setting of the user.
    */
@@ -100,7 +95,6 @@ export namespace GetOrganizationUserListResponse {
     EN = 'en',
     KO = 'ko',
   }
-
   /**
    * Whether to make the timezone setting automatically based on the user location or follow the user setting. 1 means checked the 'Set automatically based on your location' checkbox, and 2 means the checkbox is not checked.
    */
@@ -108,7 +102,5 @@ export namespace GetOrganizationUserListResponse {
     '_1' = 1,
     '_2' = 2,
   }
-
-
 }
 

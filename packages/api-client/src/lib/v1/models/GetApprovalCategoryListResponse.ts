@@ -2,7 +2,6 @@
 /* istanbul ignore file */
 /* tslint:disable */
 /* eslint-disable */
-
 export type GetApprovalCategoryListResponse = {
   /**
    * The ID of the template used.

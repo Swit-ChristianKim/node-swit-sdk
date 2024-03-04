@@ -2,10 +2,8 @@
 /* istanbul ignore file */
 /* tslint:disable */
 /* eslint-disable */
-
 import type { Attachments } from './Attachments';
 import type { ReactionInfo } from './ReactionInfo';
-
 /**
  * An object wrapping a Swit resource.
  */

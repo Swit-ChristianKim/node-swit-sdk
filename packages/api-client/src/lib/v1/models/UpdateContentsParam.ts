@@ -2,7 +2,6 @@
 /* istanbul ignore file */
 /* tslint:disable */
 /* eslint-disable */
-
 export type UpdateContentsParam = {
   /**
    * The content of the post. If `body_type=json_string` is passed, it must be a string converted from a JSON object representing a rich-formatted text *(We'll add guidelines on how to construct a rich-text object soon)*.
@@ -23,9 +22,7 @@ export type UpdateContentsParam = {
    */
   room_id: string;
 };
-
 export namespace UpdateContentsParam {
-
   /**
    * Whether or not to use rich styles.
    * - `plain`: The `content` value will be parsed as plaintext.
@@ -35,7 +32,5 @@ export namespace UpdateContentsParam {
     PLAIN = 'plain',
     JSON_STRING = 'json_string',
   }
-
-
 }
 

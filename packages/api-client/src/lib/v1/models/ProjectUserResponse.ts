@@ -2,7 +2,6 @@
 /* istanbul ignore file */
 /* tslint:disable */
 /* eslint-disable */
-
 export type ProjectUserResponse = {
   /**
    * The user ID of the member.

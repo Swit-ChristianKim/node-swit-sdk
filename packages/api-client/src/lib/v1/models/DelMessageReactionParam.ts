@@ -2,7 +2,6 @@
 /* istanbul ignore file */
 /* tslint:disable */
 /* eslint-disable */
-
 export type DelMessageReactionParam = {
   /**
    * The ID of the message to remove the reaction emoji from.

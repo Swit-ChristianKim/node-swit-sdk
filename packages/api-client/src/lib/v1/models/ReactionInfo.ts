@@ -2,7 +2,6 @@
 /* istanbul ignore file */
 /* tslint:disable */
 /* eslint-disable */
-
 export type ReactionInfo = {
   /**
    * The number of reactions using the emoji.

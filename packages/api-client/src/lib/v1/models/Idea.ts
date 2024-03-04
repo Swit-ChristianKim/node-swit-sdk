@@ -2,9 +2,7 @@
 /* istanbul ignore file */
 /* tslint:disable */
 /* eslint-disable */
-
 import type { ExternalAssetInfo } from './ExternalAssetInfo';
-
 /**
  * The properties of an idea.
  */

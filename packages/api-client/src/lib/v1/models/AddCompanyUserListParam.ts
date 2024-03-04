@@ -2,9 +2,7 @@
 /* istanbul ignore file */
 /* tslint:disable */
 /* eslint-disable */
-
 import type { AddCompanyUserParam } from './AddCompanyUserParam';
-
 export type AddCompanyUserListParam = {
   /**
    * The properties of new guests.

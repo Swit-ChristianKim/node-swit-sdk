@@ -4,14 +4,10 @@
 /* eslint-disable */
 import type { GetUserInfoResponse } from '../models/GetUserInfoResponse';
 import type { UserPresenceSyncStatusResponse } from '../models/UserPresenceSyncStatusResponse';
-
 import type { CancelablePromise } from '../core/CancelablePromise';
 import type { BaseHttpRequest } from '../core/BaseHttpRequest';
-
 export class UserService {
-
   constructor(public readonly httpRequest: BaseHttpRequest) {}
-
   /**
    * Get user information
    * Retrieves the authorizing user's basic account information.
@@ -26,7 +22,6 @@ export class UserService {
       url: '/api/user.info',
     });
   }
-
   /**
    * Update the user's profile
    * Updates the authorizing user's profile.
@@ -72,7 +67,6 @@ export class UserService {
       mediaType: 'application/json',
     });
   }
-
   /**
    * Get the user's presence sync setting
    * Whether or not a `/api/presence.status.update` request can update the user's presence sync setting for your app. In UI, users can view or change this setting in User Settings > Connected apps.
@@ -87,7 +81,6 @@ export class UserService {
       url: '/api/presence.sync.info',
     });
   }
-
   /**
    * Update the user presence
    * Updates the authorizing user's presence status.
@@ -136,7 +129,6 @@ export class UserService {
       mediaType: 'application/json',
     });
   }
-
   /**
    * Toggle presence sync
    * Set whether to allow your app to update the authorizing user's presence status via API.
@@ -162,5 +154,4 @@ export class UserService {
       mediaType: 'application/json',
     });
   }
-
 }

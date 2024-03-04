@@ -12,14 +12,10 @@ import type { LeaveRoomParam } from '../models/LeaveRoomParam';
 import type { LeaveRoomResponse } from '../models/LeaveRoomResponse';
 import type { UpdateRoomParam } from '../models/UpdateRoomParam';
 import type { UpdateRoomResponse } from '../models/UpdateRoomResponse';
-
 import type { CancelablePromise } from '../core/CancelablePromise';
 import type { BaseHttpRequest } from '../core/BaseHttpRequest';
-
 export class ChatService {
-
   constructor(public readonly httpRequest: BaseHttpRequest) {}
-
   /**
    * Get a chat's information
    * Retrieves information about a chat.
@@ -50,7 +46,6 @@ export class ChatService {
       },
     });
   }
-
   /**
    * List out chats
    * Lists out a given number of chats. This method uses the Swit API's [pagination scheme](/docs/core1/up49a503iuknu-pagination-scheme).
@@ -112,7 +107,6 @@ export class ChatService {
       },
     });
   }
-
   /**
    * Create a chat
    * Creates a new chat. If a 1:1 chat with the specified member already exists, the response will not create a duplicate but instead return the existing chat's information. For group chats with specified members, a new chat will be created even if one already exists with the same members.
@@ -133,7 +127,6 @@ export class ChatService {
       mediaType: 'application/json',
     });
   }
-
   /**
    * Update a chat
    * Updates an existing chat.
@@ -154,7 +147,6 @@ export class ChatService {
       mediaType: 'application/json',
     });
   }
-
   /**
    * Leave a chat
    * The use leaves a chat.
@@ -175,7 +167,6 @@ export class ChatService {
       mediaType: 'application/json',
     });
   }
-
   /**
    * Invite people
    * Invites people to a chat.
@@ -196,5 +187,4 @@ export class ChatService {
       mediaType: 'application/json',
     });
   }
-
 }

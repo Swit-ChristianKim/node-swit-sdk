@@ -2,7 +2,6 @@
 /* istanbul ignore file */
 /* tslint:disable */
 /* eslint-disable */
-
 export type Approver = {
   /**
    * The date and time at which the approver approved or declined the request at this level.

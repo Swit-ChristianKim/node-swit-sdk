@@ -2,7 +2,6 @@
 /* istanbul ignore file */
 /* tslint:disable */
 /* eslint-disable */
-
 export type DelChannelUserParam = {
   /**
    * The ID of the channel to remove the users from.

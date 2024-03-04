@@ -12,14 +12,10 @@ import type { PutWorkspaceParam } from '../models/PutWorkspaceParam';
 import type { PutWorkspaceResponse } from '../models/PutWorkspaceResponse';
 import type { WorkspaceGroup } from '../models/WorkspaceGroup';
 import type { WorkspaceUserResponse } from '../models/WorkspaceUserResponse';
-
 import type { CancelablePromise } from '../core/CancelablePromise';
 import type { BaseHttpRequest } from '../core/BaseHttpRequest';
-
 export class WorkspaceService {
-
   constructor(public readonly httpRequest: BaseHttpRequest) {}
-
   /**
    * Get workspace info
    * `Bot-compatible` Retrieves information about a workspace.
@@ -44,7 +40,6 @@ export class WorkspaceService {
       },
     });
   }
-
   /**
    * List out workspaces
    * Lists out a given number of workspaces the user joined. This method uses the Swit API's [pagination scheme](/docs/core1/up49a503iuknu-pagination-scheme).
@@ -88,7 +83,6 @@ export class WorkspaceService {
       },
     });
   }
-
   /**
    * Update a workspace
    * Updates an existing workspace.
@@ -109,7 +103,6 @@ export class WorkspaceService {
       mediaType: 'application/json',
     });
   }
-
   /**
    * Get a workspace member's profile
    * `Bot-compatible` Retrieves a user's profile registered in a given workspace.
@@ -140,7 +133,6 @@ export class WorkspaceService {
       },
     });
   }
-
   /**
    * List out workspace members
    * `Bot-compatible` Lists out a given number of members from a workspace. This method uses the Swit API's [pagination scheme](/docs/core1/up49a503iuknu-pagination-scheme).
@@ -196,7 +188,6 @@ export class WorkspaceService {
       },
     });
   }
-
   /**
    * Invite a member
    * Invites a member to the workspace.
@@ -217,7 +208,6 @@ export class WorkspaceService {
       mediaType: 'application/json',
     });
   }
-
   /**
    * Retrieve a workspace's list of groups
    * Retrieves a list of groups in a workspace
@@ -261,7 +251,6 @@ export class WorkspaceService {
       },
     });
   }
-
   /**
    * Invite users to a group in a workspace
    * Invites a user to a group in a workspace.
@@ -296,7 +285,6 @@ export class WorkspaceService {
       mediaType: 'application/json',
     });
   }
-
   /**
    * Retrieve a custom emoji list from a workspace
    * Retrieve the list of custom emojis used in a given workspace
@@ -324,5 +312,4 @@ export class WorkspaceService {
       },
     });
   }
-
 }

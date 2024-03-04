@@ -2,7 +2,6 @@
 /* istanbul ignore file */
 /* tslint:disable */
 /* eslint-disable */
-
 export type Substitute = {
   /**
    * The ID of the user who're designated as the proxy approver.

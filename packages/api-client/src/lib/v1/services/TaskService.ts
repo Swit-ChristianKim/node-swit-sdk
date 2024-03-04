@@ -21,14 +21,10 @@ import type { MoveTaskResponse } from '../models/MoveTaskResponse';
 import type { PutTaskParam } from '../models/PutTaskParam';
 import type { PutTaskResponse } from '../models/PutTaskResponse';
 import type { TaskResponse } from '../models/TaskResponse';
-
 import type { CancelablePromise } from '../core/CancelablePromise';
 import type { BaseHttpRequest } from '../core/BaseHttpRequest';
-
 export class TaskService {
-
   constructor(public readonly httpRequest: BaseHttpRequest) {}
-
   /**
    * Get a task's information
    * `Bot-compatible` Retrieves information about a task.
@@ -61,7 +57,6 @@ export class TaskService {
       },
     });
   }
-
   /**
    * List out tasks
    * `Bot-compatible` Lists out a given number of tasks from a project. This method uses the Swit API's [pagination scheme](/docs/core1/up49a503iuknu-pagination-scheme).
@@ -110,7 +105,6 @@ export class TaskService {
       },
     });
   }
-
   /**
    * List out tasks by bucket
    * `Bot-compatible` Lists out a given number of tasks from a bucket. This method uses the Swit API's [pagination scheme](/docs/core1/up49a503iuknu-pagination-scheme).
@@ -153,7 +147,6 @@ export class TaskService {
       },
     });
   }
-
   /**
    * List out my tasks
    * `Bot-compatible` Lists out "my tasks" of the user from a workspace.
@@ -190,7 +183,6 @@ export class TaskService {
       },
     });
   }
-
   /**
    * Create a task
    * `Bot-compatible` Creates a task in a project.
@@ -211,7 +203,6 @@ export class TaskService {
       mediaType: 'application/json',
     });
   }
-
   /**
    * Delete a task
    * `Bot-compatible` Deletes a task from a project.
@@ -230,7 +221,6 @@ export class TaskService {
       mediaType: 'application/json',
     });
   }
-
   /**
    * Move a task
    * `Bot-compatible` Moves a task into another project.
@@ -251,7 +241,6 @@ export class TaskService {
       mediaType: 'application/json',
     });
   }
-
   /**
    * Update a task
    * `Bot-compatible` Updates a task in a project.
@@ -272,7 +261,6 @@ export class TaskService {
       mediaType: 'application/json',
     });
   }
-
   /**
    * Add an assignee
    * `Bot-compatible` Adds an assignee to a task.
@@ -293,7 +281,6 @@ export class TaskService {
       mediaType: 'application/json',
     });
   }
-
   /**
    * Remove an assignee
    * `Bot-compatible` Removes a member from the managing role for a task.
@@ -312,7 +299,6 @@ export class TaskService {
       mediaType: 'application/json',
     });
   }
-
   /**
    * Add a collaborator
    * `Bot-compatible` Adds a collaborator to a task.
@@ -333,7 +319,6 @@ export class TaskService {
       mediaType: 'application/json',
     });
   }
-
   /**
    * Remove a collaborator
    * `Bot-compatible` Removes a collaborator from a task.
@@ -352,7 +337,6 @@ export class TaskService {
       mediaType: 'application/json',
     });
   }
-
   /**
    * Update the status of a task
    * Updates the status of a task.
@@ -388,7 +372,6 @@ export class TaskService {
       mediaType: 'application/json',
     });
   }
-
   /**
    * Add attachments
    * Adds file attachments to a task.
@@ -407,5 +390,4 @@ export class TaskService {
       mediaType: 'application/json',
     });
   }
-
 }

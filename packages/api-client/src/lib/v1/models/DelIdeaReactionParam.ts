@@ -2,7 +2,6 @@
 /* istanbul ignore file */
 /* tslint:disable */
 /* eslint-disable */
-
 export type DelIdeaReactionParam = {
   /**
    * The ID of the idea to remove the reaction emoji from.

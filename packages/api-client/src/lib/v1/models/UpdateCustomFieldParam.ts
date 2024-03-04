@@ -2,7 +2,6 @@
 /* istanbul ignore file */
 /* tslint:disable */
 /* eslint-disable */
-
 export type UpdateCustomFieldParam = {
   /**
    * The ID of the custom field to update.
@@ -19,9 +18,7 @@ export type UpdateCustomFieldParam = {
    */
   enabled?: boolean;
 };
-
 export namespace UpdateCustomFieldParam {
-
   /**
    * Who can update the field's value on individual members' user profiles.
    * - `ADMIN`: Admins can update the field's value on any member's profile.
@@ -31,7 +28,5 @@ export namespace UpdateCustomFieldParam {
     ADMIN = 'ADMIN',
     MEMBER = 'MEMBER',
   }
-
-
 }
 

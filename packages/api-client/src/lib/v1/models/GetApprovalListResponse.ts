@@ -2,9 +2,7 @@
 /* istanbul ignore file */
 /* tslint:disable */
 /* eslint-disable */
-
 import type { StepListOfApprovers } from './StepListOfApprovers';
-
 export type GetApprovalListResponse = {
   /**
    * The ID of the template used.

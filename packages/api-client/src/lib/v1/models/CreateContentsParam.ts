@@ -2,7 +2,6 @@
 /* istanbul ignore file */
 /* tslint:disable */
 /* eslint-disable */
-
 export type CreateContentsParam = {
   /**
    * The ID of the attachment to include in the post.
@@ -27,9 +26,7 @@ export type CreateContentsParam = {
    */
   room_id: string;
 };
-
 export namespace CreateContentsParam {
-
   /**
    * Whether or not to use rich styles.
    * - `plain`: The `content` value will be parsed as plaintext.
@@ -39,7 +36,5 @@ export namespace CreateContentsParam {
     PLAIN = 'plain',
     JSON_STRING = 'json_string',
   }
-
-
 }
 

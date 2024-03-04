@@ -7,14 +7,10 @@ import type { ApprovalListResponse } from '../models/ApprovalListResponse';
 import type { CreateApprovalParam } from '../models/CreateApprovalParam';
 import type { CreateApprovalResponse } from '../models/CreateApprovalResponse';
 import type { GetApprovalCategoryInfoResponse } from '../models/GetApprovalCategoryInfoResponse';
-
 import type { CancelablePromise } from '../core/CancelablePromise';
 import type { BaseHttpRequest } from '../core/BaseHttpRequest';
-
 export class ApprovalService {
-
   constructor(public readonly httpRequest: BaseHttpRequest) {}
-
   /**
    * Draft a request
    * Creates a request draft for approval.
@@ -35,7 +31,6 @@ export class ApprovalService {
       mediaType: 'application/json',
     });
   }
-
   /**
    * List out received requests
    * Lists out a given number of requests from the user's inbox. This method uses the Swit API's [pagination scheme](/docs/core1/up49a503iuknu-pagination-scheme).
@@ -119,7 +114,6 @@ export class ApprovalService {
       },
     });
   }
-
   /**
    * List out submitted requests
    * Lists out a given number of requests from the user's submissions. This method uses the Swit API's [pagination scheme](/docs/core1/up49a503iuknu-pagination-scheme).
@@ -199,7 +193,6 @@ export class ApprovalService {
       },
     });
   }
-
   /**
    * List out drafts
    * Lists out a given number of request drafts. This method uses the Swit API's [pagination scheme](/docs/core1/up49a503iuknu-pagination-scheme).
@@ -230,7 +223,6 @@ export class ApprovalService {
       },
     });
   }
-
   /**
    * Get a template's info
    * Retrieves information about a request template.
@@ -255,7 +247,6 @@ export class ApprovalService {
       },
     });
   }
-
   /**
    * List out templates
    * Lists out a given number of request templates. This method uses the Swit API's [pagination scheme](/docs/core1/up49a503iuknu-pagination-scheme).
@@ -286,5 +277,4 @@ export class ApprovalService {
       },
     });
   }
-
 }

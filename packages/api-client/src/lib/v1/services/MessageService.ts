@@ -11,14 +11,10 @@ import type { DeleteMessageParam } from '../models/DeleteMessageParam';
 import type { DelMessageReactionParam } from '../models/DelMessageReactionParam';
 import type { GetMessageListResponse } from '../models/GetMessageListResponse';
 import type { Message } from '../models/Message';
-
 import type { CancelablePromise } from '../core/CancelablePromise';
 import type { BaseHttpRequest } from '../core/BaseHttpRequest';
-
 export class MessageService {
-
   constructor(public readonly httpRequest: BaseHttpRequest) {}
-
   /**
    * Get a message's information
    * `Bot-compatible` Retrieves information about a message.
@@ -43,7 +39,6 @@ export class MessageService {
       },
     });
   }
-
   /**
    * List out messages
    * `Bot-compatible` Lists out a given number of messages in a channel. This method uses the Swit API's [pagination scheme](/docs/core1/up49a503iuknu-pagination-scheme).
@@ -80,7 +75,6 @@ export class MessageService {
       },
     });
   }
-
   /**
    * Create a message
    * `Bot-compatible` Creates a message in a channel.
@@ -101,7 +95,6 @@ export class MessageService {
       mediaType: 'application/json',
     });
   }
-
   /**
    * Share a message to a channel
    * Shares a message to a channel.
@@ -131,7 +124,6 @@ export class MessageService {
       mediaType: 'application/json',
     });
   }
-
   /**
    * Share a task to a channel
    * Shares a task to a channel.
@@ -161,7 +153,6 @@ export class MessageService {
       mediaType: 'application/json',
     });
   }
-
   /**
    * Delete a message
    * `Bot-compatible` Deletes a message in a channel.
@@ -180,7 +171,6 @@ export class MessageService {
       mediaType: 'application/json',
     });
   }
-
   /**
    * React to a message
    * Adds a reaction emoji to a message.
@@ -201,7 +191,6 @@ export class MessageService {
       mediaType: 'application/json',
     });
   }
-
   /**
    * Remove a reaction emoji from a message
    * Removes a reaction emoji from a message.
@@ -220,5 +209,4 @@ export class MessageService {
       mediaType: 'application/json',
     });
   }
-
 }

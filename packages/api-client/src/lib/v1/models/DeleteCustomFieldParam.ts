@@ -2,7 +2,6 @@
 /* istanbul ignore file */
 /* tslint:disable */
 /* eslint-disable */
-
 export type DeleteCustomFieldParam = {
   /**
    * The ID of the custom field to delete.

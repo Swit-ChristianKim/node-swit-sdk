@@ -2,7 +2,6 @@
 /* istanbul ignore file */
 /* tslint:disable */
 /* eslint-disable */
-
 export type AddMessageReactionParam = {
   /**
    * The ID of the message to react to.

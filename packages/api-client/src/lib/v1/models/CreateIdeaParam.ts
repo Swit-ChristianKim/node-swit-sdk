@@ -2,9 +2,7 @@
 /* istanbul ignore file */
 /* tslint:disable */
 /* eslint-disable */
-
 import type { ExternalAssetInfo } from './ExternalAssetInfo';
-
 export type CreateIdeaParam = {
   /**
    * File attachments to the idea.
@@ -31,9 +29,7 @@ export type CreateIdeaParam = {
    */
   external_asset_type?: CreateIdeaParam.external_asset_type;
 };
-
 export namespace CreateIdeaParam {
-
   /**
    * Whether or not to use rich styles.
    * - `plain`: The `content` value will be parsed as plaintext.
@@ -43,7 +39,6 @@ export namespace CreateIdeaParam {
     PLAIN = 'plain',
     JSON_STRING = 'json_string',
   }
-
   /**
    * The storage type of the attached file.
    * - `google_drive`: Google Drive files.
@@ -53,7 +48,5 @@ export namespace CreateIdeaParam {
     GOOGLE_DRIVE = 'google_drive',
     GCP_STORAGE = 'gcp_storage',
   }
-
-
 }
 
