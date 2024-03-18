@@ -53,7 +53,7 @@ Please refer to the link below for additional ClientV1 information.
 
 - [ClientV1](/api/api-client/class/ClientV1)
 
-## 4. service clientV1 mapping by properties
+## 4. Service clientV1 mapping by properties
 
 
 |**Property Name**|**Service Name**|
@@ -77,7 +77,7 @@ Please refer to the link below for additional ClientV1 information.
 |user | [UserService](/api/api-client/class/UserService) |
 |workspace | [WorkspaceService](/api/api-client/class/WorkspaceService) |
 
-## 5.Direct access to internal Axios instance
+## 5. Direct access to internal Axios instance
 
 Use internally when a separate customization of settings is required
 You can also access and use an Axios instance.
