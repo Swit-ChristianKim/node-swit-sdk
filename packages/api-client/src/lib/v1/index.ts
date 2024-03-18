@@ -104,7 +104,7 @@ export type { GetIdeaResponse } from './models/GetIdeaResponse';
 export type { GetMessageCommentListResponse } from './models/GetMessageCommentListResponse';
 export type { GetMessageListResponse } from './models/GetMessageListResponse';
 export type { GetOrganizationResponse } from './models/GetOrganizationResponse';
-export { GetOrganizationUserListResponse } from './models/GetOrganizationUserListResponse';
+export { GetOrganizationUserResponse } from './models/GetOrganizationUserResponse';
 export type { GetProjectBucketInfoResponse } from './models/GetProjectBucketInfoResponse';
 export type { GetProjectBucketListResponse } from './models/GetProjectBucketListResponse';
 export type { GetProjectInfoResponse } from './models/GetProjectInfoResponse';

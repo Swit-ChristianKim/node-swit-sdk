@@ -5,7 +5,7 @@
 import type { AddCompanyUserListParam } from '../models/AddCompanyUserListParam';
 import type { DelCompanyUserResponse } from '../models/DelCompanyUserResponse';
 import type { GetOrganizationResponse } from '../models/GetOrganizationResponse';
-import type { GetOrganizationUserListResponse } from '../models/GetOrganizationUserListResponse';
+import type { GetOrganizationUserResponse } from '../models/GetOrganizationUserResponse';
 import type { CancelablePromise } from '../core/CancelablePromise';
 import type { BaseHttpRequest } from '../core/BaseHttpRequest';
 export class MembershipService {
@@ -30,24 +30,14 @@ export class MembershipService {
    * @returns any Successfully retrieved the user information.
    * @throws ApiError
    */
-  public organizationUserInfo({
-    userId,
-  }: {
-    /**
-     * The ID of the user to retrieve.
-     */
-    userId: string,
-  }): CancelablePromise<{
+  public organizationUserInfo(): CancelablePromise<{
     data?: {
-      user?: Array<GetOrganizationUserListResponse>;
+      user?: GetOrganizationUserResponse;
     };
   }> {
     return this.httpRequest.request({
       method: 'GET',
       url: '/api/organization.user.info',
-      query: {
-        'user_id': userId,
-      },
     });
   }
   /**
@@ -94,7 +84,7 @@ export class MembershipService {
       /**
        * An object wrapping a Swit resource.
        */
-      users?: Array<GetOrganizationUserListResponse>;
+      users?: Array<GetOrganizationUserResponse>;
     };
   }> {
     return this.httpRequest.request({
@@ -146,7 +136,9 @@ export class MembershipService {
       msg?: string;
     },
   }): CancelablePromise<{
-    data?: GetOrganizationUserListResponse;
+    data?: {
+      user?: GetOrganizationUserResponse;
+    };
   }> {
     return this.httpRequest.request({
       method: 'POST',
