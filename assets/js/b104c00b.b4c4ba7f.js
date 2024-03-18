@@ -1,1 +1,0 @@
-"use strict";(self.webpackChunkdocs=self.webpackChunkdocs||[]).push([[6135],{9373:s=>{s.exports=JSON.parse('{"label":"hola","permalink":"/node-swit-sdk/blog/tags/hola","allTagsPath":"/node-swit-sdk/blog/tags","count":1,"unlisted":false}')}}]);

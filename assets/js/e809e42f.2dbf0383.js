@@ -1,1 +1,0 @@
-"use strict";(self.webpackChunkdocs=self.webpackChunkdocs||[]).push([[9732],{7823:s=>{s.exports=JSON.parse('{"label":"docusaurus","permalink":"/node-swit-sdk/blog/tags/docusaurus","allTagsPath":"/node-swit-sdk/blog/tags","count":4,"unlisted":false}')}}]);
