@@ -49,11 +49,10 @@
         "jestConfig": "packages/api-client/jest.config.ts"
       }
     },
-    "test-types": {
-      "executor": "@nx/jest:jest",
-      "outputs": ["{workspaceRoot}/coverage/{projectRoot}"],
+    "test-type": {
+      "executor": "nx:run-script",
       "options": {
-        "jestConfig": "packages/api-client/jest.config.tsd.ts"
+        "script": "tstyche"
       }
     },
     "gen": {

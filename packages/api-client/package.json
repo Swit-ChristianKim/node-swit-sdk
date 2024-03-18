@@ -16,6 +16,7 @@
     ".": "./src/index.js"
   },
   "scripts": {
+    "tstyche": "tstyche",
     "gen": "node ./tools/scripts/generate-api-schema.mjs"
   },
   "dependencies": {
@@ -33,6 +34,7 @@
     "openapi-typescript": "^6.7.4",
     "openapi-typescript-codegen": "^0.27.0",
     "ts-node": "^10.9.2",
+    "tstyche": "^1.1.0",
     "typescript": "^5.2.2"
   },
   "description": "Api Clinet for Swit API",
