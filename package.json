@@ -53,6 +53,12 @@
     "typescript": "^5.3.3",
     "verdaccio": "^5.0.4"
   },
+  "optionalDependencies": {
+    "@nx/nx-darwin-arm64": "18.1.1",
+    "@nx/nx-darwin-x64": "18.1.1",
+    "@nx/nx-linux-x64-gnu": "18.1.1",
+    "@nx/nx-win32-x64-msvc": "18.1.1"
+  },
   "workspaces": [
     "packages/*"
   ],
