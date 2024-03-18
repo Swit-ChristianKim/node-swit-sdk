@@ -6,7 +6,7 @@ import type { TeamUser } from './TeamUser';
 /**
  * An object wrapping a Swit resource.
  */
-export type GetOrganizationUserListResponse = {
+export type GetOrganizationUserResponse = {
   /**
    * The ID of the user.
    */
@@ -30,7 +30,7 @@ export type GetOrganizationUserListResponse = {
   /**
    * The status of the user.
    */
-  status?: GetOrganizationUserListResponse.status;
+  status?: GetOrganizationUserResponse.status;
   /**
    * The date and time at which the user's account was created.
    */
@@ -46,7 +46,7 @@ export type GetOrganizationUserListResponse = {
   /**
    * The language setting of the user.
    */
-  language?: GetOrganizationUserListResponse.language;
+  language?: GetOrganizationUserResponse.language;
   /**
    * The date and time of the user's last activity.
    */
@@ -78,9 +78,9 @@ export type GetOrganizationUserListResponse = {
   /**
    * Whether to make the timezone setting automatically based on the user location or follow the user setting. 1 means checked the 'Set automatically based on your location' checkbox, and 2 means the checkbox is not checked.
    */
-  timezone_auto_flag?: GetOrganizationUserListResponse.timezone_auto_flag;
+  timezone_auto_flag?: GetOrganizationUserResponse.timezone_auto_flag;
 };
-export namespace GetOrganizationUserListResponse {
+export namespace GetOrganizationUserResponse {
   /**
    * The status of the user.
    */
