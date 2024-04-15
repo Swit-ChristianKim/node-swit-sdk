@@ -10,7 +10,7 @@ export type GetTaskCommentResponse = {
   /**
    * Offset string that indicates the last entry returned.
    */
-  content?: string;
+  offset?: string;
   /**
    * Details of each comment retrieved.
    */
