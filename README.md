@@ -27,4 +27,4 @@ npm install @swit-api/api-client @swit-api/oauth
 
 ## Documentation
 
-- WIP
+- swit-christiankim.github.io/node-swit-sdk/
